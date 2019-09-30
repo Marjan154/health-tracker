@@ -1,7 +1,6 @@
 const db = require("./db");
 const Sequelize = require("sequelize");
 
-
 const HealthStats = db.define("healthstats", {
     userid: {
         type: Sequelize.TEXT,

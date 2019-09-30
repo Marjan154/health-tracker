@@ -1,7 +1,6 @@
 const db = require("./db");
 const Sequelize = require("sequelize");
 
-
 const Dates = db.define("dates", {
     userid: {
         type: Sequelize.TEXT,
