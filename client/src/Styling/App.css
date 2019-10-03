@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway&display=swap');
+
+.loginH{
+  font-family: 'Raleway', sans-serif;
+  font-weight: bold;
+  font-size: 4em;
+  text-align: center;
+  margin: 1.5em 0em 0.5em 0em;
+}
+
+.loginF{
+  font-family: 'Raleway', sans-serif;
+  text-align: center;
+}
+
+.loginF>label{
+  display: block;
+  font-weight: bold;
+  font-size: 1.5em;
+}
+
+.loginF>input{
+  font-family: 'Raleway', sans-serif;
+  font-size: 1em;
+  width: 20em;
+  height: 1.8em; 
+  margin: 0em 0em 1.5em 0em;
+  border-radius: 0.25em;
+}
+
+.loginF>button{
+  border-radius: 1em;
+  font-family: 'Raleway', sans-serif;
+  font-size: 2em;
+  padding: 0.625em 1.25em 0.625em 1.25em;
+  margin: 0.625em; 
+}
+
+.loginF>button:hover{
+  background-color: greenyellow;
+  border-color: greenyellow;
+}
+
