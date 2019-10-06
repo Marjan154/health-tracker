@@ -1,7 +1,13 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway&display=swap');
+
 footer{
+  background-color: lightslategray;
+  color: whitesmoke;
+  font-family: 'Raleway', sans-serif;
   position: fixed;
   left: 0;
   bottom: 0;
   width: 100%;
   text-align: center;
+  font-weight: bold;
 }
