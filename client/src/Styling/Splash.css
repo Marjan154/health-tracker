@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway&display=swap');
+
+.splash-page{
+  background: url("../Images/splashbg.PNG") repeat center center fixed;
+  min-height: 100%;
+  min-width: 1024px;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.loginH{
+  font-family: 'Raleway', sans-serif;
+  text-align: center;
+  font-size: 5em;
+  font-weight: bold;
+  margin: 0.475em;
+  color: whitesmoke;
+  text-decoration: underline;
+}
