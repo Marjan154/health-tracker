@@ -19,8 +19,9 @@ router.get("/", async (req, res, next) => {
 
 router.post("/create", async (req, res, next) => {
   const { username, password, email } = req.body;
+  console.log(req.body);
   try {
-    const created = await User.create({
+    const created = await Users.create({
       username,
       password,
       email
