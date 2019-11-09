@@ -12,7 +12,7 @@ router.get("/", async (req, res, next) => {
   res.send("app is listening");
 });
 
-router.post("/createuser", async (req, res, next) => {
+router.post("/create", async (req, res, next) => {
   const { username, password, email } = req.body;
   try {
     const created = await User.create({
