@@ -3,9 +3,15 @@ const path = require("path");
 const app = express();
 const bodyParser = require("body-parser");
 const { db } = require("./models");
+var cors = require("cors");
+
+// middleware that should allow open access for requests to routes
+app.use(cors());
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
+// middleware that should allow open access for requests to routes
+
 app.use(express.static(path.join(__dirname, "frontend", "build")));
 
 //Database stuff

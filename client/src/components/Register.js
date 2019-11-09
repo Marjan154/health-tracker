@@ -25,25 +25,25 @@ class Reg extends Component {
 
   handleClick = event => {
     event.preventDefault();
-    
+
     //Needs to be better
     if (this.state.user.username !== "" && this.state.user.password !== "") {
-      const data=this.state.user;
+      const data = this.state.user;
+      data.email = "email";
 
-      export const addTransactionThunk = (data) => dispatch =>{
-        return axios.post('http://localhost:5000/api/User/create', data)
-          .then(() => dispatch(addTransaction()));
-      }
-
-      let url = "http://localhost:5000/api/User/create";
-      axios.post(url, {data})
-      .then(res => {
-        console.log(res);
-        console.log(res.data);
-      })
-
-      alert("Succesfully Registered");
-      this.setState({ redirect: true });
+      console.log(data);
+      let url = "http://localhost:5000/api/users/create";
+      axios
+        .post(url, data)
+        .then(res => {
+          console.log(res);
+          console.log(res.data);
+          alert("Succesfully Registered");
+          this.setState({ redirect: true });
+        })
+        .catch(error => {
+          console.log(error);
+        });
     } else {
       alert("Error");
     }
