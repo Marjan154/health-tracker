@@ -9,15 +9,10 @@ router.get("/", async (req, res, next) => {
   res.send(users);
 });
 
-router.get("/", async (req, res, next) => {
-  const users = await Users.findAll({ limit: 200 });
-  res.send(users);
-});
-
 router.post("/createuser", async (req, res, next) => {
   const { username, password, email } = req.body;
   try {
-    const created = await Patient.create({
+    const created = await User.create({
       username,
       password,
       email
