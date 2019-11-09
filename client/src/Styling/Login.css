@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway&display=swap');
+
+.entire-box{
+  display: inline-block;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.formL, .title{
+  font-family: 'Raleway', sans-serif;
+  text-align: center;
+}
+
+.title{
+  color: lightyellow;
+  font-size: 3em;
+  font-weight: bold;
+  margin-bottom: 0.25em;
+  text-decoration: underline;
+}
+
+.formL>label{
+  display: block;
+  font-weight: bold;
+  font-size: 1.5em;
+  color: black;
+}
+
+.formL>input{
+  font-family: 'Raleway', sans-serif;
+  font-size: 1em;
+  width: 20em;
+  height: 1.8em; 
+  margin: 0em 0em 1.5em 0em;
+  border-radius: 0.25em;
+}
+
+.formL>button{
+  border-radius: 1em;
+  font-family: 'Raleway', sans-serif;
+  font-size: 2em;
+  padding: 0.625em 1.25em 0.625em 1.25em;
+  margin: 0.625em; 
+}
+
+.formL>button:hover{
+  background-color: greenyellow;
+  border-color: greenyellow;
+}
