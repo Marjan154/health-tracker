@@ -12,7 +12,7 @@ app.use(express.static(path.join(__dirname, "frontend", "build")));
 app.use("/api", require("./api"));
 
 //React app link
-app.get("/*", function (req, res) {
+app.get("/*", function(req, res) {
   res.sendFile(path.join(__dirname, "client", "build", "index.html"));
 });
 
@@ -24,5 +24,5 @@ db.authenticate()
     console.error("Unable to connect to the database!:", err);
   });
 
-const port = process.env.PORT || 5000;
+const port = 5000;
 app.listen(port, () => console.log(`app is listening on ${port}`));

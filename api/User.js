@@ -6,7 +6,7 @@ const Op = Sequelize.Op;
 
 router.get("/", async (req, res, next) => {
   const users = await Users.findAll({ limit: 200 });
-  res.send(users);
+  res.send("app is listening");
 });
 
 router.post("/createuser", async (req, res, next) => {
