@@ -8,9 +8,13 @@ const Op = Sequelize.Op;
 module.exports = router;
 
 router.get("/", async (req, res, next) => {
-  //   const users = await Users.findAll({ limit: 200 });
-  //   res.send(users);
-  res.send("app is listening");
+  Users.findAll({ limit: 200 })
+    .then(userResponse => {
+      res.status(200).json(userResponse);
+    })
+    .catch(error => {
+      res.status(400).send(error);
+    });
 });
 
 router.post("/create", async (req, res, next) => {
