@@ -14,7 +14,7 @@ router.get("/", async (req, res, next) => {
   res.send(users);
 });
 
-router.post("/createusers", async (req, res, next) => {
+router.post("/createuser", async (req, res, next) => {
   const { username, password, email } = req.body;
   try {
     const created = await Patient.create({
