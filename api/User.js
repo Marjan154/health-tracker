@@ -4,8 +4,11 @@ const { db, Users, HealthStats, Dates } = require("../models");
 const Sequelize = require("sequelize");
 const Op = Sequelize.Op;
 
+//make sure to export the router
+module.exports = router;
+
 router.get("/", async (req, res, next) => {
-  const users = await Users.findAll({ limit: 200 });
+  //   const users = await Users.findAll({ limit: 200 });
   res.send("app is listening");
 });
 
