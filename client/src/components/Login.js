@@ -44,7 +44,7 @@ class Login extends Component {
 
     return(
       <div className= "entire-box">
-        <p className= "title">Register</p>
+        <p className= "title">Sign In</p>
         <form className= "formL">
           <label for= "un">Username:</label>
           <input id= "un" name= "username" type= "text" value= {this.state.user.username} onChange= {this.handleChange} />

@@ -25,9 +25,18 @@ class Reg extends Component {
 
   handleClick = event => {
     event.preventDefault();
-
+    
     //Needs to be better
     if (this.state.user.username !== "" && this.state.user.password !== "") {
+      const data=this.state.user;
+
+      let url = "http://localhost:5000/api/User/create";
+      axios.post(url, {data})
+      .then(res => {
+        console.log(res);
+        console.log(res.data);
+      })
+      
       alert("Succesfully Registered");
       this.setState({ redirect: true });
     } else {
@@ -42,7 +51,7 @@ class Reg extends Component {
 
     return (
       <div className="entire-box">
-        <p className="title">Sign In</p>
+        <p className="title">Register</p>
         <form className="formL">
           <label for="un">Username:</label>
           <input
