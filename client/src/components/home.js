@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Footer from './Footer.js'
 import '../Styling/Home.css';
+import Graph from './graph.js'
 
 class Home extends Component {
   render(){
@@ -16,7 +17,7 @@ class Home extends Component {
         </header>
 
         <section>Section 1</section>
-
+        <Graph></Graph>
         <Footer />
       </div>
     )
