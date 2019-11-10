@@ -9,7 +9,8 @@ class Reg extends Component {
     this.state = {
       user: {
         username: "",
-        password: ""
+        password: "",
+        email: ""
       },
       redirect: false
     };
