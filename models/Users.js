@@ -6,7 +6,8 @@ const Users = db.define(
   {
     userid: {
       type: Sequelize.TEXT,
-      allowNull: true
+      autoIncrement: true,
+      primaryKey: true
     },
     username: {
       type: Sequelize.TEXT,
@@ -31,7 +32,8 @@ const Users = db.define(
     }
   },
   {
-    tableName: "users"
+    tableName: "users",
+    timestamps: false
   }
 );
 
