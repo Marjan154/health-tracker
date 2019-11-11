@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import Nav from './Nav.js';
 import Footer from './Footer.js';
 import '../Styling/Home.css';
+import Graph from './graph.js'
 
 class Home extends Component {
   constructor(){
@@ -39,6 +40,9 @@ class Home extends Component {
             </div>
           </div>
         </div>
+
+        <section>Section 1</section>
+        <Graph></Graph>
         <Footer />
       </div>
     )

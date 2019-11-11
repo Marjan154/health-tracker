@@ -6,10 +6,18 @@ class Reg extends Component {
   constructor() {
     super();
     this.state = {
+<<<<<<< HEAD
       email: '',
       password: '',
       password2: '',
       hidden: true,
+=======
+      user: {
+        username: "",
+        password: "",
+        email: ""
+      },
+>>>>>>> master
       redirect: false
     };
 
