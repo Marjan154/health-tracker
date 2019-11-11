@@ -8,10 +8,22 @@ class Splash extends Component{
   render(){
     return(
       <div className= "splash-page">
-        <header className= "loginH">Health Tracker</header>
+        <header className="py-1 bg-dark text-white" style={{top: 0, position: "absolute", width: "100%", fontSize: "2em"}}>
+          <div className="container text-center">
+            <span>Health Tracker</span>
+          </div>
+        </header>
         
-        <Login />
-        <Reg />
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6" style= {{padding: "8%"}}>
+              <Login />
+            </div>
+            <div class="col-md-6" style= {{padding: "8%"}}>
+              <Reg />
+            </div>
+          </div>
+        </div>
         <Footer />
       </div>
     )
