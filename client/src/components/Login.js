@@ -50,11 +50,11 @@ class Login extends Component {
           <h3 style={{textAlign: "center", marginBottom: "5%"}}>Log In</h3>
           <div className= "form-group">  
             <label style={{fontWeight: "bold"}} for= "email1">Email:</label>
-            <input className="form-control" type= "email" required id= "email1" pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z0-9.-]{2,}[.]{1}[a-zA-Z]{2,}" value= {this.state.email} onChange= {this.onChangeEmail} />
+            <input className="form-control" type= "text" required id= "email1" value= {this.state.email} onChange= {this.onChangeEmail} />
           </div>
           <div className= "form-group">
             <label style={{fontWeight: "bold"}} for= "pw">Password:</label>
-            <input className="form-control" type= {this.state.hidden ? "password": "text"} required id= "pw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" value= {this.state.password} onChange= {this.onChangePass} />
+            <input className="form-control" type= {this.state.hidden ? "password": "text"} required id= "pw" value= {this.state.password} onChange= {this.onChangePass} />
           </div>
           <div className= "form-group">
             <input className="btn btn-secondary btn-sm" type="button" onClick= {this.toggleShow} value= "Show/Hide Password"/>
@@ -70,3 +70,11 @@ class Login extends Component {
 }
 
 export default Login;
+
+/* 
+*** Email validation check, omitted for now
+<input className="form-control" type= "email" required id= "email1" pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z0-9.-]{2,}[.]{1}[a-zA-Z]{2,}" value= {this.state.email} onChange= {this.onChangeEmail} />
+
+*** Password validation check, omitted for now
+<input className="form-control" type= {this.state.hidden ? "password": "text"} required id= "pw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" value= {this.state.password} onChange= {this.onChangePass} />
+*/
