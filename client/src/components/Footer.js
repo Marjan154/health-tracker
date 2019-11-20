@@ -1,16 +1,15 @@
 import React, {Component} from 'react';
-import '../Styling/Footer.css'
+//import "../Styling/Footer.css";
 
 class Footer extends Component {
   render(){
     return(
-      <footer>
-        <p>Made by: 
-          <a> Marjan Ansar</a>,
-          <a> Mathew Estrella</a>,
-          <a> Xiangmin Mo</a>,
-          <a> Yi Tong Ni</a>
-        </p>
+      <footer className="py-2 bg-dark text-light" style={{bottom: 0, position: "fixed", width: "100%"}}>
+        <div className="container text-center">
+          <span>
+            Created by: Marjan Ansar, Mathew Estrella, Xiangmin Mo, Yi Tong Ni
+          </span>
+        </div>
       </footer>
     )
   }

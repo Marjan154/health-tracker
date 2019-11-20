@@ -1,40 +1,42 @@
 import React, {Component} from 'react';
 import {Redirect} from 'react-router-dom';
-import '../Styling/Login.css';
 
 class Login extends Component {
   constructor(){
     super();
     this.state= {
-      user: {
-        username: '',
-        password: ''
-      },
+      email: '',
+      password: '',
+      hidden: true,
       redirect: false
     }
+
+    this.onChangeEmail = this.onChangeEmail.bind(this);
+    this.onChangePass = this.onChangePass.bind(this);
+    this.onSubmit = this.onSubmit.bind(this);
+    this.toggleShow= this.toggleShow.bind(this);
   }
   
-  handleChange= (event)=> {
-    const updatedUser= {...this.state.user}
-    const inputField= event.target.name
-    const inputValue= event.target.value
-    updatedUser[inputField]= inputValue
-    this.setState({user: updatedUser})
+  onChangeEmail= (event)=> {
+    this.setState({email: event.target.value})
   };
 
-  handleClick= (event)=> {
-    event.preventDefault();
-
-    //Needs to be better
-    if(this.state.user.username !== '' && this.state.user.password !== ''){
-      alert("Succesfully Registered");
-      this.setState({redirect: true});
-    }
-    else{
-      alert("Error");
-    };
+  onChangePass= (event)=> {
+    this.setState({password: event.target.value});
   }
 
+  toggleShow(){
+    this.setState({hidden: !this.state.hidden});
+  }
+
+  onSubmit= (event)=> {
+    event.preventDefault();
+    //needs to check with backend
+    alert("Succesfully Logged In");
+    this.setState({redirect: true});
+  }
+
+  //need to add the :id part
   render(){
     if(this.state.redirect){
       return(
@@ -43,15 +45,23 @@ class Login extends Component {
     }
 
     return(
-      <div className= "entire-box">
-        <p className= "title">Sign In</p>
-        <form className= "formL">
-          <label for= "un">Username:</label>
-          <input id= "un" name= "username" type= "text" value= {this.state.user.username} onChange= {this.handleChange} />
-          <label for= "pw">Password:</label>
-          <input id= "pw" name= "password" type= "password" value= {this.state.user.password} onChange= {this.handleChange} />
-          <br />
-          <button id= "sign" onClick= {this.handleClick}>Log In</button>
+      <div className="container login-container" style= {{marginTop: "5%", marginBottom: "5%"}}>
+        <form onSubmit={this.onSubmit}>
+          <h3 style={{textAlign: "center", marginBottom: "5%"}}>Log In</h3>
+          <div className= "form-group">  
+            <label style={{fontWeight: "bold"}} for= "email1">Email:</label>
+            <input className="form-control" type= "text" required id= "email1" value= {this.state.email} onChange= {this.onChangeEmail} />
+          </div>
+          <div className= "form-group">
+            <label style={{fontWeight: "bold"}} for= "pw">Password:</label>
+            <input className="form-control" type= {this.state.hidden ? "password": "text"} required id= "pw" value= {this.state.password} onChange= {this.onChangePass} />
+          </div>
+          <div className= "form-group">
+            <input className="btn btn-secondary btn-sm" type="button" onClick= {this.toggleShow} value= "Show/Hide Password"/>
+          </div>
+          <div className= "form-group text-center">
+            <input className="btn btn-primary btn-lg" type="submit" value= "Log In" />
+          </div>
         </form>
       </div>
     )
@@ -60,3 +70,11 @@ class Login extends Component {
 }
 
 export default Login;
+
+/* 
+*** Email validation check, omitted for now
+<input className="form-control" type= "email" required id= "email1" pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z0-9.-]{2,}[.]{1}[a-zA-Z]{2,}" value= {this.state.email} onChange= {this.onChangeEmail} />
+
+*** Password validation check, omitted for now
+<input className="form-control" type= {this.state.hidden ? "password": "text"} required id= "pw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" value= {this.state.password} onChange= {this.onChangePass} />
+*/

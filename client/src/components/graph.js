@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import CanvasJSReact from './canvasjs.react.js'
-var CanvasJS = CanvasJSReact.CanvasJS;
+//var CanvasJS = CanvasJSReact.CanvasJS;
 var CanvasJSChart = CanvasJSReact.CanvasJSChart;
 // import CanvasJS from CanvasJSReact.CanvasJS;
 // import CanvasJSChart from CanvasJSReact.CanvasJSChart;

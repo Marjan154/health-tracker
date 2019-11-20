@@ -1,4 +1,4 @@
-.home-page{
+.edit-log{
   background: #f5f5dc repeat center center fixed;
   min-height: 100%;
   min-width: 1024px;
@@ -6,15 +6,5 @@
   position: absolute;
   top: 0;
   left: 0;
-  z-index: -1;
-}
-
-.wrapper {
-  display: flex;
-  width: 100%;
-  align-items: stretch;
-}
-
-.nav-link:hover{
-  color: lightgreen !important;
+  z-index: -1
 }
