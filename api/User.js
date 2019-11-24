@@ -17,6 +17,20 @@ router.get("/", async (req, res, next) => {
     });
 });
 
+router.get("/login", async (req, res, next) => {
+  Users.findAll({
+    where: {
+      email: 'tw'
+      } 
+    })
+    .then(userResponse => {
+      res.status(200).json(userResponse);
+    })
+    .catch(error => {
+      res.status(400).send(error);
+    });
+});
+
 router.post("/create", async (req, res, next) => {
   const { username, password, email } = req.body;
   console.log(req.body);
