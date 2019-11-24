@@ -18,6 +18,8 @@ class AddLog extends Component {
     this.setState({ [e.target.name]: e.target.value }, () => {
       console.log(this.state);
     });
+  };
+  addHealthLog = () => {
     // Here we would make call addHealthLog(this.state);
   };
 
@@ -25,7 +27,7 @@ class AddLog extends Component {
     return (
       <div>
         <h1>Add Log</h1>
-        <form onSubmit={this.testForm}>
+        <form onSubmit={this.addHealthLog}>
           <table>
             <tbody>
               <tr>
