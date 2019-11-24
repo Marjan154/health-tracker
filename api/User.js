@@ -17,11 +17,10 @@ router.get("/", async (req, res, next) => {
     });
 });
 
-router.route("/email").get("/login", async (req, res, next) => {
-  console.log("HI");
+router.get("/login", async (req, res, next) => {
   Users.findOne({
     where: {
-      email: req.param.email
+      email: req.query.email
       } 
     })
     .then(userResponse => {
