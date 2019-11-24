@@ -52,7 +52,6 @@ class Login extends Component {
           else{
             console.log("user not found");
           }
-    
           // alert("Succesfully retrieved");
           // this.setState({ redirect: true });
         })
@@ -71,7 +70,7 @@ class Login extends Component {
         <Redirect to= "/home" />
       )
     }
-
+    
     return(
       <div className="container login-container" style= {{marginTop: "5%", marginBottom: "5%"}}>
         <form onSubmit={this.onSubmit}>

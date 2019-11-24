@@ -32,7 +32,7 @@ router.get("/login", async (req, res, next) => {
 });
 
 router.post("/create", async (req, res, next) => {
-  const { username, password, email } = req.body;
+  const {username, password, email } = req.body;
   console.log(req.body);
   try {
     const created = await Users.create({
