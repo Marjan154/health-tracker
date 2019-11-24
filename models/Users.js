@@ -11,7 +11,7 @@ const Users = db.define(
     },
     username: {
       type: Sequelize.TEXT,
-      allowNull: false,
+      allowNull: true,
       validate: {
         notEmpty: true
       }
@@ -25,7 +25,7 @@ const Users = db.define(
     },
     email: {
       type: Sequelize.TEXT,
-      allowNull: false,
+      allowNull: true,
       validate: {
         notEmpty: true
       }

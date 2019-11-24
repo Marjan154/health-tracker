@@ -41,7 +41,7 @@ class Reg extends Component {
     if (this.state.password !== this.state.password2) {
       alert("Passwords do not match");
     } else {
-      const data = this.state.email;
+      const data = this.state;
 
       console.log(data);
       let url = "http://localhost:5000/api/users/create";

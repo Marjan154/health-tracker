@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {Redirect} from 'react-router-dom';
+import axios from "axios";
 
 class Login extends Component {
   constructor(){
@@ -31,9 +32,37 @@ class Login extends Component {
 
   onSubmit= (event)=> {
     event.preventDefault();
+    // const data = this.state;
+    console.log(this.state.email);
+    let url = "http://localhost:5000/api/users/login";
+      axios
+        .get(url, {
+          params:{
+            email: this.state.email
+          }
+        })
+        .then(res => {
+          console.log(res);
+          console.log(res.data);
+          // const data=res.data;
+          // data.forEach(element => {
+          //   if(this.state.email===element.email && this.state.password===element.password){
+          //       alert("Succesfully Logged In");
+          //       this.setState({ redirect: true });
+          //   }
+          //   else{
+          //     console.log("user not found");
+          //   }
+          // });
+          // alert("Succesfully retrieved");
+          // this.setState({ redirect: true });
+        })
+        .catch(error => {
+          console.log(error);
+        });
     //needs to check with backend
-    alert("Succesfully Logged In");
-    this.setState({redirect: true});
+    // alert("Succesfully Logged In");
+    // this.setState({redirect: true});
   }
 
   //need to add the :id part
