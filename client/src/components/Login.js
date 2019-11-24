@@ -44,16 +44,15 @@ class Login extends Component {
         .then(res => {
           console.log(res);
           console.log(res.data);
-          // const data=res.data;
-          // data.forEach(element => {
-          //   if(this.state.email===element.email && this.state.password===element.password){
-          //       alert("Succesfully Logged In");
-          //       this.setState({ redirect: true });
-          //   }
-          //   else{
-          //     console.log("user not found");
-          //   }
-          // });
+          const data=res.data;
+          if(this.state.email===data.email && this.state.password===data.password){
+              alert("Succesfully Logged In");
+              this.setState({ redirect: true });
+          }
+          else{
+            console.log("user not found");
+          }
+    
           // alert("Succesfully retrieved");
           // this.setState({ redirect: true });
         })
