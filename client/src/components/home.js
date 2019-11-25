@@ -10,8 +10,6 @@ class Home extends Component {
     super(props);
     this.state= {
       water: 0,
-      steps: 0,
-      sleep: 0,
       startDate: new Date()
     }
   };
@@ -51,24 +49,23 @@ class Home extends Component {
             <div className="card" style={{boxShadow: "10px 10px 5px grey"}}>
               <div className="card-body">
                 <h5 className="card-title">Water Intake</h5>
-                <p className="card-text"><small class="text-muted">{this.state.water}</small></p>
-              </div>
-            </div>
-            <div className="card" style={{boxShadow: "10px 10px 5px grey"}}>
-              <div className="card-body">
-                <h5 className="card-title">Steps Taken</h5>
-                <p className="card-text"><small class="text-muted">{this.state.steps}</small></p>
-              </div>
-            </div>
-            <div className="card" style={{boxShadow: "10px 10px 5px grey"}}>
-              <div className="card-body">
-                <h5 className="card-title">Hours Slept</h5>
-                <p className="card-text"><small className="text-muted">{this.state.sleep}</small></p>
+                <table className= "table">
+                  <thead className= "thead-light">
+                    <tr>
+                      <th>Water</th>
+                      <th>Date</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <td>{this.state.water}</td>
+                    <td>{this.getDate()}</td>
+                  </tbody>
+                </table>
               </div>
             </div>
           </div>
         </div>
-        <div style={{marginTop: "1%", width: "35em", boxShadow: "10px 10px 5px grey", marginLeft: "auto", marginRight: "auto"}}>
+        <div style={{marginTop: "25%", width: "35em", boxShadow: "10px 10px 5px grey", marginLeft: "auto", marginRight: "auto"}}>
           <Graph/>
         </div>
       </div>
