@@ -21,8 +21,8 @@ router.get("/login", async (req, res, next) => {
   Users.findOne({
     where: {
       email: req.query.email
-      } 
-    })
+    }
+  })
     .then(userResponse => {
       res.status(200).json(userResponse);
     })
@@ -32,7 +32,7 @@ router.get("/login", async (req, res, next) => {
 });
 
 router.post("/create", async (req, res, next) => {
-  const {username, password, email } = req.body;
+  const { username, password, email } = req.body;
   console.log(req.body);
   try {
     const created = await Users.create({
