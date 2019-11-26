@@ -4,11 +4,14 @@ import Nav from './Nav.js';
 import Graph from './graph.js';
 import '../Styling/Home.css';
 import 'react-datepicker/dist/react-datepicker.css';
+import axios from "axios";
+
 
 class Home extends Component {
   constructor(props){
     super(props);
     this.state= {
+      waterLogs: [],
       water: 0,
       startDate: new Date()
     }
@@ -16,6 +19,25 @@ class Home extends Component {
 
   componentDidMount(){
     this.setState({date: new Date()})
+    console.log(this.props.match.params);
+    let url = "http://localhost:5000/api/water/all";
+    axios
+      .get(url, {
+        params: {
+          userid: 1
+        }
+      })
+      .then(res => {
+        console.log(res);
+        console.log(res.data);
+        const data = res.data;
+        this.setState({waterLogs: res.data});
+        // alert("Succesfully retrieved");
+        // this.setState({ redirect: true });
+      })
+      .catch(error => {
+        console.log(error);
+      });
   };
 
   handleChange = date =>{
@@ -36,6 +58,20 @@ class Home extends Component {
 
   //need to add the :id to home url
   render(){
+    let records = this.state.waterLogs.map(waterlog=>
+    {
+      return(
+      <tr>
+        <td>
+          {waterlog.amount}
+        </td>
+        <td>
+          {waterlog.createdAt}
+        </td>
+      </tr>
+      )
+    })
+
     return(
       <div className= "home-page">
         <Nav />
@@ -55,10 +91,12 @@ class Home extends Component {
                       <th>Water</th>
                       <th>Date</th>
                     </tr>
+                    
                   </thead>
                   <tbody>
-                    <td>{this.state.water}</td>
-                    <td>{this.getDate()}</td>
+                    {/* <td>{this.state.water}</td>
+                    <td>{this.getDate()}</td> */}
+                    {records}
                   </tbody>
                 </table>
               </div>

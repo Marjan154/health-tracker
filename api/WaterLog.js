@@ -23,5 +23,17 @@ router.post("/add", async (req, res, next) => {
   }
 });
 
-
-
+router.get("/all", async (req, res, next) => {
+  console.log(req.query.userid);
+  WaterLogs.findAll({
+    where: {
+      userid: req.query.userid
+    }
+  })
+    .then(userResponse => {
+      res.status(200).json(userResponse);
+    })
+    .catch(error => {
+      res.status(400).send(error);
+    });
+});
