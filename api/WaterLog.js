@@ -8,14 +8,14 @@ const Op = Sequelize.Op;
 module.exports = router;
 
 router.post("/add", async (req, res, next) => {
-  const { userid, amount } = req.body;
+  const { email, amount } = req.body;
   console.log(req.body);
 
   try {
-    const created = await WaterLogs.create({ userid, amount });
+    const created = await WaterLogs.create({ email, amount });
     console.log(`created ${created.username}!`);
     res.status(201).send({
-      userid,
+      email,
       amount
     });
   } catch (err) {
@@ -24,10 +24,10 @@ router.post("/add", async (req, res, next) => {
 });
 
 router.get("/all", async (req, res, next) => {
-  console.log(req.query.userid);
+  console.log(req.query.email);
   WaterLogs.findAll({
     where: {
-      userid: req.query.userid
+      email: req.query.email
     }
   })
     .then(userResponse => {

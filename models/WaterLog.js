@@ -32,8 +32,8 @@ const WaterLogs = db.define("waterlogs", {
       field: 'updatedat',
       type: Sequelize.DATE,
   },
-  userid: {
-    type: Sequelize.INTEGER,
+  email: {
+    type: Sequelize.TEXT,
     allowNull: false,
     validate: {
       notEmpty: true
