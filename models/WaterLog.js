@@ -1,8 +1,8 @@
 const db = require("./db");
 const Sequelize = require("sequelize");
 
-const WaterLog = db.define("waterlog", {
-  waterLogId: {
+const WaterLogs = db.define("waterlogs", {
+  waterlogid: {
     type: Sequelize.INTEGER,
     autoIncrement: true,
     primaryKey: true
@@ -14,17 +14,25 @@ const WaterLog = db.define("waterlog", {
       notEmpty: true
     }
   },
+  // createdat: {
+  //   allowNull: false,
+  //   defaultValue: new Date(),
+  //   type: Sequelize.DATE
+  // },
+  // updatedat: {
+  //   allowNull: false,
+  //   defaultValue: new Date(),
+  //   type: Sequelize.DATE
+  // },
   createdAt: {
-    allowNull: false,
-    defaultValue: new Date(),
-    type: Sequelize.DATE
+    field: 'createdat',
+    type: Sequelize.DATE,
   },
   updatedAt: {
-    allowNull: false,
-    defaultValue: new Date(),
-    type: Sequelize.DATE
+      field: 'updatedat',
+      type: Sequelize.DATE,
   },
-  userId: {
+  userid: {
     type: Sequelize.INTEGER,
     allowNull: false,
     validate: {
@@ -33,4 +41,4 @@ const WaterLog = db.define("waterlog", {
   }
 });
 
-module.exports = WaterLog;
+module.exports = WaterLogs;

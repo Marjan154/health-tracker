@@ -23,7 +23,7 @@ export default class EditLog extends Component {
     this.setState({ [e.target.name]: e.target.value });
   };
 
-  handleSubmit=e=> {
+  onSubmit = e => {
     e.preventDefault();
     console.log("thi.amount");
     let url = "http://localhost:5000/api/water/add";
@@ -43,7 +43,7 @@ export default class EditLog extends Component {
         .catch(error => {
           console.log(error);
         });
-      window.location = "/home";
+      // window.location = "/home"//
   }
 
   render() {
@@ -60,7 +60,7 @@ export default class EditLog extends Component {
         <form
           className="col-md-4 mb-3"
           style={{ marginLeft: "auto", marginRight: "auto", marginTop: "2%" }}
-          onSubmit={this.handleSubmit}
+          onSubmit={this.onSubmit}
         >
           <div className="form-group">
             <label style={{ fontWeight: "bold" }}>Amount (oz): </label>
