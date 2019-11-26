@@ -14,7 +14,7 @@ class App extends Component {
           <Route exact path="/" component={Splash} />
           <Route exact path="/home" component={Home} />
           <Route exact path="/home/:email" component={Home} />
-          <Route exact path="/edit" component={EditLog} />
+          <Route exact path="/edit/:email" component={EditLog} />
           <Route exact path="/add/:email" component={AddLog} />
         </Switch>
       </Router>
