@@ -27,24 +27,24 @@ export default class EditLog extends Component {
     e.preventDefault();
     console.log("thi.amount");
     let url = "http://localhost:5000/api/water/add";
-    const data={
+    const data = {
       amount: this.state.amount,
-      userid: 1,
-    }
+      email: this.props.match.params.email
+    };
     console.log(this.state.amount);
 
     axios
-        .post(url, data)
-        .then(res => {
-          console.log(res);
-          console.log(res.data);
-          alert("Succesfully ADDED");
-        })
-        .catch(error => {
-          console.log(error);
-        });
-      // window.location = "/home"//
-  }
+      .post(url, data)
+      .then(res => {
+        console.log(res);
+        console.log(res.data);
+        alert("Succesfully ADDED");
+      })
+      .catch(error => {
+        console.log(error);
+      });
+    // window.location = "/home"//
+  };
 
   render() {
     return (
