@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Nav from "./Nav.js";
 import "../Styling/EditLog.css";
 import "react-datepicker/dist/react-datepicker.css";
+import axios from "axios";
 
 export default class EditLog extends Component {
   constructor(props) {
@@ -22,9 +23,27 @@ export default class EditLog extends Component {
     this.setState({ [e.target.name]: e.target.value });
   };
 
-  onSubmit(e) {
+  handleSubmit=e=> {
     e.preventDefault();
-    window.location = "/home";
+    console.log("thi.amount");
+    let url = "http://localhost:5000/api/water/add";
+    const data={
+      amount: this.state.amount,
+      userid: 1,
+    }
+    console.log(this.state.amount);
+
+    axios
+        .post(url, data)
+        .then(res => {
+          console.log(res);
+          console.log(res.data);
+          alert("Succesfully ADDED");
+        })
+        .catch(error => {
+          console.log(error);
+        });
+      window.location = "/home";
   }
 
   render() {
@@ -41,7 +60,7 @@ export default class EditLog extends Component {
         <form
           className="col-md-4 mb-3"
           style={{ marginLeft: "auto", marginRight: "auto", marginTop: "2%" }}
-          onSubmit={this.onSubmit}
+          onSubmit={this.handleSubmit}
         >
           <div className="form-group">
             <label style={{ fontWeight: "bold" }}>Amount (oz): </label>
