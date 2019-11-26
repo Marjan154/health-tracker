@@ -11,7 +11,7 @@ class Nav extends Component {
         <div className="collapse navbar-collapse d-flex flex-row-reverse">
           <ul className="navbar-nav">
             <li className="nav-item active">
-              <Link className="nav-link" to="/home">
+              <Link className="nav-link" to={`/home/${email}`}>
                 Home
               </Link>
             </li>
@@ -21,7 +21,7 @@ class Nav extends Component {
               </Link>
             </li>
             <li className="nav-item active">
-              <Link className="nav-link" to="/edit">
+              <Link className="nav-link" to={`/edit/${email}`}>
                 Edit
               </Link>
             </li>
