@@ -25,7 +25,7 @@ const WaterLog = db.define("waterlog", {
     type: Sequelize.DATE
   },
   userId: {
-    type: Sequelize.INT,
+    type: Sequelize.INTEGER,
     allowNull: false,
     validate: {
       notEmpty: true
@@ -33,4 +33,4 @@ const WaterLog = db.define("waterlog", {
   }
 });
 
-export default WaterLog;
+module.exports = WaterLog;

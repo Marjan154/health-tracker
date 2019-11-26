@@ -6,9 +6,9 @@ class Reg extends Component {
   constructor() {
     super();
     this.state = {
-      email: '',
-      password: '',
-      password2: '',
+      email: "",
+      password: "",
+      password2: "",
       hidden: true,
       redirect: false
     };
@@ -16,27 +16,27 @@ class Reg extends Component {
     this.onChangeEmail = this.onChangeEmail.bind(this);
     this.onChangePass = this.onChangePass.bind(this);
     this.onChangePass2 = this.onChangePass2.bind(this);
-    this.toggleShow= this.toggleShow.bind(this);
+    this.toggleShow = this.toggleShow.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
   }
 
-  onChangeEmail= (event)=> {
-    this.setState({email: event.target.value})
+  onChangeEmail = event => {
+    this.setState({ email: event.target.value });
   };
 
-  onChangePass= (event)=> {
-    this.setState({password: event.target.value});
+  onChangePass = event => {
+    this.setState({ password: event.target.value });
+  };
+
+  onChangePass2 = event => {
+    this.setState({ password2: event.target.value });
+  };
+
+  toggleShow() {
+    this.setState({ hidden: !this.state.hidden });
   }
 
-  onChangePass2= (event)=> {
-    this.setState({password2: event.target.value});
-  }
-
-  toggleShow(){
-    this.setState({hidden: !this.state.hidden});
-  }
-
-  onSubmit= (event)=> {
+  onSubmit = event => {
     event.preventDefault();
     if (this.state.password !== this.state.password2) {
       alert("Passwords do not match");
@@ -65,26 +65,65 @@ class Reg extends Component {
     }
 
     return (
-      <div className="container login-container" style= {{marginTop: "5%", marginBottom: "5%"}}>
+      <div
+        className="container login-container"
+        style={{ marginTop: "5%", marginBottom: "5%" }}
+      >
         <form onSubmit={this.onSubmit}>
-          <h3 style={{textAlign: "center", marginBottom: "5%"}}>Register</h3>
-          <div className= "form-group">  
-            <label style={{fontWeight: "bold"}} for= "email1">Email:</label>
-            <input className="form-control" type= "text" required id= "email1" value= {this.state.email} onChange= {this.onChangeEmail} />
+          <h3 style={{ textAlign: "center", marginBottom: "5%" }}>Register</h3>
+          <div className="form-group">
+            <label style={{ fontWeight: "bold" }} for="email1">
+              Email:
+            </label>
+            <input
+              className="form-control"
+              type="text"
+              required
+              id="email1"
+              value={this.state.email}
+              onChange={this.onChangeEmail}
+            />
           </div>
-          <div className= "form-group">
-            <label style={{fontWeight: "bold"}} for= "pw">Password:</label>
-            <input className="form-control" type= {this.state.hidden ? "password": "text"} required id= "pw" value= {this.state.password} onChange= {this.onChangePass} /> 
+          <div className="form-group">
+            <label style={{ fontWeight: "bold" }} for="pw">
+              Password:
+            </label>
+            <input
+              className="form-control"
+              type={this.state.hidden ? "password" : "text"}
+              required
+              id="pw"
+              value={this.state.password}
+              onChange={this.onChangePass}
+            />
           </div>
-          <div className= "form-group">
-            <label style={{fontWeight: "bold"}} for= "pw2">Re-enter Password:</label>
-            <input className="form-control" type= {this.state.hidden ? "password": "text"} required id= "pw2" value= {this.state.password2} onChange= {this.onChangePass2} />
+          <div className="form-group">
+            <label style={{ fontWeight: "bold" }} for="pw2">
+              Re-enter Password:
+            </label>
+            <input
+              className="form-control"
+              type={this.state.hidden ? "password" : "text"}
+              required
+              id="pw2"
+              value={this.state.password2}
+              onChange={this.onChangePass2}
+            />
           </div>
-          <div className= "form-group">
-            <input className="btn btn-secondary btn-sm" type="button" onClick= {this.toggleShow} value= "Show/Hide Password"/>
+          <div className="form-group">
+            <input
+              className="btn btn-secondary btn-sm"
+              type="button"
+              onClick={this.toggleShow}
+              value="Show/Hide Password"
+            />
           </div>
-          <div className= "form-group text-center">
-            <input className="btn btn-primary btn-lg" type="submit" value= "Register" />
+          <div className="form-group text-center">
+            <input
+              className="btn btn-primary btn-lg"
+              type="submit"
+              value="Register"
+            />
           </div>
         </form>
       </div>
