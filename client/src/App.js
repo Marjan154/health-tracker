@@ -13,6 +13,7 @@ class App extends Component {
         <Switch>
           <Route exact path="/" component={Splash} />
           <Route exact path="/home" component={Home} />
+          <Route exact path="/home/:email" component={Home} />
           <Route exact path="/edit" component={EditLog} />
           <Route exact path="/add" component={AddLog} />
         </Switch>
