@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { db, Users, WaterLog, Dates } = require("../models");
+const { db, Users, WaterLogs, Dates } = require("../models");
 
 const Sequelize = require("sequelize");
 const Op = Sequelize.Op;
@@ -8,13 +8,14 @@ const Op = Sequelize.Op;
 module.exports = router;
 
 router.post("/add", async (req, res, next) => {
-  const { userId, amount } = req.query;
+  const { userid, amount } = req.body;
+  console.log(req.body);
 
   try {
-    const created = await WaterLog.create({ userId, amount });
+    const created = await WaterLogs.create({ userid, amount });
     console.log(`created ${created.username}!`);
     res.status(201).send({
-      userId,
+      userid,
       amount
     });
   } catch (err) {
