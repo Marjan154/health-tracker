@@ -8,14 +8,13 @@ const Op = Sequelize.Op;
 module.exports = router;
 
 router.post("/add", async (req, res, next) => {
-  const { userid, waterid, amount } = req.query;
+  const { userId, amount } = req.query;
 
   try {
-    const created = await WaterLog.create({ userid, waterid, amount });
+    const created = await WaterLog.create({ userId, amount });
     console.log(`created ${created.username}!`);
     res.status(201).send({
-      userid,
-      waterid,
+      userId,
       amount
     });
   } catch (err) {
