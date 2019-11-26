@@ -24,7 +24,7 @@ class Home extends Component {
     axios
       .get(url, {
         params: {
-          email: this.props.mathc.params
+          email: this.props.match.params
         }
       })
       .then(res => {
