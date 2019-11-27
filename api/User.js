@@ -32,17 +32,15 @@ router.get("/login", async (req, res, next) => {
 });
 
 router.post("/create", async (req, res, next) => {
-  const { username, password, email } = req.body;
+  const { password, email } = req.body;
   console.log(req.body);
   try {
     const created = await Users.create({
-      username,
       password,
       email
     });
-    console.log(`created ${created.username}!`);
+    console.log(`created ${created.email}!`);
     res.status(201).send({
-      username,
       password,
       email
     });
