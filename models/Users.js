@@ -4,18 +4,19 @@ const Sequelize = require("sequelize");
 const Users = db.define(
   "users",
   {
-    userid: {
-      type: Sequelize.INTEGER,
-      autoIncrement: true,
-      primaryKey: true
-    },
-    username: {
-      type: Sequelize.TEXT,
-      allowNull: true,
-      validate: {
-        notEmpty: true
-      }
-    },
+    // userid: {
+    //   type: Sequelize.INTEGER,
+    //   autoIncrement: true,
+    //   primaryKey: true
+    // },
+    // username: {
+    //   type: Sequelize.TEXT,
+    //   allowNull: true,
+    //   primaryKey: true,
+    //   validate: {
+    //     notEmpty: true
+    //   }
+    // },
     password: {
       type: Sequelize.TEXT,
       allowNull: false,
@@ -26,6 +27,7 @@ const Users = db.define(
     email: {
       type: Sequelize.TEXT,
       allowNull: true,
+      primaryKey: true,
       validate: {
         notEmpty: true
       }
