@@ -74,7 +74,7 @@ class Graph extends Component {
           // Change type to "doughnut", "line", "splineArea", etc.
           //label=x-axis
           //y=values
-          type: "column",
+          type: "line",
           dataPoints:records
           // [
           //   { label: "12/1/19",  y: 10,  x: 1 },
