@@ -2,15 +2,18 @@ const Sequelize = require("sequelize");
 
 module.exports = new Sequelize(
   "healthtracker",
-  "healthtracker@dbproject1",
-  "Teemoscout1!",
+  process.env.PGUSER,
+  process.env.PGPASSWORD,
+  // "healthtracker@dbproject1",
+  // "Teemoscout1!",
   {
-    host: "dbproject1.postgres.database.azure.com",
+    // host: "dbproject1.postgres.database.azure.com",
+    host: "localhost",
     dialect: "postgres",
     operatorsAliases: false,
     port: 5432,
     ssl: true,
-
+    timezone: "-04:00",
     pool: {
       max: 5,
       min: 0,
