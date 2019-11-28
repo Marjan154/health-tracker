@@ -66,6 +66,7 @@ class Home extends Component {
 
   //need to add the :id to home url
   render() {
+    console.log(this.state.waterLogs);
     let records = this.state.waterLogs.map(waterlog => {
       return (
         <tr>
@@ -128,7 +129,7 @@ class Home extends Component {
             marginRight: "auto"
           }}
         >
-          <Graph />
+          <Graph email={this.props.match.params.email}/>
         </div>
       </div>
     );
