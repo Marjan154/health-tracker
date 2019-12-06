@@ -4,6 +4,7 @@ import Nav from "./Nav.js";
 import Graph from "./graph.js";
 import "../Styling/Home.css";
 import "react-datepicker/dist/react-datepicker.css";
+import { connect } from "react-redux";
 import axios from "axios";
 
 class Home extends Component {
@@ -17,13 +18,15 @@ class Home extends Component {
   }
 
   componentDidMount() {
+    console.log("props", this.props.user);
+    console.log("undef",this.props.user.email);
     this.setState({ date: new Date() });
     console.log(this.props.match.params.email);
     let url = "http://localhost:5000/api/water/all";
     axios
       .get(url, {
         params: {
-          email: this.props.match.params.email
+          email: this.props.user.email
         }
       })
       .then(res => {
@@ -136,4 +139,13 @@ class Home extends Component {
   }
 }
 
-export default Home;
+const mapState = state => {
+  return {
+    user: state.user.user.user,
+  };
+};
+
+export default connect(
+  mapState,
+  null
+)(Home);
