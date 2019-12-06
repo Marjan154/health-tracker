@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
 import axios from "axios";
+import styles from "../Styling/Login.css";
 
 class Reg extends Component {
   constructor() {
@@ -65,67 +66,77 @@ class Reg extends Component {
     }
 
     return (
-      <div
-        className="container login-container"
-        style={{ marginTop: "5%", marginBottom: "5%" }}
-      >
-        <form onSubmit={this.onSubmit}>
-          <h3 style={{ textAlign: "center", marginBottom: "5%" }}>Register</h3>
-          <div className="form-group">
-            <label style={{ fontWeight: "bold" }} for="email1">
-              Email:
-            </label>
-            <input
-              className="form-control"
-              type="text"
-              required
-              id="email1"
-              value={this.state.email}
-              onChange={this.onChangeEmail}
-            />
-          </div>
-          <div className="form-group">
-            <label style={{ fontWeight: "bold" }} for="pw">
-              Password:
-            </label>
-            <input
-              className="form-control"
-              type={this.state.hidden ? "password" : "text"}
-              required
-              id="pw"
-              value={this.state.password}
-              onChange={this.onChangePass}
-            />
-          </div>
-          <div className="form-group">
-            <label style={{ fontWeight: "bold" }} for="pw2">
-              Re-enter Password:
-            </label>
-            <input
-              className="form-control"
-              type={this.state.hidden ? "password" : "text"}
-              required
-              id="pw2"
-              value={this.state.password2}
-              onChange={this.onChangePass2}
-            />
-          </div>
-          <div className="form-group">
-            <input
-              className="btn btn-secondary btn-sm"
-              type="button"
-              onClick={this.toggleShow}
-              value="Show/Hide Password"
-            />
-          </div>
-          <div className="form-group text-center">
-            <input
-              className="btn btn-primary btn-lg"
-              type="submit"
-              value="Register"
-            />
-          </div>
-        </form>
+      <div id="loginform">
+        <div
+          className="container login-container"
+          style={{ marginTop: "5%", marginBottom: "5%" }}
+        >
+          <form onSubmit={this.onSubmit}>
+            <h3
+              style={{
+                textAlign: "center",
+                marginBottom: "5%",
+                fontSize: "50px"
+              }}
+            >
+              Register
+            </h3>
+            <div className="form-group">
+              <label style={{ fontWeight: "bold" }} for="email1">
+                Email:
+              </label>
+              <input
+                className="form-control"
+                type="text"
+                required
+                id="email1"
+                value={this.state.email}
+                onChange={this.onChangeEmail}
+              />
+            </div>
+            <div className="form-group">
+              <label style={{ fontWeight: "bold" }} for="pw">
+                Password:
+              </label>
+              <input
+                className="form-control"
+                type={this.state.hidden ? "password" : "text"}
+                required
+                id="pw"
+                value={this.state.password}
+                onChange={this.onChangePass}
+              />
+            </div>
+            <div className="form-group">
+              <label style={{ fontWeight: "bold" }} for="pw2">
+                Re-enter Password:
+              </label>
+              <input
+                className="form-control"
+                type={this.state.hidden ? "password" : "text"}
+                required
+                id="pw2"
+                value={this.state.password2}
+                onChange={this.onChangePass2}
+              />
+            </div>
+            <div className="form-group">
+              <input
+                className="btn btn-secondary btn-sm"
+                type="button"
+                onClick={this.toggleShow}
+                value="Show/Hide Password"
+              />
+            </div>
+            <div className="form-group text-center">
+              <input
+                className="btn btn-primary btn-lg"
+                type="submit"
+                value="Register"
+              />
+            </div>
+          </form>
+        </div>
       </div>
     );
   }
