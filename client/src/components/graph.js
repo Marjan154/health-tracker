@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import CanvasJSReact from './canvasjs.react.js'
 import axios from "axios";
+import { connect } from "react-redux";
 
 //var CanvasJS = CanvasJSReact.CanvasJS;
 
@@ -18,8 +19,8 @@ class Graph extends Component {
     }
 
     componentDidMount() {
-      const useremail=this.props.email;
-    console.log(this.props.email);
+    const useremail=this.props.email;
+    //console.log(this.props.user.email);
     let url = "http://localhost:5000/api/water/all";
     axios
       .get(url, {
@@ -91,4 +92,16 @@ class Graph extends Component {
 	}
 }
 
-export default Graph;
+const mapState = state => {
+  return {
+    //user: state.user.user.user,
+  };
+};
+
+export default connect(
+  mapState,
+  null
+)(Graph);
+
+
+// export default Graph;
