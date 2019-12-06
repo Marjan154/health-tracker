@@ -1,0 +1,31 @@
+@import url("https://fonts.googleapis.com/css?family=Quicksand:300,500");
+
+#loginform {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  margin: auto;
+  width: 100vw;
+  height: 100vh;
+  background-color: #73c45a;
+  font-family: "Quicksand", sans-serif;
+}
+
+.container {
+  width: 500px !important;
+}
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: "700px";
+  transition: 0.3s;
+  width: 40%;
+  height: 500px;
+}
+
+.login-container form {
+  padding: 50px;
+}

@@ -1,0 +1,58 @@
+.grid-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  text-align: center;
+  margin-top: 40px;
+}
+
+.summary {
+  width: 90vw;
+  height: 40vh;
+  display: flex;
+  justify-content: center;
+  flex-flow: row wrap;
+  background-color: lightblue;
+  align-content: center;
+}
+
+.stat {
+  width: 30vw;
+  height: 300px;
+  display: flex;
+  margin: 10px;
+  background-color: lightyellow;
+  display: flex;
+  justify-content: center;
+  flex-flow: row wrap;
+  align-content: center;
+}
+
+.stats {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  text-align: center;
+}
+
+.p-icon {
+  max-height: 100px;
+  max-width: 30vw;
+}
+
+#icons {
+  align-items: center;
+  justify-content: space-around;
+  display: flex;
+  flex-flow: row wrap;
+}
+
+#icons p {
+  max-width: 30vw;
+  font-family: "Quicksand", sans-serif;
+  font-size: 10px;
+  font-weight: 900;
+  color: #245db3;
+}
