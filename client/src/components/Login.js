@@ -60,7 +60,7 @@ class Login extends Component {
           alert("Succesfully Logged In");
           
           this.props.setUser(res.data);
-          //this.props.history.push(`/home/${this.state.email}`);
+          this.props.history.push(`/home/${this.state.email}`);
           this.setState({ redirect: true });
         } else {
           console.log("user not found");
