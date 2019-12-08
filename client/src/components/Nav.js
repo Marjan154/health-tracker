@@ -25,6 +25,11 @@ class Nav extends Component {
                 Edit
               </Link>
             </li>
+            <li className="nav-item active">
+              <Link className="nav-link" to={`/delete/${email}`}>
+                Delete
+              </Link>
+            </li>
           </ul>
         </div>
       </nav>

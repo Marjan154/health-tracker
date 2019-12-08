@@ -4,6 +4,7 @@ import Home from "./components/home.js";
 import Splash from "./components/Splash.js";
 import EditLog from "./components/Edit.js";
 import AddLog from "./components/AddLog";
+import DeleteLog from "./components/DeleteLog";
 import { Provider, connect } from 'react-redux';
 import store from "./store/index"
 import "./App.css";
@@ -19,6 +20,7 @@ class App extends Component {
             <Route exact path="/home/:email" component={Home} />
             <Route exact path="/edit/:email" component={EditLog} />
             <Route exact path="/add/:email" component={AddLog} />
+            <Route exact path="/delete/:email" component={DeleteLog} />
           </Switch>
         </Router>
       </Provider>
