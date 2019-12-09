@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Nav from "./Nav.js";
 import axios from "axios";
+import { isThisMonth } from "date-fns";
 
 export default class DeleteLog extends Component {
     constructor(props) {
@@ -60,6 +61,7 @@ export default class DeleteLog extends Component {
             console.log(res);
             console.log(res.data);
             console.log("HI");
+            this.componentDidMount()
             // const data = res.data;
             // this.setState({ waterLogs: res.data });
         // alert("Succesfully retrieved");
@@ -69,7 +71,7 @@ export default class DeleteLog extends Component {
         .catch(error => {
             console.log(error);
         });
-        this.componentDidMount();
+        
     }
 
     getDate() {
