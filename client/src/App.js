@@ -9,6 +9,7 @@ import Login from "./components/Login";
 import Register from "./components/Register";
 import ViewData from "./components/ViewData";
 import Water from "./components/Water";
+import WaterDay from "./components/WaterDay";
 import Sleep from "./components/Sleep";
 import Calories from "./components/Calories";
 import Nav from "./components/Nav";
@@ -32,6 +33,7 @@ class App extends Component {
             <Route exact path="/add/:email" component={AddLog} />
             <Route exact path="/view/:email" component={ViewData} />
             <Route exact path="/water/:email" component={Water} />
+            <Route exact path="/water/:date/:email" component={WaterDay} />
             <Route exact path="/sleep/:email" component={Sleep} />
             <Route exact path="/calories/:email" component={Calories} />
             <Route exact path="/delete/:email" component={DeleteLog} />
