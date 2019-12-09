@@ -13,7 +13,7 @@ export default class DeleteLog extends Component {
       };
     //   this.deleteLog = this.deleteLog.bind(this);
     }
-    
+
     fetchData(){
         console.log("Fetching Data");
         console.log(this.props.match.params.email);
@@ -44,9 +44,6 @@ export default class DeleteLog extends Component {
         this.setState({ date: new Date() });
         this.fetchData();
     }
-
-        
-
     removeRow = (event, id) => {
         event.preventDefault();
         console.log("hello")

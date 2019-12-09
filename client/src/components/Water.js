@@ -64,7 +64,7 @@ class Water extends Component {
       return (
         <tr>
           <td>{waterlog.amount}</td>
-          <td>{waterlog.createdAt}</td>
+          <td>{waterlog.date}</td>
         </tr>
       );
     });
@@ -122,7 +122,7 @@ class Water extends Component {
             marginRight: "auto"
           }}
         >
-          <Graph email={this.props.match.params.email}/>
+          {/* <Graph email={this.props.match.params.email}/> */}
           {/* <Graph /> */}
         </div>
       </div>
