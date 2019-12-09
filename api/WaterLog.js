@@ -37,3 +37,21 @@ router.get("/all", async (req, res, next) => {
       res.status(400).send(error);
     });
 });
+
+router.delete("/delete", async (req, res, next) => {
+  console.log(req.query.waterlogid);
+  WaterLogs.destroy({
+    where: {
+      waterlogid: req.query.waterlogid
+    }
+  })
+    .then(rowDeleted => {
+      if(rowDeleted===1){
+        console.log('Deleted successfully')
+      }
+      // res.status(200).json(userResponse);
+    })
+    .catch(error => {
+      console.log(err); 
+    });
+});

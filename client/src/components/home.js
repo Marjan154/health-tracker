@@ -4,6 +4,7 @@ import Nav from "./Nav.js";
 import Graph from "./graph.js";
 import "../Styling/Home.css";
 import "react-datepicker/dist/react-datepicker.css";
+import { connect } from "react-redux";
 import axios from "axios";
 
 class Home extends Component {
@@ -17,13 +18,36 @@ class Home extends Component {
   }
 
   componentDidMount() {
+    // console.log("props", this.props.user);
+    // console.log("undef",this.props.user.email);
     this.setState({ date: new Date() });
     console.log(this.props.match.params.email);
     let url = "http://localhost:5000/api/water/all";
     axios
       .get(url, {
         params: {
+          // email: this.props.user.email
           email: this.props.match.params.email
+        }
+      })
+      .then(res => {
+        console.log(res);
+        console.log(res.data);
+        const data = res.data;
+        this.setState({ waterLogs: res.data });
+        // alert("Succesfully retrieved");
+        // this.setState({ redirect: true });
+      })
+      .catch(error => {
+        console.log(error);
+      });
+
+      let url2 = "http://localhost:5000/api/water/delete";
+    axios
+      .delete(url2, {
+        params: {
+          // email: this.props.user.email
+          waterlogid: 2
         }
       })
       .then(res => {
@@ -66,9 +90,10 @@ class Home extends Component {
 
   //need to add the :id to home url
   render() {
+    console.log(this.state.waterLogs);
     let records = this.state.waterLogs.map(waterlog => {
       return (
-        <tr>
+        <tr id={waterlog.waterlogid}>
           <td>{waterlog.amount}</td>
           <td>{waterlog.createdAt}</td>
         </tr>
@@ -78,6 +103,7 @@ class Home extends Component {
     return (
       <div className="home-page">
         <Nav />
+
         <div style={{ textAlign: "center" }}>
           <span>Choose Date: </span>
           <DatePicker
@@ -128,11 +154,20 @@ class Home extends Component {
             marginRight: "auto"
           }}
         >
-          <Graph />
+          <Graph email={this.props.match.params.email}/>
         </div>
       </div>
     );
   }
 }
 
-export default Home;
+const mapState = state => {
+  return {
+    //user: state.user.user.user,
+  };
+};
+
+export default connect(
+  mapState,
+  null
+)(Home);

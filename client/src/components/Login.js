@@ -7,6 +7,8 @@ import {
 } from "react-router-dom";
 import axios from "axios";
 import styles from "../Styling/Login.css";
+import { connect } from "react-redux";
+import { setUser } from "../store/user";
 
 class Login extends Component {
   constructor() {
@@ -56,6 +58,8 @@ class Login extends Component {
           this.state.password === data.password
         ) {
           alert("Succesfully Logged In");
+
+          this.props.setUser(res.data);
           this.props.history.push(`/home/${this.state.email}`);
           this.setState({ redirect: true });
         } else {
@@ -68,8 +72,6 @@ class Login extends Component {
         console.log(error);
       });
     //needs to check with backend
-    // alert("Succesfully Logged In");
-    // this.setState({redirect: true});
   };
 
   //need to add the :id part
@@ -143,7 +145,16 @@ class Login extends Component {
   }
 }
 
-export default withRouter(Login);
+const mapDispatch = dispatch => {
+  return {
+    setUser: user => {
+      const content = { user };
+      dispatch(setUser(content));
+    }
+  };
+};
+
+export default withRouter(connect(null, mapDispatch)(Login));
 
 /* 
 *** Email validation check, omitted for now
