@@ -1,0 +1,92 @@
+@import url("https://fonts.googleapis.com/css?family=Quicksand:300,500");
+
+#nav-container {
+  width: 100%;
+  background: transparent;
+  float: right;
+  background-color: #47a02c;
+  position: fixed;
+  top: 0;
+  z-index: 1;
+  padding-bottom: 60px;
+}
+nav {
+  height: 10px;
+  padding: 0;
+  margin: 0;
+}
+nav ul {
+  top: 0;
+  float: right;
+  list-style-type: none;
+  margin-left: 80vw;
+  text-align: center;
+  display: flex;
+  flex-flow: row wrap;
+  align-content: flex-start;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+  padding-top: 15px;
+  transition: top 0.3s;
+}
+
+nav li {
+  float: top;
+  padding-right: 20px;
+}
+nav li a {
+  display: inline-block;
+  color: white;
+  font-family: "Quicksand", sans-serif;
+  font-weight: 1000;
+  margin: 10%;
+  padding: 0px;
+  font-size: 20px;
+  text-decoration: none;
+  text-align: center;
+  align-content: center;
+}
+nav li a:hover {
+  animation: bounce 2.5s infinite;
+  -webkit-animation: bounce 2.5s infinite;
+  -moz-animation: bounce 2.5s infinite;
+  -o-animation: bounce 2.5s infinite;
+}
+
+@-webkit-keyframes bounce {
+  0%,
+  100% {
+    -webkit-transform: translateY(0);
+  }
+  50% {
+    -webkit-transform: translateY(-10px);
+  }
+}
+@-moz-keyframes bounce {
+  0%,
+  100% {
+    -moz-transform: translateY(0);
+  }
+  50% {
+    -moz-transform: translateY(-10px);
+  }
+}
+@-o-keyframes bounce {
+  0%,
+  100% {
+    -o-transform: translateY(0);
+  }
+  50% {
+    -o-transform: translateY(-10px);
+  }
+}
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
