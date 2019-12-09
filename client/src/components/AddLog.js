@@ -4,7 +4,6 @@ import "../Styling/EditLog.css";
 import "react-datepicker/dist/react-datepicker.css";
 import axios from "axios";
 import DatePicker from "react-datepicker";
-import dateFormat from 'dateformat';
 import moment from "moment";
 
 export default class EditLog extends Component {
@@ -33,13 +32,13 @@ export default class EditLog extends Component {
   onSubmit = e => {
     e.preventDefault();
     console.log(this.amount);
-    console.log(this.state.startDate)
-    console.log(moment(this.state.startDate).format('YYYY-MM-DD'))
+    console.log(this.state.startDate);
+    console.log(moment(this.state.startDate).format("YYYY-MM-DD"));
     let url = "http://localhost:5000/api/water/add";
     const data = {
       amount: this.state.amount,
       email: this.props.match.params.email,
-      date: moment(this.state.startDate).format('YYYY-MM-DD')
+      date: moment(this.state.startDate).format("YYYY-MM-DD")
     };
     console.log(this.state.amount);
 
