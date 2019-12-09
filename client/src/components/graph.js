@@ -19,7 +19,9 @@ class Graph extends Component {
     }
 
     componentDidMount() {
+      console.log("Email" +this.props.email)
     const useremail=this.props.email;
+    
     //console.log(this.props.user.email);
     let url = "http://localhost:5000/api/water/all";
     axios
