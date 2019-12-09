@@ -8,7 +8,7 @@ import styles from "../Styling/Grid.css";
 import moment from "moment";
 import { Link } from "react-router-dom";
 
-class Water extends Component {
+class WaterDay extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -22,36 +22,8 @@ class Water extends Component {
   componentDidMount() {
     this.setState({ date: new Date() }, () => {
       let url = "http://localhost:5000/api/water/groupbyday";
-      axios
-        .get(url, {
-          params: {
-            email: this.state.email
-          }
-        })
-        .then(res => {
-          this.setState({ waterLogs: res.data });
-        })
-        .catch(error => {
-          console.log(error);
-        });
-      // this.getAllDate()
+      this.filteredByDate(this.props.match.params.date);
     });
-  }
-
-  getAllDate() {
-    let url = "http://localhost:5000/api/water/all";
-    axios
-      .get(url, {
-        params: {
-          email: this.state.email
-        }
-      })
-      .then(res => {
-        this.setState({ waterLogs: res.data });
-      })
-      .catch(error => {
-        console.log(error);
-      });
   }
 
   filteredByDate(date) {
@@ -106,10 +78,10 @@ class Water extends Component {
     let records = this.state.waterLogs.map(waterlog => {
       return (
         <tr key={waterlog.date}>
-          <td>{waterlog.total}</td>
+          <td>{waterlog.amount}</td>
           <td>{waterlog.date}</td>
           <td>
-            <Link to={`/water/${waterlog.date}/${this.state.email}`}>View</Link>
+            <Link to={`water/${waterlog.date}/${this.state.email}`}></Link>
           </td>
         </tr>
       );
@@ -185,4 +157,4 @@ class Water extends Component {
   }
 }
 
-export default Water;
+export default WaterDay;
