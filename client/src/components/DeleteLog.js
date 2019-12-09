@@ -13,6 +13,7 @@ export default class DeleteLog extends Component {
       };
     //   this.deleteLog = this.deleteLog.bind(this);
     }
+
     fetchData(){
         console.log("Fetching Data");
         console.log(this.props.match.params.email);
@@ -36,15 +37,13 @@ export default class DeleteLog extends Component {
             console.log(error);
           });
     }
+
     componentDidMount() {
         // console.log("props", this.props.user);
         // console.log("undef",this.props.user.email);
         this.setState({ date: new Date() });
         this.fetchData();
     }
-
-        
-
     removeRow = (event, id) => {
         event.preventDefault();
         console.log("hello")
@@ -90,7 +89,7 @@ export default class DeleteLog extends Component {
       return (
         <tr key={waterlog.waterlogid}>
           <td>{waterlog.amount}</td>
-          <td>{waterlog.createdAt}</td>
+          <td>{waterlog.date}</td>
           <td><button onClick={(event) => this.removeRow(event, waterlog.waterlogid)}>Delete</button></td>
         </tr>
       );
