@@ -60,29 +60,28 @@ class Water extends Component {
   handleChange = date => {
     this.setState({ startDate: date });
     this.filteredByDate(date);
-
   };
 
-  getDate() {
-    var tempDate = this.state.startDate;
-    var date;
-    if (tempDate.getDate() < 10) {
-      date =
-        tempDate.getFullYear() +
-        "-" +
-        (tempDate.getMonth() + 1) +
-        "-0" +
-        tempDate.getDate();
-    } else {
-      date =
-        tempDate.getFullYear() +
-        "-" +
-        (tempDate.getMonth() + 1) +
-        "-" +
-        tempDate.getDate();
-    }
-    return <span>{date}</span>;
-  }
+  // getDate() {
+  //   var tempDate = this.state.startDate;
+  //   var date;
+  //   if (tempDate.getDate() < 10) {
+  //     date =
+  //       tempDate.getFullYear() +
+  //       "-" +
+  //       (tempDate.getMonth() + 1) +
+  //       "-0" +
+  //       tempDate.getDate();
+  //   } else {
+  //     date =
+  //       tempDate.getFullYear() +
+  //       "-" +
+  //       (tempDate.getMonth() + 1) +
+  //       "-" +
+  //       tempDate.getDate();
+  //   }
+  //   return <span>{date}</span>;
+  // }
 
   //need to add the :id to home url
   render() {
