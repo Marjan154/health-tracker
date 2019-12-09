@@ -20,7 +20,20 @@ class Water extends Component {
 
   componentDidMount() {
     this.setState({ date: new Date() }, () => {
-      this.getAllDate()
+      let url = "http://localhost:5000/api/water/groupbyday";
+    axios
+      .get(url, {
+        params: {
+          email: this.state.email,
+        }
+      })
+      .then(res => {
+        this.setState({ waterLogs: res.data });
+      })
+      .catch(error => {
+        console.log(error);
+      });
+      // this.getAllDate()
     });
   }
 
@@ -62,34 +75,37 @@ class Water extends Component {
     this.filteredByDate(date);
   };
 
-  // getDate() {
-  //   var tempDate = this.state.startDate;
-  //   var date;
-  //   if (tempDate.getDate() < 10) {
-  //     date =
-  //       tempDate.getFullYear() +
-  //       "-" +
-  //       (tempDate.getMonth() + 1) +
-  //       "-0" +
-  //       tempDate.getDate();
-  //   } else {
-  //     date =
-  //       tempDate.getFullYear() +
-  //       "-" +
-  //       (tempDate.getMonth() + 1) +
-  //       "-" +
-  //       tempDate.getDate();
-  //   }
-  //   return <span>{date}</span>;
-  // }
+  addLog() {
+    console.log(this.amount);
+    console.log(this.state.startDate);
+    console.log(moment(this.state.startDate).format("YYYY-MM-DD"));
+    console.log();
+    let url = "http://localhost:5000/api/water/add";
+    const data = {
+      amount: this.state.amount,
+      email: this.props.match.params.email,
+      date: moment(this.state.startDate).format("YYYY-MM-DD")
+    };
+    console.log(this.state.amount);
 
+    axios
+      .post(url, data)
+      .then(res => {
+        console.log(res);
+        console.log(res.data);
+        alert("Succesfully ADDED");
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  }
   //need to add the :id to home url
   render() {
     console.log(this.state.startDate);
     let records = this.state.waterLogs.map(waterlog => {
       return (
         <tr>
-          <td>{waterlog.amount}</td>
+          <td>{waterlog.total}</td>
           <td>{waterlog.date}</td>
           <td>Edit</td>
         </tr>
@@ -119,7 +135,9 @@ class Water extends Component {
               }}
             >
               <h1 style={{ color: "#47a02c" }}> You have drank: 34 oz today</h1>
-              <button className="addbutton">Add Log</button>
+              <button className="addbutton" onClick={() => this.addLog}>
+                Add Log
+              </button>
             </div>
 
             <div style={{ padding: "50px" }}>
@@ -136,7 +154,7 @@ class Water extends Component {
                   textAlign: "center"
                 }}
               >
-                {this.getDate()}
+                {this.state.startDate.toDateString()}
               </h3>
             </div>
             <div>

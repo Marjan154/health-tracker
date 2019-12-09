@@ -57,6 +57,24 @@ router.get("/bydate", async (req, res, next) => {
     });
 });
 
+router.get("/groupbyday", async (req, res, next) => {
+  console.log(req.query.email);
+  WaterLogs.findAll({
+    where: {
+      email: req.query.email,
+    },
+    attributes: ['date', [Sequelize.fn('sum', Sequelize.col('amount')), 'total']],
+    order: [['date', 'DESC']],
+    group: ['date']
+  })
+    .then(userResponse => {
+      res.status(200).json(userResponse);
+    })
+    .catch(error => {
+      res.status(400).send(error);
+    });
+});
+
 router.delete("/delete", async (req, res, next) => {
   console.log("Deleting " + req.query.waterlogid);
   WaterLogs.destroy({
