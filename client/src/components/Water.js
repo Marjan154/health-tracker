@@ -19,13 +19,39 @@ class Water extends Component {
   }
 
   componentDidMount() {
-    this.setState({ date: new Date() });
+    this.setState({ date: new Date() }, () => {
+      this.getAllDate()
+    });
+    
+  }
+
+  getAllDate(){
     let url = "http://localhost:5000/api/water/all";
     axios
       .get(url, {
         params: {
-          email: this.state.email
+          email: this.state.email,
         }
+        
+      })
+      .then(res => {
+        this.setState({ waterLogs: res.data });
+      })
+      .catch(error => {
+        console.log(error);
+      });
+
+  }
+
+  filteredByDate(date) {
+    let url = "http://localhost:5000/api/water/bydate";
+    axios
+      .get(url, {
+        params: {
+          email: this.state.email,
+          date: moment(date).format('YYYY-MM-DD')
+        }
+        
       })
       .then(res => {
         this.setState({ waterLogs: res.data });
@@ -37,6 +63,8 @@ class Water extends Component {
 
   handleChange = date => {
     this.setState({ startDate: date });
+    this.filteredByDate(date);
+
   };
 
   addLog() {
@@ -70,7 +98,7 @@ class Water extends Component {
       return (
         <tr>
           <td>{waterlog.amount}</td>
-          <td>{waterlog.createdAt}</td>
+          <td>{waterlog.date}</td>
           <td>Edit</td>
         </tr>
       );

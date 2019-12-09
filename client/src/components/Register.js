@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Redirect } from "react-router-dom";
+import { Redirect,Link } from "react-router-dom";
 import axios from "axios";
 import styles from "../Styling/Login.css";
 
@@ -135,6 +135,9 @@ class Reg extends Component {
                 value="Register"
               />
             </div>
+            <Link className="nav-link" to={`/`}>
+                Login
+            </Link>
           </form>
         </div>
       </div>
