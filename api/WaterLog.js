@@ -8,15 +8,16 @@ const Op = Sequelize.Op;
 module.exports = router;
 
 router.post("/add", async (req, res, next) => {
-  const { email, amount } = req.body;
+  const { email, amount, date} = req.body;
   console.log(req.body);
 
   try {
-    const created = await WaterLogs.create({ email, amount });
+    const created = await WaterLogs.create({ email, amount, date});
     console.log(`created ${created.username}!`);
     res.status(201).send({
       email,
-      amount
+      amount,
+      date
     });
   } catch (err) {
     console.error(err);
@@ -28,7 +29,25 @@ router.get("/all", async (req, res, next) => {
   WaterLogs.findAll({
     where: {
       email: req.query.email
-    }
+    },
+    order: [['date', 'DESC']]
+  })
+    .then(userResponse => {
+      res.status(200).json(userResponse);
+    })
+    .catch(error => {
+      res.status(400).send(error);
+    });
+});
+
+router.get("/bydate", async (req, res, next) => {
+  console.log(req.query.email);
+  WaterLogs.findAll({
+    where: {
+      email: req.query.email,
+      date: req.query.date,
+    },
+    order: [['date', 'DESC']]
   })
     .then(userResponse => {
       res.status(200).json(userResponse);
@@ -49,7 +68,7 @@ router.delete("/delete", async (req, res, next) => {
       console.log(rowDeleted);
       if (rowDeleted === 1) {
         console.log("Deleted successfully");
-        res.sendStatus(100).send(rowDeleted);
+        res.sendStatus(200).send(rowDeleted);
       }
     })
     .catch(error => {
