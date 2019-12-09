@@ -3,6 +3,9 @@ import Nav from "./Nav.js";
 import "../Styling/EditLog.css";
 import "react-datepicker/dist/react-datepicker.css";
 import axios from "axios";
+import DatePicker from "react-datepicker";
+import dateFormat from 'dateformat';
+import moment from "moment";
 
 export default class EditLog extends Component {
   constructor(props) {
@@ -18,6 +21,10 @@ export default class EditLog extends Component {
     return <span>{startDate.toLocaleDateString()}</span>;
   }
 
+  handleChange = date => {
+    this.setState({ startDate: date });
+  };
+
   inputHandler = e => {
     e.preventDefault();
     this.setState({ [e.target.name]: e.target.value });
@@ -25,11 +32,15 @@ export default class EditLog extends Component {
 
   onSubmit = e => {
     e.preventDefault();
-    console.log("thi.amount");
+    console.log(this.amount);
+    console.log(this.state.startDate)
+    console.log(moment(this.state.startDate).format('YYYY-MM-DD'))
+    console.log();
     let url = "http://localhost:5000/api/water/add";
     const data = {
       amount: this.state.amount,
-      email: this.props.match.params.email
+      email: this.props.match.params.email,
+      date: moment(this.state.startDate).format('YYYY-MM-DD')
     };
     console.log(this.state.amount);
 
@@ -55,7 +66,11 @@ export default class EditLog extends Component {
           style={{ marginTop: "1%", fontSize: "2em" }}
         >
           <h3>Add to Water Log</h3>
-          <h3>Today's Date: {this.getDate()}</h3>
+          <span>Choose Date: </span>
+          <DatePicker
+            selected={this.state.startDate}
+            onChange={this.handleChange}
+          />
         </div>
         <form
           className="col-md-4 mb-3"
