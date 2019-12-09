@@ -3,8 +3,9 @@ import styles from "../Styling/Home2.css";
 import { Link } from "react-router-dom";
 
 class Home2 extends Component {
-  state = {};
+  state = { email: this.props.match.params.email };
   render() {
+    const email = this.props.match.params.email;
     return (
       <div class="grid-container">
         <div className="summary">
@@ -46,7 +47,7 @@ class Home2 extends Component {
         </div>
 
         <div className="stats">
-          <Link to="/water">
+          <Link to={`/water/${email}`}>
             <div className="stat">
               <div>
                 <img
@@ -59,7 +60,7 @@ class Home2 extends Component {
             </div>
           </Link>
 
-          <Link to="/calories">
+          <Link to={`/calories/${email}`}>
             <div className="stat">
               <div>
                 <img
@@ -72,7 +73,7 @@ class Home2 extends Component {
             </div>
           </Link>
 
-          <Link to="/sleep">
+          <Link to={`/sleep/${email}`}>
             <div className="stat">
               <div>
                 <img

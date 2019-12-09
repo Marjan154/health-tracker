@@ -9,6 +9,7 @@ class Water extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      email: this.props.match.params.email,
       waterLogs: [],
       water: 0,
       startDate: new Date()
@@ -17,18 +18,14 @@ class Water extends Component {
 
   componentDidMount() {
     this.setState({ date: new Date() });
-    console.log(this.props.match.params.email);
     let url = "http://localhost:5000/api/water/all";
     axios
       .get(url, {
         params: {
-          email: this.props.match.params.email
+          email: this.state.email
         }
       })
       .then(res => {
-        console.log(res);
-        console.log(res.data);
-        const data = res.data;
         this.setState({ waterLogs: res.data });
       })
       .catch(error => {

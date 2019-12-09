@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Switch, Route, BrowserRouter as Router } from "react-router-dom";
+import Home from "./components/home.js";
 import Home2 from "./components/Home2.js";
 import Splash from "./components/Splash.js";
 import EditLog from "./components/Edit.js";
@@ -24,14 +25,14 @@ class App extends Component {
           <Switch>
             <Route exact path="/" component={Login} />
             <Route exact path="/register" component={Register} />
-            <Route exact path="/home" component={Home2} />
+            <Route exact path="/home2:email" component={Home} />
             <Route exact path="/home/:email" component={Home2} />
             <Route exact path="/edit/:email" component={EditLog} />
             <Route exact path="/add/:email" component={AddLog} />
-            <Route exact path="/view" component={ViewData} />
-            <Route exact path="/water" component={Water} />
-            <Route exact path="/sleep" component={Sleep} />
-            <Route exact path="/calories" component={Calories} />
+            <Route exact path="/view/:email" component={ViewData} />
+            <Route exact path="/water/:email" component={Water} />
+            <Route exact path="/sleep/:email" component={Sleep} />
+            <Route exact path="/calories/:email" component={Calories} />
             <Route exact path="/delete/:email" component={DeleteLog} />
           </Switch>
         </Router>

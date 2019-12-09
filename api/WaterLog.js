@@ -46,15 +46,14 @@ router.delete("/delete", async (req, res, next) => {
     }
   })
     .then(rowDeleted => {
-      console.log(rowDeleted)
-      if(rowDeleted===1){
-        console.log('Deleted successfully')
-        res.sendStatus(100).send(rowDeleted)
+      console.log(rowDeleted);
+      if (rowDeleted === 1) {
+        console.log("Deleted successfully");
+        res.sendStatus(100).send(rowDeleted);
       }
-      // res.status(200).json(userResponse);
     })
     .catch(error => {
-      res.send(error)
-      console.log(error); 
+      res.send(error);
+      console.log(error);
     });
 });
