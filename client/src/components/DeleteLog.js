@@ -89,7 +89,7 @@ export default class DeleteLog extends Component {
       return (
         <tr key={waterlog.waterlogid}>
           <td>{waterlog.amount}</td>
-          <td>{waterlog.createdAt}</td>
+          <td>{waterlog.date}</td>
           <td><button onClick={(event) => this.removeRow(event, waterlog.waterlogid)}>Delete</button></td>
         </tr>
       );

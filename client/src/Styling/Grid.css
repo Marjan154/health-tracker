@@ -1,0 +1,57 @@
+.grid-container {
+  width: 100vw;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  text-align: center;
+}
+
+.addbutton {
+  background-color: #47a02c;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 30px;
+  margin: 15px 2px 30px;
+  cursor: pointer;
+}
+
+.container {
+  margin: 30px;
+}
+.title {
+  color: #47a02c;
+}
+.datatable {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  margin-bottom: 50px;
+}
+
+.datatable td,
+#datatable th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.datatable tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.datatable tr:hover {
+  background-color: #ddd;
+}
+
+.datatable th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  padding-left: 5px;
+  text-align: left;
+  background-color: #47a02c;
+  color: white;
+}

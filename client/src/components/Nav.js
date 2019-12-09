@@ -1,38 +1,27 @@
 import React, { Component } from "react";
 import { Link, withRouter } from "react-router-dom";
+import styles from "../Styling/navbar.css";
 
 class Nav extends Component {
   render() {
     const email = this.props.match.params.email;
-
     return (
-      <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-        <span className="navbar-brand">Health Tracker</span>
-        <div className="collapse navbar-collapse d-flex flex-row-reverse">
-          <ul className="navbar-nav">
-            <li className="nav-item active">
-              <Link className="nav-link" to={`/home/${email}`}>
-                Home
-              </Link>
+      <div id="nav-container">
+        <nav className="nav">
+          <ul>
+            <li>
+              <Link to={`/home/${email}`}>Home</Link>
             </li>
-            <li className="nav-item active">
-              <Link className="nav-link" to={`/add/${email}`}>
-                Add
-              </Link>
+            <li>
+              <Link to={`/home/${email}`}>Email</Link>
             </li>
-            <li className="nav-item active">
-              <Link className="nav-link" to={`/edit/${email}`}>
-                Edit
-              </Link>
-            </li>
-            <li className="nav-item active">
-              <Link className="nav-link" to={`/delete/${email}`}>
-                Delete
-              </Link>
+
+            <li>
+              <Link to="/">Logout</Link>
             </li>
           </ul>
-        </div>
-      </nav>
+        </nav>
+      </div>
     );
   }
 }
