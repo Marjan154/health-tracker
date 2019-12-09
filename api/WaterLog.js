@@ -39,19 +39,22 @@ router.get("/all", async (req, res, next) => {
 });
 
 router.delete("/delete", async (req, res, next) => {
-  console.log(req.query.waterlogid);
+  console.log("Deleting " + req.query.waterlogid);
   WaterLogs.destroy({
     where: {
       waterlogid: req.query.waterlogid
     }
   })
     .then(rowDeleted => {
+      console.log(rowDeleted)
       if(rowDeleted===1){
         console.log('Deleted successfully')
+        res.sendStatus(100).send(rowDeleted)
       }
       // res.status(200).json(userResponse);
     })
     .catch(error => {
-      console.log(err); 
+      res.send(error)
+      console.log(error); 
     });
 });
