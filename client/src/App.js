@@ -7,6 +7,10 @@ import AddLog from "./components/AddLog";
 import Login from "./components/Login";
 import Register from "./components/Register";
 import ViewData from "./components/ViewData";
+import Water from "./components/Water";
+import Sleep from "./components/Sleep";
+import Calories from "./components/Calories";
+
 import "./App.css";
 
 class App extends Component {
@@ -21,6 +25,9 @@ class App extends Component {
           <Route exact path="/edit/:email" component={EditLog} />
           <Route exact path="/add/:email" component={AddLog} />
           <Route exact path="/view" component={ViewData} />
+          <Route exact path="/water" component={Water} />
+          <Route exact path="/sleep" component={Sleep} />
+          <Route exact path="/calories" component={Calories} />
         </Switch>
       </Router>
     );
