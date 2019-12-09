@@ -104,6 +104,16 @@ class Water extends Component {
                 selected={this.state.startDate}
                 onChange={this.handleChange}
               />
+              <h3
+                className="text-dark"
+                style={{
+                  fontSize: "3em",
+                  marginTop: "1%",
+                  textAlign: "center"
+                }}
+              >
+                {this.getDate()}
+              </h3>
             </div>
             <div>
               <table
@@ -125,13 +135,6 @@ class Water extends Component {
             </div>
           </div>
         </div>
-
-        {/* <h3
-          className="text-dark"
-          style={{ fontSize: "3em", marginTop: "1%", textAlign: "center" }}
-        >
-          {this.getDate()}
-        </h3> */}
       </div>
     );
   }

@@ -13,14 +13,7 @@ class Home2 extends Component {
         <div class="grid-container" style={{ paddingTop: "70px" }}>
           <h1 id="homeTitle">Welcome {email} !</h1>
           <div className="summary">
-            Summary
-            <div style={{ width: "90vw" }}>
-              <img
-                src={require("../Images/drop.png")}
-                style={{ padding: "20px" }}
-                className="p-icon"
-              ></img>
-            </div>
+            <h1 style={{ width: "inherit" }}>Summary</h1>
             <div id="icons">
               <div>
                 <img
