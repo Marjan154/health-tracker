@@ -8,6 +8,7 @@ class Home2 extends Component {
     const email = this.props.match.params.email;
     return (
       <div class="grid-container">
+        <h1 id="homeTitle">Welcome {email} !</h1>
         <div className="summary">
           Summary
           <div style={{ width: "90vw" }}>
@@ -47,7 +48,7 @@ class Home2 extends Component {
         </div>
 
         <div className="stats">
-          <Link to={`/water/${email}`}>
+          <Link to={`/water/${email}`} style={{ textDecoration: "none" }}>
             <div className="stat">
               <div>
                 <img
@@ -55,12 +56,12 @@ class Home2 extends Component {
                   style={{ padding: "20px" }}
                   className="p-icon"
                 ></img>
-                <p>water</p>
+                <p>Water</p>
               </div>
             </div>
           </Link>
 
-          <Link to={`/calories/${email}`}>
+          <Link to={`/calories/${email}`} style={{ textDecoration: "none" }}>
             <div className="stat">
               <div>
                 <img
@@ -68,12 +69,12 @@ class Home2 extends Component {
                   style={{ padding: "20px" }}
                   className="p-icon"
                 ></img>
-                <p>calories</p>
+                <p>Calories</p>
               </div>
             </div>
           </Link>
 
-          <Link to={`/sleep/${email}`}>
+          <Link to={`/sleep/${email}`} style={{ textDecoration: "none" }}>
             <div className="stat">
               <div>
                 <img
@@ -81,7 +82,7 @@ class Home2 extends Component {
                   style={{ padding: "20px" }}
                   className="p-icon"
                 ></img>
-                <p>sleep</p>
+                <p>Sleep</p>
               </div>
             </div>
           </Link>
