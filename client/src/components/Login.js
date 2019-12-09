@@ -138,6 +138,9 @@ class Login extends Component {
                 style={{ backgroundColor: "#4ea832" }}
               />
             </div>
+            <Link className="nav-link" to={`/register`}>
+                Register
+            </Link>
           </form>
         </div>
       </div>

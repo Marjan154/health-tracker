@@ -1,5 +1,5 @@
-import React, {Component} from 'react'
-import CanvasJSReact from './canvasjs.react.js'
+import React, { Component } from "react";
+import CanvasJSReact from "./canvasjs.react.js";
 import axios from "axios";
 import { connect } from "react-redux";
 
@@ -10,18 +10,16 @@ var CanvasJSChart = CanvasJSReact.CanvasJSChart;
 // import CanvasJSChart from CanvasJSReact.CanvasJSChart;
 
 class Graph extends Component {
-    constructor(props) {
-      super(props);
-      this.state = {
-        waterlog:[],
-        waterDatatodisplayonGraph:[]
-      };
-    }
+  constructor(props) {
+    super(props);
+    this.state = {
+      waterlog: [],
+      waterDatatodisplayonGraph: []
+    };
+  }
 
-    componentDidMount() {
-      console.log("Email" +this.props.email)
-    const useremail=this.props.email;
-    
+  componentDidMount() {
+    const useremail = this.props.email;
     //console.log(this.props.user.email);
     let url = "http://localhost:5000/api/water/all";
     axios
@@ -41,57 +39,58 @@ class Graph extends Component {
       .catch(error => {
         console.log(error);
       });
-    }
+  }
 
-    render() {
-      let records = this.state.waterlog.map(waterData =>{
-        return {
-          label: waterData.createdAt,
-          y: parseInt(waterData.amount)
-        }
-          // const newData={
-          //   x: waterData.createdAt,
-          //   y: waterData.amount
-          // }
-          // this.setState({ waterDatatodisplayonGraph: [this.state.waterDatatodisplayonGraph, newData] }, ()=>{
-          //   console.log(this.state.waterData)
-          // })
-      });
+  render() {
+    let records = this.state.waterlog.map(waterData => {
+      return {
+        label: waterData.createdAt,
+        y: parseInt(waterData.amount)
+      };
+      // const newData={
+      //   x: waterData.createdAt,
+      //   y: waterData.amount
+      // }
+      // this.setState({ waterDatatodisplayonGraph: [this.state.waterDatatodisplayonGraph, newData] }, ()=>{
+      //   console.log(this.state.waterData)
+      // })
+    });
 
-      console.log(records)
+    console.log(records);
 
-      const options = {
-        animationEnabled: true,
-        title: {
-          text: "Set whatever we want"
-        },
-        axisX: {
-          title: "DATES",
-          labelAngle: 120,
-        },
-        axisY: {
-          title: "Water Intake (oz)",
-        },
-        data: [
+    const options = {
+      animationEnabled: true,
+      title: {
+        text: "Graph Title",
+        fontColor: "#47a02c"
+      },
+      axisX: {
+        title: "DATES",
+        titleFontColor: "#47a02c",
+        labelAngle: 120
+      },
+      axisY: {
+        title: "Water Intake (oz)",
+        titleFontColor: "#47a02c"
+      },
+      data: [
         {
           // Change type to "doughnut", "line", "splineArea", etc.
           //label=x-axis
           //y=values
           type: "line",
-          dataPoints:records
+          dataPoints: records
           // [
           //   { label: "12/1/19",  y: 10,  x: 1 },
           //   { label: "12/2/19", y: 15, x: 2 },
           //   { label: "12/3/19", y: 25, x: 3  },
           // ]
         }
-        ]
-      }
+      ]
+    };
 
-    return (
-      <CanvasJSChart options = {options}></CanvasJSChart>
-    );
-	}
+    return <CanvasJSChart options={options}></CanvasJSChart>;
+  }
 }
 
 const mapState = state => {
@@ -100,10 +99,6 @@ const mapState = state => {
   };
 };
 
-export default connect(
-  mapState,
-  null
-)(Graph);
-
+export default connect(mapState, null)(Graph);
 
 // export default Graph;
