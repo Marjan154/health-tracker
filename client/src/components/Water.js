@@ -22,7 +22,6 @@ class Water extends Component {
     this.setState({ date: new Date() }, () => {
       this.getAllDate()
     });
-    
   }
 
   getAllDate(){
@@ -32,7 +31,6 @@ class Water extends Component {
         params: {
           email: this.state.email,
         }
-        
       })
       .then(res => {
         this.setState({ waterLogs: res.data });
@@ -40,7 +38,6 @@ class Water extends Component {
       .catch(error => {
         console.log(error);
       });
-
   }
 
   filteredByDate(date) {
@@ -51,7 +48,6 @@ class Water extends Component {
           email: this.state.email,
           date: moment(date).format('YYYY-MM-DD')
         }
-        
       })
       .then(res => {
         this.setState({ waterLogs: res.data });
