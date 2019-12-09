@@ -42,25 +42,25 @@ class Home extends Component {
         console.log(error);
       });
 
-      let url2 = "http://localhost:5000/api/water/delete";
-    axios
-      .delete(url2, {
-        params: {
-          // email: this.props.user.email
-          waterlogid: 2
-        }
-      })
-      .then(res => {
-        console.log(res);
-        console.log(res.data);
-        const data = res.data;
-        this.setState({ waterLogs: res.data });
-        // alert("Succesfully retrieved");
-        // this.setState({ redirect: true });
-      })
-      .catch(error => {
-        console.log(error);
-      });
+    //   let url2 = "http://localhost:5000/api/water/delete";
+    // axios
+    //   .delete(url2, {
+    //     params: {
+    //       // email: this.props.user.email
+    //       waterlogid: 2
+    //     }
+    //   })
+    //   .then(res => {
+    //     console.log(res);
+    //     console.log(res.data);
+    //     const data = res.data;
+    //     this.setState({ waterLogs: res.data });
+    //     // alert("Succesfully retrieved");
+    //     // this.setState({ redirect: true });
+    //   })
+    //   .catch(error => {
+    //     console.log(error);
+    //   });
   }
 
   handleChange = date => {

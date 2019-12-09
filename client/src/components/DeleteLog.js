@@ -13,6 +13,7 @@ export default class DeleteLog extends Component {
       };
     //   this.deleteLog = this.deleteLog.bind(this);
     }
+    
     fetchData(){
         console.log("Fetching Data");
         console.log(this.props.match.params.email);
@@ -36,6 +37,7 @@ export default class DeleteLog extends Component {
             console.log(error);
           });
     }
+
     componentDidMount() {
         // console.log("props", this.props.user);
         // console.log("undef",this.props.user.email);

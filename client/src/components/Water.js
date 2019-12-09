@@ -122,7 +122,8 @@ class Water extends Component {
             marginRight: "auto"
           }}
         >
-          <Graph />
+          <Graph email={this.props.match.params.email}/>
+          {/* <Graph /> */}
         </div>
       </div>
     );
