@@ -35,7 +35,6 @@ export default class EditLog extends Component {
     console.log(this.amount);
     console.log(this.state.startDate)
     console.log(moment(this.state.startDate).format('YYYY-MM-DD'))
-    console.log();
     let url = "http://localhost:5000/api/water/add";
     const data = {
       amount: this.state.amount,
