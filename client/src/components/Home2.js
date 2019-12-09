@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import styles from "../Styling/Home2.css";
+import { Link } from "react-router-dom";
 
 class Home2 extends Component {
   state = {};
@@ -7,7 +8,6 @@ class Home2 extends Component {
     return (
       <div class="grid-container">
         <div className="summary">
-          {" "}
           Summary
           <div style={{ width: "90vw" }}>
             <img
@@ -16,7 +16,6 @@ class Home2 extends Component {
               className="p-icon"
             ></img>
           </div>
-          {/* <p>18.7 births per 1000 people</p> */}
           <div id="icons">
             <div>
               <img
@@ -47,36 +46,44 @@ class Home2 extends Component {
         </div>
 
         <div className="stats">
-          <div className="stat">
-            <div>
-              <img
-                src={require("../Images/drop.png")}
-                style={{ padding: "20px" }}
-                className="p-icon"
-              ></img>
-              <p>water</p>
+          <Link to="/water">
+            <div className="stat">
+              <div>
+                <img
+                  src={require("../Images/drop.png")}
+                  style={{ padding: "20px" }}
+                  className="p-icon"
+                ></img>
+                <p>water</p>
+              </div>
             </div>
-          </div>
-          <div className="stat">
-            <div>
-              <img
-                src={require("../Images/taco.png")}
-                style={{ padding: "20px" }}
-                className="p-icon"
-              ></img>
-              <p>calories</p>
-            </div>{" "}
-          </div>
-          <div className="stat">
-            <div>
-              <img
-                src={require("../Images/sleeping.png")}
-                style={{ padding: "20px" }}
-                className="p-icon"
-              ></img>
-              <p>sleep</p>
+          </Link>
+
+          <Link to="/calories">
+            <div className="stat">
+              <div>
+                <img
+                  src={require("../Images/taco.png")}
+                  style={{ padding: "20px" }}
+                  className="p-icon"
+                ></img>
+                <p>calories</p>
+              </div>
             </div>
-          </div>
+          </Link>
+
+          <Link to="/sleep">
+            <div className="stat">
+              <div>
+                <img
+                  src={require("../Images/sleeping.png")}
+                  style={{ padding: "20px" }}
+                  className="p-icon"
+                ></img>
+                <p>sleep</p>
+              </div>
+            </div>
+          </Link>
         </div>
       </div>
     );
