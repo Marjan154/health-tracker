@@ -24,6 +24,9 @@ const WaterLogs = db.define("waterlogs", {
   //   defaultValue: new Date(),
   //   type: Sequelize.DATE
   // },
+  date:{
+    type: Sequelize.DATEONLY,
+  },
   createdAt: {
     field: 'createdat',
     type: Sequelize.DATE,
@@ -31,6 +34,7 @@ const WaterLogs = db.define("waterlogs", {
   updatedAt: {
       field: 'updatedat',
       type: Sequelize.DATE,
+
   },
   email: {
     type: Sequelize.TEXT,
