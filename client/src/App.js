@@ -11,6 +11,7 @@ import ViewData from "./components/ViewData";
 import Water from "./components/Water";
 import Sleep from "./components/Sleep";
 import Calories from "./components/Calories";
+import Nav from "./components/Nav";
 
 import DeleteLog from "./components/DeleteLog";
 import { Provider, connect } from "react-redux";
