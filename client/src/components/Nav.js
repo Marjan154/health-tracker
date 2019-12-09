@@ -1,40 +1,26 @@
 import React, { Component } from "react";
 import { Link, withRouter } from "react-router-dom";
+import styles from "../Styling/navbar.css";
 
-class Nav extends Component {
-  render() {
-    const email = this.props.match.params.email;
+function Nav() {
+  return (
+    <div id="nav-container">
+      <nav className="nav">
+        <ul>
+          <li>
+            <Link to="/Home">Home</Link>
+          </li>
+          <li>
+            <Link to="/Home">Email</Link>
+          </li>
 
-    return (
-      <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-        <span className="navbar-brand">Health Tracker</span>
-        <div className="collapse navbar-collapse d-flex flex-row-reverse">
-          <ul className="navbar-nav">
-            <li className="nav-item active">
-              <Link className="nav-link" to={`/home/${email}`}>
-                Home
-              </Link>
-            </li>
-            <li className="nav-item active">
-              <Link className="nav-link" to={`/add/${email}`}>
-                Add
-              </Link>
-            </li>
-            <li className="nav-item active">
-              <Link className="nav-link" to={`/edit/${email}`}>
-                Edit
-              </Link>
-            </li>
-            <li className="nav-item active">
-              <Link className="nav-link" to={`/delete/${email}`}>
-                Delete
-              </Link>
-            </li>
-          </ul>
-        </div>
+          <li>
+            <Link to="/">Logout</Link>
+          </li>
+        </ul>
       </nav>
-    );
-  }
+    </div>
+  );
 }
 
 export default withRouter(Nav);

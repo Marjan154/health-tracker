@@ -61,11 +61,13 @@ class Water extends Component {
 
   //need to add the :id to home url
   render() {
+    console.log(this.state.startDate);
     let records = this.state.waterLogs.map(waterlog => {
       return (
         <tr>
           <td>{waterlog.amount}</td>
           <td>{waterlog.createdAt}</td>
+          <td>Edit</td>
         </tr>
       );
     });
@@ -74,7 +76,7 @@ class Water extends Component {
       <div>
         <Nav />
         <div>
-          <div className="grid-container">
+          <div className="grid-container" style={{ paddingTop: "150px" }}>
             <div
               style={{
                 width: "35em",
@@ -89,14 +91,21 @@ class Water extends Component {
                 width: "35em",
                 height: "500px",
                 boxShadow: "4px 4px 5px grey",
-                padding: "100px"
+                padding: "50px"
               }}
             >
-              <h1> You have drank: 34 oz today</h1>
+              <h1 style={{ color: "#47a02c" }}> You have drank: 34 oz today</h1>
               <button className="addbutton">Add Log</button>
             </div>
 
-            <div style={{ padding: "100px" }}>
+            <div style={{ padding: "50px" }}>
+              Choose Date:
+              <DatePicker
+                selected={this.state.startDate}
+                onChange={this.handleChange}
+              />
+            </div>
+            <div>
               <table
                 className="datatable"
                 style={{
@@ -115,12 +124,6 @@ class Water extends Component {
               </table>
             </div>
           </div>
-
-          {/* <span>Choose Date: </span>
-          <DatePicker
-            selected={this.state.startDate}
-            onChange={this.handleChange}
-          /> */}
         </div>
 
         {/* <h3
