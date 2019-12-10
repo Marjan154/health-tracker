@@ -44,7 +44,7 @@ class Graph extends Component {
   render() {
     let records = this.state.waterlog.map(waterData => {
       return {
-        label: waterData.createdAt,
+        label: waterData.date,
         y: parseInt(waterData.amount)
       };
       // const newData={

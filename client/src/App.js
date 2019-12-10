@@ -14,6 +14,7 @@ import Sleep from "./components/Sleep";
 import Calories from "./components/Calories";
 import Nav from "./components/Nav";
 
+
 import DeleteLog from "./components/DeleteLog";
 import { Provider, connect } from "react-redux";
 import store from "./store/index";
