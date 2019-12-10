@@ -1,15 +1,8 @@
 import React, { Component, useState } from "react";
-import DatePicker from "react-datepicker";
-import Nav from "./Nav.js";
-import Graph from "./graph.js";
 import "react-datepicker/dist/react-datepicker.css";
-import axios from "axios";
-import styles from "../Styling/Grid.css";
-import moment from "moment";
 import { Button, Modal } from "react-bootstrap";
-import { Link } from "react-router-dom";
 
-class AddModal extends Component {
+class MyModal extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -17,7 +10,7 @@ class AddModal extends Component {
       startDate: new Date()
     };
   }
-  example = () => {
+  genericModal = () => {
     const [show, setShow] = useState(false);
 
     const handleClose = () => {
@@ -52,8 +45,8 @@ class AddModal extends Component {
   };
 
   render() {
-    return <this.example />;
+    return <this.genericModal />;
   }
 }
 
-export default AddModal;
+export default MyModal;

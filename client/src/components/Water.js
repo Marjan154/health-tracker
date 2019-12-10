@@ -5,11 +5,6 @@ import Graph from "./graph.js";
 import "react-datepicker/dist/react-datepicker.css";
 import axios from "axios";
 import styles from "../Styling/Grid.css";
-import moment from "moment";
-import { Button, Modal } from "react-bootstrap";
-import { Link } from "react-router-dom";
-import AddModal from "./AddModal.js";
-import ViewDay from "./ViewDay";
 import ViewData from "./ViewData";
 
 class Water extends Component {
