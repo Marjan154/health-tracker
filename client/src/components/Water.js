@@ -15,72 +15,135 @@ class Water extends Component {
       email: this.props.match.params.email,
       waterLogs: [],
       water: 0,
-      startDate: new Date()
+      startDate: new Date(),
+      totalDrankToday: 0
     };
   }
 
   componentDidMount() {
-    this.setState({ date: new Date() }, () => {
-      let url = "http://localhost:5000/api/water/groupbyday";
-      axios
-        .get(url, {
-          params: {
-            email: this.state.email
-          }
-        })
-        .then(res => {
-          this.setState({ waterLogs: res.data });
-        })
-        .catch(error => {
-          console.log(error);
+    this.setState({ startDate: new Date() }, () => {
+      console.log("Today is "+ this.state.startDate)
+      this.getTotalForADate();
+    })
+  }
+
+  // getTotalForAllDates(){
+  //   let url = "http://localhost:5000/api/water/groupbyday";
+  //   axios
+  //     .get(url, {
+  //       params: {
+  //         email: this.state.email
+  //       }
+  //     })
+  //     .then(res => {
+  //       this.setState({ waterLogs: res.data }, ()=>{
+  //         console.log(this.state.waterLogs)
+  //       });
+  //     })
+  //     .catch(error => {
+  //       console.log(error);
+  //     });
+  //     // this.getCurrentDayTotal();
+  //   // this.getAllDate()
+  // }
+
+  getTotalForADate=date=>{
+    console.log("You selected " + date)
+    // const{email, date}=req.query
+    const param=date?{email: this.state.email, date: date}:{email: this.state.email}
+    let url = "http://localhost:5000/api/water/groupbyday";
+    axios
+      .get(url, {
+        params: param
+        // {
+        //   email: this.state.email,
+        //   date: date
+        // }
+      })
+      .then(res => {
+        this.setState({ waterLogs: res.data }, ()=>{
+          console.log(this.state.waterLogs)
         });
-      // this.getAllDate()
-    });
-  }
-
-  getAllDate() {
-    let url = "http://localhost:5000/api/water/all";
-    axios
-      .get(url, {
-        params: {
-          email: this.state.email
-        }
-      })
-      .then(res => {
-        this.setState({ waterLogs: res.data });
       })
       .catch(error => {
         console.log(error);
       });
+      // this.getCurrentDayTotal();
+    // this.getAllDate()
   }
 
-  filteredByDate(date) {
-    let url = "http://localhost:5000/api/water/bydate";
-    axios
-      .get(url, {
-        params: {
-          email: this.state.email,
-          date: moment(date).format("YYYY-MM-DD")
-        }
-      })
-      .then(res => {
-        this.setState({ waterLogs: res.data });
-      })
-      .catch(error => {
-        console.log(error);
-      });
-  }
+  // getCurrentDayTotal(){
+  //   console.log("Date" + new Date())
+  //   console.log(this.state.startDate)
+  //   let url = "http://localhost:5000/api/water/sumofaday";
+  //     axios
+  //       .get(url, {
+  //         params: {
+  //           email: this.state.email,
+  //           date: new Date()
+  //         }
+  //       })
+  //       .then(res => {
+  //         console.log(res.data);
+  //         console.log(res.data);
+  //         let records = res.data.map(element => {
+  //           this.setState({ totalDrankToday: element.total }, () => {
+  //             console.log("you drank "+ this.state.totalDrankToday + " oz today")
+  //           });
+  //         })
+          
+  //       })
+  //       .catch(error => {
+  //         console.log(error);
+  //       });
+  //     // this.getAllDate()
+  // }
+
+  // getAllDate() {
+  //   let url = "http://localhost:5000/api/water/all";
+  //   axios
+  //     .get(url, {
+  //       params: {
+  //         email: this.state.email
+  //       }
+  //     })
+  //     .then(res => {
+  //       this.setState({ waterLogs: res.data });
+  //     })
+  //     .catch(error => {
+  //       console.log(error);
+  //     });
+  // }
+
+  // filteredByDate(date) {
+  //   let url = "http://localhost:5000/api/water/bydate";
+  //   axios
+  //     .get(url, {
+  //       params: {
+  //         email: this.state.email,
+  //         date: moment(date).format("YYYY-MM-DD")
+  //       }
+  //     })
+  //     .then(res => {
+  //       this.setState({ waterLogs: res.data });
+  //     })
+  //     .catch(error => {
+  //       console.log(error);
+  //     });
+  // }
 
   handleChange = date => {
-    this.setState({ startDate: date });
-    this.filteredByDate(date);
-  };
+    this.setState({ startDate: date }, ()=> { 
+      this.getTotalForADate(date);
+    })
+
+    // this.filteredByDate(date);
+  }
 
   addLog() {
     console.log(this.amount);
     console.log(this.state.startDate);
     console.log(moment(this.state.startDate).format("YYYY-MM-DD"));
-    console.log();
     let url = "http://localhost:5000/api/water/add";
     const data = {
       amount: this.state.amount,
@@ -102,7 +165,7 @@ class Water extends Component {
   }
   //need to add the :id to home url
   render() {
-    console.log(this.state.startDate);
+    //console.log(this.state.startDate);
     let records = this.state.waterLogs.map(waterlog => {
       return (
         <tr key={waterlog.date}>
@@ -127,7 +190,7 @@ class Water extends Component {
                 boxShadow: "4px 4px 5px grey"
               }}
             >
-              <Graph email={this.props.match.params.email} />
+              {/* <Graph email={this.props.match.params.email} /> */}
             </div>
             <div
               style={{
@@ -137,8 +200,8 @@ class Water extends Component {
                 padding: "50px"
               }}
             >
-              <h1 style={{ color: "#47a02c" }}> You have drank: 34 oz today</h1>
-              <button className="addbutton" onClick={() => this.addLog}>
+              <h1 style={{ color: "#47a02c" }}> You have drank: {this.state.totalDrankToday} oz today</h1>
+              <button className="addbutton" onClick={() => this.addLog()}>
                 Add Log
               </button>
             </div>
@@ -160,6 +223,7 @@ class Water extends Component {
                 {this.state.startDate.toDateString()}
               </h3>
             </div>
+            <button onClick={()=>this.getTotalForADate()}>View All</button>
             <div>
               <table
                 className="datatable"
@@ -172,7 +236,7 @@ class Water extends Component {
                   <tr>
                     <th>Water</th>
                     <th>Date</th>
-                    <th>Edit</th>
+                    <th>View</th>
                   </tr>
                 </thead>
                 <tbody>{records}</tbody>
