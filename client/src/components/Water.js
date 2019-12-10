@@ -92,8 +92,10 @@ class Water extends Component {
   };
 
   refresh = () => {
-    console.log("refreshing");
-    this.getTotalForADate();
+    this.getAllDate();
+    this.getTotalForADate(new Date()).then(data => {
+      this.setState({ totalDrankToday: data[0] ? data[0].total : 0 });
+    });
   };
 
   render() {
