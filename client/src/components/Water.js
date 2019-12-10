@@ -83,7 +83,6 @@ class Water extends Component {
     axios
       .post(url, data)
       .then(res => {
-        console.log(res);
         console.log(res.data);
       })
       .catch(error => {
