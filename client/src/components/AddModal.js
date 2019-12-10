@@ -20,7 +20,10 @@ class AddModal extends Component {
   example = () => {
     const [show, setShow] = useState(false);
 
-    const handleClose = () => setShow(false);
+    const handleClose = () => {
+      setShow(false);
+      this.props.refresh();
+    };
     const handleShow = () => setShow(true);
 
     return (
@@ -39,11 +42,7 @@ class AddModal extends Component {
           </Modal.Header>
           <Modal.Body> {this.props.form}</Modal.Body>
           <Modal.Footer>
-            <Button
-              variant="secondary"
-              onClick={handleClose}
-              style={{ backgroundColor: "#47a02c" }}
-            >
+            <Button variant="secondary" onClick={handleClose}>
               Close
             </Button>
           </Modal.Footer>

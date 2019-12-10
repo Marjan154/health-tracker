@@ -24,9 +24,13 @@ class Water extends Component {
   }
 
   componentDidMount() {
-    this.setState({ startDate: new Date() }, () => {
-      console.log("Today is " + this.state.startDate);
-      this.getTotalForADate();
+    this.setState({ startDate: new Date() });
+    // this.getTotalForADate().then(data => {
+    //   this.setState({ waterLogs: data });
+    // });
+
+    this.getTotalForADate(new Date()).then(data => {
+      console.log(data);
     });
   }
 
@@ -35,24 +39,23 @@ class Water extends Component {
       ? { email: this.state.email, date: date }
       : { email: this.state.email };
     let url = "http://localhost:5000/api/water/groupbyday";
-    axios
+    let data = axios
       .get(url, {
         params: param
       })
       .then(res => {
-        this.setState({ waterLogs: res.data }, () => {
-          console.log(this.state.waterLogs);
-        });
+        console.log(res.data);
+        return res.data;
       })
       .catch(error => {
         console.log(error);
       });
+    console.log(data);
+    return data;
   };
 
   handleDateChange = date => {
-    this.setState({ startDate: date }, () => {
-      this.getTotalForADate(date);
-    });
+    // this.setState({ startDate: date, waterLogs: this.getTotalForADate(date) });
   };
 
   handleFormChange = date => {
@@ -91,31 +94,28 @@ class Water extends Component {
   };
 
   render() {
-    let records = this.state.waterLogs.map(waterlog => {
-      return (
-        <tr key={waterlog.date}>
-          <td>{waterlog.total}</td>
-          <td>{waterlog.date}</td>
-          <td>
-            <AddModal
-              form={
-                <div>
-                  {
-                    <WaterDay
-                      date={waterlog.date}
-                      email={this.state.email}
-                      refresh={this.refresh}
-                    />
-                  }
-                </div>
-              }
-              label={"View"}
-              title={`Water log for ${waterlog.date}`}
-            />
-          </td>
-        </tr>
-      );
-    });
+    let records =
+      this.state.waterLogs &&
+      this.state.waterLogs.map(waterlog => {
+        return (
+          <tr key={waterlog.date}>
+            <td>{waterlog.total}</td>
+            <td>{waterlog.date}</td>
+            <td>
+              <AddModal
+                form={
+                  <div>
+                    {<WaterDay date={waterlog.date} email={this.state.email} />}
+                  </div>
+                }
+                label={"View"}
+                title={`Water log for ${waterlog.date}`}
+                refresh={this.refresh}
+              />
+            </td>
+          </tr>
+        );
+      });
 
     let addForm = (
       <div>
@@ -167,7 +167,7 @@ class Water extends Component {
                 boxShadow: "4px 4px 5px grey"
               }}
             >
-              <Graph email={this.props.match.params.email} />
+              {/* <Graph email={this.props.match.params.email} /> */}
             </div>
             <div
               style={{
@@ -184,6 +184,7 @@ class Water extends Component {
                 form={addForm}
                 label={"Add log"}
                 title={"Add Water Log"}
+                refresh={this.refresh}
               />
             </div>
 
