@@ -21,7 +21,12 @@ class Water extends Component {
     return (
       <div>
         <Nav />
-        <ViewData data={this.state} healthlabel={"water"} />
+        <ViewData
+          data={this.state}
+          healthlabel={"water"}
+          title={"Water"}
+          message={"You have drank: "}
+        />
       </div>
     );
   }
