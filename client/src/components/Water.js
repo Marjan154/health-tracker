@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 import DatePicker from "react-datepicker";
 import Nav from "./Nav.js";
 import Graph from "./graph.js";
@@ -6,7 +6,9 @@ import "react-datepicker/dist/react-datepicker.css";
 import axios from "axios";
 import styles from "../Styling/Grid.css";
 import moment from "moment";
+import { Button, Modal } from 'react-bootstrap';
 import { Link } from "react-router-dom";
+import AddModal from "./AddModal.js"
 
 class Water extends Component {
   constructor(props) {
@@ -140,29 +142,29 @@ class Water extends Component {
     // this.filteredByDate(date);
   }
 
-  addLog() {
-    console.log(this.amount);
-    console.log(this.state.startDate);
-    console.log(moment(this.state.startDate).format("YYYY-MM-DD"));
-    let url = "http://localhost:5000/api/water/add";
-    const data = {
-      amount: this.state.amount,
-      email: this.props.match.params.email,
-      date: moment(this.state.startDate).format("YYYY-MM-DD")
-    };
-    console.log(this.state.amount);
+  // addLog() {
+  //   console.log(this.amount);
+  //   console.log(this.state.startDate);
+  //   console.log(moment(this.state.startDate).format("YYYY-MM-DD"));
+  //   let url = "http://localhost:5000/api/water/add";
+  //   const data = {
+  //     amount: this.state.amount,
+  //     email: this.props.match.params.email,
+  //     date: moment(this.state.startDate).format("YYYY-MM-DD")
+  //   };
+  //   console.log(this.state.amount);
 
-    axios
-      .post(url, data)
-      .then(res => {
-        console.log(res);
-        console.log(res.data);
-        alert("Succesfully ADDED");
-      })
-      .catch(error => {
-        console.log(error);
-      });
-  }
+  //   axios
+  //     .post(url, data)
+  //     .then(res => {
+  //       console.log(res);
+  //       console.log(res.data);
+  //       alert("Succesfully ADDED");
+  //     })
+  //     .catch(error => {
+  //       console.log(error);
+  //     });
+  // }
   //need to add the :id to home url
   render() {
     //console.log(this.state.startDate);
@@ -190,7 +192,7 @@ class Water extends Component {
                 boxShadow: "4px 4px 5px grey"
               }}
             >
-              {/* <Graph email={this.props.match.params.email} /> */}
+              <Graph email={this.props.match.params.email} />
             </div>
             <div
               style={{
@@ -201,9 +203,10 @@ class Water extends Component {
               }}
             >
               <h1 style={{ color: "#47a02c" }}> You have drank: {this.state.totalDrankToday} oz today</h1>
-              <button className="addbutton" onClick={() => this.addLog()}>
+              <AddModal/>
+              {/* <button className="addbutton" onClick={() => this.addLog}>
                 Add Log
-              </button>
+              </button> */}
             </div>
 
             <div style={{ padding: "50px" }}>
