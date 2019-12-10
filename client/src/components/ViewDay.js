@@ -37,9 +37,7 @@ class ViewDay extends Component {
     let deletelog = "http://localhost:5000/api/water/delete";
     axios
       .delete(deletelog, {
-        params: {
-          waterlogid: id
-        }
+        params: { id }
       })
       .then(res => {
         this.filteredByDate(date);
