@@ -110,23 +110,23 @@ class ViewDay extends Component {
       );
     };
 
-    let records = this.state.logs.map(waterlog => {
+    let records = this.state.logs.map(log => {
       return (
-        <tr key={waterlog.id}>
-          <td>{waterlog.amount}</td>
-          <td>{waterlog.date}</td>
+        <tr key={log.id}>
+          <td>{log.amount}</td>
+          <td>{log.date}</td>
           <td>
             <button
               className="btn btn-primary"
               style={{ backgroundColor: "#47a02c" }}
-              onClick={() => this.deleteLog(waterlog.id, waterlog.date)}
+              onClick={() => this.deleteLog(log.id, log.date)}
             >
               Delete
             </button>
           </td>
           <td>
             <Modal
-              form={updateForm(waterlog.id)}
+              form={updateForm(log.id)}
               label={"Update"}
               title={`Update Amount`}
               refresh={this.refresh}

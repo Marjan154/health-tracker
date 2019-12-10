@@ -20,7 +20,7 @@ class ViewData extends Component {
     this.getAllDate();
 
     this.getTotalForADate(new Date()).then(data => {
-      this.setState({ totalDrankToday: data[0] ? data[0].total : 0 });
+      this.setState({ totalToday: data[0] ? data[0].total : 0 });
     });
   }
 
@@ -87,7 +87,7 @@ class ViewData extends Component {
   refresh = () => {
     this.getAllDate();
     this.getTotalForADate(new Date()).then(data => {
-      this.setState({ totalDrankToday: data[0] ? data[0].total : 0 });
+      this.setState({ totalToday: data[0] ? data[0].total : 0 });
     });
   };
 
@@ -156,6 +156,9 @@ class ViewData extends Component {
         <Nav />
         <div>
           <div className="grid-container" style={{ paddingTop: "150px" }}>
+            <h1 style={{ width: "100vw", paddingBottom: "50px" }}>
+              {this.props.title}
+            </h1>
             <div
               style={{
                 width: "35em",
@@ -174,7 +177,7 @@ class ViewData extends Component {
               }}
             >
               <h1 style={{ color: "#47a02c" }}>
-                You have drank: {this.state.totalDrankToday} oz today
+                {this.props.message} {this.state.totalToday} oz today
               </h1>
               <Modal
                 form={addForm}
