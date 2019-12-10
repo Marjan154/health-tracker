@@ -137,6 +137,7 @@ class Water extends Component {
               type="submit"
               value="Add to Water Log"
               className="btn btn-primary"
+              style={{ backgroundColor: "#47a02c" }}
             />
           </div>
         </form>
@@ -191,7 +192,13 @@ class Water extends Component {
               >
                 {this.state.startDate.toDateString()}
               </h3>
-              <button onClick={() => this.getTotalForADate()}>View All</button>
+              <button
+                className="btn btn-primary"
+                style={{ backgroundColor: "#47a02c" }}
+                onClick={() => this.getTotalForADate()}
+              >
+                View All
+              </button>
             </div>
 
             <div>

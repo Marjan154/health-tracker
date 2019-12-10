@@ -13,7 +13,6 @@ class AddModal extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      //   email: this.props.match.params.email,
       water: 0,
       startDate: new Date()
     };
@@ -26,7 +25,11 @@ class AddModal extends Component {
 
     return (
       <>
-        <Button variant="primary" onClick={handleShow}>
+        <Button
+          variant="primary"
+          onClick={handleShow}
+          style={{ backgroundColor: "#47a02c" }}
+        >
           {this.props.label}
         </Button>
 
@@ -36,7 +39,11 @@ class AddModal extends Component {
           </Modal.Header>
           <Modal.Body> {this.props.form}</Modal.Body>
           <Modal.Footer>
-            <Button variant="secondary" onClick={handleClose}>
+            <Button
+              variant="secondary"
+              onClick={handleClose}
+              style={{ backgroundColor: "#47a02c" }}
+            >
               Close
             </Button>
           </Modal.Footer>
