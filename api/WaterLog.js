@@ -43,11 +43,7 @@ router.get("/all", async (req, res, next) => {
 router.get("/bydate", async (req, res, next) => {
   console.log(req.query.email);
   WaterLogs.findAll({
-    attributes: [
-      "date",
-      "amount",
-      ["waterlogid", "id"]
-    ],
+    attributes: ["date", "amount", ["waterlogid", "id"]],
     where: {
       email: req.query.email,
       date: req.query.date
@@ -83,10 +79,10 @@ router.get("/groupbyday/:date?", async (req, res, next) => {
 });
 
 router.put("/update", async (req, res, next) => {
-  const { waterlogid, amount } = req.body;
+  const { id, amount } = req.body;
   console.log(req.body);
   WaterLogs.findOne({
-    where: { waterlogid }
+    where: { waterlogid: id }
   })
     .then(log => {
       log

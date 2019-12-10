@@ -52,7 +52,7 @@ class ViewDay extends Component {
     let updatelogURL = "http://localhost:5000/api/water/update";
     axios
       .put(updatelogURL, {
-        waterlogid: id,
+        id,
         amount
       })
       .then(res => {})
@@ -147,7 +147,7 @@ class ViewDay extends Component {
           <tr>
             <th>Water</th>
             <th>Date</th>
-            <th>Edit</th>
+            <th colspan="2">Edit</th>
           </tr>
         </thead>
         <tbody>{records}</tbody>
