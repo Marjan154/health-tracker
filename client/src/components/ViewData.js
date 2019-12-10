@@ -1,4 +1,4 @@
-import React, { Component, useState } from "react";
+import React, { Component } from "react";
 import DatePicker from "react-datepicker";
 import Nav from "./Nav.js";
 import Graph from "./graph.js";
@@ -6,7 +6,6 @@ import "react-datepicker/dist/react-datepicker.css";
 import axios from "axios";
 import styles from "../Styling/Grid.css";
 import moment from "moment";
-import { Link } from "react-router-dom";
 import Modal from "./Modal";
 import ViewDay from "./ViewDay";
 
@@ -95,20 +94,18 @@ class ViewData extends Component {
   render() {
     let records =
       this.state.logs &&
-      this.state.logs.map(waterlog => {
+      this.state.logs.map(log => {
         return (
-          <tr key={waterlog.date}>
-            <td>{waterlog.total}</td>
-            <td>{waterlog.date}</td>
+          <tr key={log.date}>
+            <td>{log.total}</td>
+            <td>{log.date}</td>
             <td>
               <Modal
                 form={
-                  <div>
-                    {<ViewDay date={waterlog.date} data={this.state} />}
-                  </div>
+                  <div>{<ViewDay date={log.date} data={this.state} />}</div>
                 }
                 label={"View"}
-                title={`Water log for ${waterlog.date}`}
+                title={`Water log for ${log.date}`}
                 refresh={this.refresh}
               />
             </td>

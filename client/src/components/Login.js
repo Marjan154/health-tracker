@@ -1,10 +1,5 @@
 import React, { Component } from "react";
-import {
-  Redirect,
-  Link,
-  RouteComponentProps,
-  withRouter
-} from "react-router-dom";
+import { Redirect, Link, withRouter } from "react-router-dom";
 import axios from "axios";
 import styles from "../Styling/Login.css";
 import { connect } from "react-redux";
@@ -57,16 +52,13 @@ class Login extends Component {
           this.state.email === data.email &&
           this.state.password === data.password
         ) {
-          alert("Succesfully Logged In");
-
           this.props.setUser(res.data);
           this.props.history.push(`/home/${this.state.email}`);
           this.setState({ redirect: true });
         } else {
+          alert("User does not exist or is wrong");
           console.log("user not found");
         }
-        // alert("Succesfully retrieved");
-        // this.setState({ redirect: true });
       })
       .catch(error => {
         console.log(error);
@@ -138,8 +130,12 @@ class Login extends Component {
                 style={{ backgroundColor: "#4ea832" }}
               />
             </div>
-            <Link className="nav-link" to={`/register`}>
-                Register
+            <Link
+              className="nav-link"
+              to={`/register`}
+              style={{ textAlign: "center" }}
+            >
+              Register
             </Link>
           </form>
         </div>
