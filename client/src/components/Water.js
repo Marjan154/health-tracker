@@ -9,6 +9,7 @@ import moment from "moment";
 import { Button, Modal } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import AddModal from "./AddModal.js";
+import WaterDay from "./WaterDay";
 
 class Water extends Component {
   constructor(props) {
@@ -91,7 +92,15 @@ class Water extends Component {
           <td>{waterlog.total}</td>
           <td>{waterlog.date}</td>
           <td>
-            <Link to={`/water/${waterlog.date}/${this.state.email}`}>View</Link>
+            <AddModal
+              form={
+                <div>
+                  {<WaterDay date={waterlog.date} email={this.state.email} />}
+                </div>
+              }
+              label={"View"}
+              title={`Water log for ${waterlog.date}`}
+            />
           </td>
         </tr>
       );
@@ -159,7 +168,11 @@ class Water extends Component {
               <h1 style={{ color: "#47a02c" }}>
                 You have drank: {this.state.totalDrankToday} oz today
               </h1>
-              <AddModal form={addForm} />
+              <AddModal
+                form={addForm}
+                label={"Add log"}
+                title={"Add Water Log"}
+              />
             </div>
 
             <div style={{ padding: "50px" }}>
