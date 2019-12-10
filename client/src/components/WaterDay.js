@@ -17,7 +17,6 @@ class WaterDay extends Component {
 
   componentDidMount() {
     this.setState({ date: new Date() }, () => {
-      let url = "http://localhost:5000/api/water/groupbyday";
       this.filteredByDate(this.props.date);
     });
   }
