@@ -3,7 +3,7 @@ import styles from "../Styling/Home2.css";
 import { Link } from "react-router-dom";
 import Nav from "./Nav";
 
-class Home2 extends Component {
+class Home extends Component {
   state = { email: this.props.match.params.email };
   render() {
     const email = this.props.match.params.email;
@@ -89,4 +89,4 @@ class Home2 extends Component {
   }
 }
 
-export default Home2;
+export default Home;
