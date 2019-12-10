@@ -8,11 +8,11 @@ const Op = Sequelize.Op;
 module.exports = router;
 
 router.post("/add", async (req, res, next) => {
-  const { email, amount, date} = req.body;
+  const { email, amount, date } = req.body;
   console.log(req.body);
 
   try {
-    const created = await WaterLogs.create({ email, amount, date});
+    const created = await WaterLogs.create({ email, amount, date });
     console.log(`created ${created.username}!`);
     res.status(201).send({
       email,
@@ -30,7 +30,7 @@ router.get("/all", async (req, res, next) => {
     where: {
       email: req.query.email
     },
-    order: [['date', 'DESC']]
+    order: [["date", "DESC"]]
   })
     .then(userResponse => {
       res.status(200).json(userResponse);
@@ -45,9 +45,9 @@ router.get("/bydate", async (req, res, next) => {
   WaterLogs.findAll({
     where: {
       email: req.query.email,
-      date: req.query.date,
+      date: req.query.date
     },
-    order: [['date', 'DESC']]
+    order: [["date", "DESC"]]
   })
     .then(userResponse => {
       res.status(200).json(userResponse);
@@ -61,25 +61,28 @@ router.get("/groupbyday/:date?", async (req, res, next) => {
   console.log(req.query.email);
   console.log(req.query.date);
   // if(!req.query.date){
-    const{email, date}=req.query
-    const query=req.query.date?{email, date}:{email}
-    console.log("No date passed")
-    WaterLogs.findAll({
-      where: query,
-      // {
-      //   email: req.query.email,
-      //   date: req.query.date
-      // },
-      attributes: ['date', [Sequelize.fn('sum', Sequelize.col('amount')), 'total']],
-      order: [['date', 'DESC']],
-      group: ['date']
+  const { email, date } = req.query;
+  const query = req.query.date ? { email, date } : { email };
+  console.log("No date passed");
+  WaterLogs.findAll({
+    where: query,
+    // {
+    //   email: req.query.email,
+    //   date: req.query.date
+    // },
+    attributes: [
+      "date",
+      [Sequelize.fn("sum", Sequelize.col("amount")), "total"]
+    ],
+    order: [["date", "DESC"]],
+    group: ["date"]
+  })
+    .then(userResponse => {
+      res.status(200).json(userResponse);
     })
-      .then(userResponse => {
-        res.status(200).json(userResponse);
-      })
-      .catch(error => {
-        res.status(400).send(error);
-      });
+    .catch(error => {
+      res.status(400).send(error);
+    });
   // }
   // else{
   //   console.log("Searching with date " + req.query.date)
@@ -121,10 +124,10 @@ router.get("/groupbyday/:date?", async (req, res, next) => {
 // });
 
 router.delete("/delete", async (req, res, next) => {
-  console.log("Deleting " + req.query.waterlogid);
+  console.log("Deleting " + req.query.id);
   WaterLogs.destroy({
     where: {
-      waterlogid: req.query.waterlogid
+      waterlogid: req.query.id
     }
   })
     .then(rowDeleted => {

@@ -70,7 +70,7 @@ class ViewData extends Component {
     let url = `http://localhost:5000/api/${healthlabel}/add`;
     const data = {
       amount: this.state.amount,
-      email: this.props.match.params.email,
+      email: this.state.email,
       date: moment(this.state.startDate).format("YYYY-MM-DD")
     };
     console.log(this.state.amount);
