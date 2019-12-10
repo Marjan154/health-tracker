@@ -123,6 +123,27 @@ router.get("/groupbyday/:date?", async (req, res, next) => {
 //     });
 // });
 
+router.put("/update", async (req, res, next) => {
+  const { waterlogid, amount } = req.body;
+  console.log(req.body);
+  WaterLogs.findOne({
+    where: { waterlogid }
+  })
+    .then(log => {
+      log
+        .updateAttributes({
+          amount: parseInt(amount)
+        })
+        .then(() => {
+          console.log("I UPDATED");
+        });
+    })
+    .catch(error => {
+      res.send(error);
+      console.log(error);
+    });
+});
+
 router.delete("/delete", async (req, res, next) => {
   console.log("Deleting " + req.query.id);
   WaterLogs.destroy({

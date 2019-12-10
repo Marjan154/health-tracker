@@ -3,6 +3,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import axios from "axios";
 import styles from "../Styling/Grid.css";
 import moment from "moment";
+import Modal from "./Modal";
 
 class ViewDay extends Component {
   constructor(props) {
@@ -47,9 +48,69 @@ class ViewDay extends Component {
       });
   };
 
+  updatelog = (id, amount) => {
+    let updatelogURL = "http://localhost:5000/api/water/update";
+    axios
+      .put(updatelogURL, {
+        waterlogid: id,
+        amount
+      })
+      .then(res => {})
+      .catch(error => {
+        console.log(error);
+      });
+  };
+
+  refresh = () => {
+    this.filteredByDate(this.props.date);
+  };
+
+  inputHandler = e => {
+    e.preventDefault();
+    this.setState({ [e.target.name]: e.target.value });
+  };
+
   render() {
+    let updateForm = id => {
+      console.log("clickked");
+      return (
+        <div>
+          <form
+            className="col-md-4 mb-3"
+            style={{
+              marginLeft: "auto",
+              marginRight: "auto",
+              marginTop: "2%"
+            }}
+            onSubmit={e => {
+              e.preventDefault();
+              this.updatelog(id, this.state.amount);
+            }}
+          >
+            <div className="form-group">
+              <label style={{ fontWeight: "bold" }}>Amount (oz): </label>
+              <input
+                type="text"
+                className="form-control form-control-lg"
+                name={"amount"}
+                pattern="[0-9]*"
+                onChange={this.inputHandler}
+              />
+            </div>
+            <div className="form-group">
+              <input
+                type="submit"
+                value="Update Water Log"
+                className="btn btn-primary"
+                style={{ backgroundColor: "#47A02C" }}
+              />
+            </div>
+          </form>
+        </div>
+      );
+    };
+
     let records = this.state.logs.map(waterlog => {
-      console.log("log", waterlog);
       return (
         <tr key={waterlog.waterlogid}>
           <td>{waterlog.amount}</td>
@@ -62,6 +123,14 @@ class ViewDay extends Component {
             >
               Delete
             </button>
+          </td>
+          <td>
+            <Modal
+              form={updateForm(waterlog.waterlogid)}
+              label={"Update"}
+              title={`Update Amount`}
+              refresh={this.refresh}
+            />
           </td>
         </tr>
       );
