@@ -43,6 +43,11 @@ router.get("/all", async (req, res, next) => {
 router.get("/bydate", async (req, res, next) => {
   console.log(req.query.email);
   WaterLogs.findAll({
+    attributes: [
+      "date",
+      "amount",
+      ["waterlogid", "id"]
+    ],
     where: {
       email: req.query.email,
       date: req.query.date
