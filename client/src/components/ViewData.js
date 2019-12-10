@@ -6,9 +6,8 @@ import "react-datepicker/dist/react-datepicker.css";
 import axios from "axios";
 import styles from "../Styling/Grid.css";
 import moment from "moment";
-import { Button, Modal } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import AddModal from "./AddModal.js";
+import Modal from "./Modal";
 import ViewDay from "./ViewDay";
 
 class ViewData extends Component {
@@ -102,7 +101,7 @@ class ViewData extends Component {
             <td>{waterlog.total}</td>
             <td>{waterlog.date}</td>
             <td>
-              <AddModal
+              <Modal
                 form={
                   <div>
                     {<ViewDay date={waterlog.date} data={this.state} />}
@@ -180,7 +179,7 @@ class ViewData extends Component {
               <h1 style={{ color: "#47a02c" }}>
                 You have drank: {this.state.totalDrankToday} oz today
               </h1>
-              <AddModal
+              <Modal
                 form={addForm}
                 label={"Add log"}
                 title={"Add Water Log"}

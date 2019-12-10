@@ -1,13 +1,11 @@
 import React, { Component } from "react";
 import { Switch, Route, BrowserRouter as Router } from "react-router-dom";
 import Home from "./components/Home.js";
-import Splash from "./components/Splash.js";
 import Login from "./components/Login";
 import Register from "./components/Register";
 import Water from "./components/Water";
 import Sleep from "./components/Sleep";
 import Calories from "./components/Calories";
-import Nav from "./components/Nav";
 
 import { Provider, connect } from "react-redux";
 import store from "./store/index";
