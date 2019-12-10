@@ -48,15 +48,11 @@ class WaterDay extends Component {
         }
       })
       .then(res => {
-        console.log(res);
-        console.log(res.data);
         this.filteredByDate(date);
       })
       .catch(error => {
         console.log(error);
       });
-
-    this.props.refresh();
   };
 
   render() {
