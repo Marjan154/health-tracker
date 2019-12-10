@@ -4,15 +4,10 @@ import axios from "axios";
 import styles from "../Styling/Grid.css";
 import moment from "moment";
 
-class WaterDay extends Component {
+class ViewDay extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      email: this.props.email,
-      waterLogs: [],
-      water: 0,
-      startDate: new Date()
-    };
+    this.state = this.props.data;
   }
 
   componentDidMount() {
@@ -31,7 +26,7 @@ class WaterDay extends Component {
         }
       })
       .then(res => {
-        this.setState({ waterLogs: res.data });
+        this.setState({ logs: res.data });
       })
       .catch(error => {
         console.log(error);
@@ -55,7 +50,7 @@ class WaterDay extends Component {
   };
 
   render() {
-    let records = this.state.waterLogs.map(waterlog => {
+    let records = this.state.logs.map(waterlog => {
       console.log("log", waterlog);
       return (
         <tr key={waterlog.waterlogid}>
@@ -94,4 +89,4 @@ class WaterDay extends Component {
   }
 }
 
-export default WaterDay;
+export default ViewDay;
