@@ -39,13 +39,42 @@ class WaterDay extends Component {
       });
   }
 
+  deleteLog = (id, date) => {
+    let deletelog = "http://localhost:5000/api/water/delete";
+    axios
+      .delete(deletelog, {
+        params: {
+          waterlogid: id
+        }
+      })
+      .then(res => {
+        console.log(res);
+        console.log(res.data);
+        this.filteredByDate(date);
+      })
+      .catch(error => {
+        console.log(error);
+      });
+
+    this.props.refresh();
+  };
+
   render() {
     let records = this.state.waterLogs.map(waterlog => {
+      console.log("log", waterlog);
       return (
-        <tr key={waterlog.date}>
+        <tr key={waterlog.waterlogid}>
           <td>{waterlog.amount}</td>
           <td>{waterlog.date}</td>
-          <td>{"Delete"}</td>
+          <td>
+            <button
+              className="btn btn-primary"
+              style={{ backgroundColor: "#47a02c" }}
+              onClick={() => this.deleteLog(waterlog.waterlogid, waterlog.date)}
+            >
+              Delete
+            </button>
+          </td>
         </tr>
       );
     });

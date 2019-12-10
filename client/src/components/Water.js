@@ -85,6 +85,11 @@ class Water extends Component {
       });
   };
 
+  refresh = () => {
+    console.log("refreshing");
+    this.getTotalForADate();
+  };
+
   render() {
     let records = this.state.waterLogs.map(waterlog => {
       return (
@@ -95,7 +100,13 @@ class Water extends Component {
             <AddModal
               form={
                 <div>
-                  {<WaterDay date={waterlog.date} email={this.state.email} />}
+                  {
+                    <WaterDay
+                      date={waterlog.date}
+                      email={this.state.email}
+                      refresh={this.refresh}
+                    />
+                  }
                 </div>
               }
               label={"View"}
