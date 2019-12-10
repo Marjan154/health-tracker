@@ -25,15 +25,18 @@ class Water extends Component {
 
   componentDidMount() {
     this.setState({ startDate: new Date() });
-    // this.getTotalForADate().then(data => {
-    //   this.setState({ waterLogs: data });
-    // });
+    this.getAllDate();
 
     this.getTotalForADate(new Date()).then(data => {
-      console.log(data);
+      this.setState({ totalDrankToday: data[0] ? data[0].total : 0 });
     });
   }
 
+  getAllDate = () => {
+    this.getTotalForADate().then(data => {
+      this.setState({ waterLogs: data });
+    });
+  };
   getTotalForADate = date => {
     const param = date
       ? { email: this.state.email, date: date }
@@ -44,18 +47,18 @@ class Water extends Component {
         params: param
       })
       .then(res => {
-        console.log(res.data);
         return res.data;
       })
       .catch(error => {
         console.log(error);
       });
-    console.log(data);
     return data;
   };
 
   handleDateChange = date => {
-    // this.setState({ startDate: date, waterLogs: this.getTotalForADate(date) });
+    this.getTotalForADate(date).then(data => {
+      this.setState({ startDate: date, waterLogs: data });
+    });
   };
 
   handleFormChange = date => {
@@ -167,7 +170,7 @@ class Water extends Component {
                 boxShadow: "4px 4px 5px grey"
               }}
             >
-              {/* <Graph email={this.props.match.params.email} /> */}
+              <Graph email={this.props.match.params.email} />
             </div>
             <div
               style={{
@@ -207,7 +210,7 @@ class Water extends Component {
               <button
                 className="btn btn-primary"
                 style={{ backgroundColor: "#47a02c" }}
-                onClick={() => this.getTotalForADate()}
+                onClick={() => this.getAllDate()}
               >
                 View All
               </button>
