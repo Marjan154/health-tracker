@@ -57,23 +57,68 @@ router.get("/bydate", async (req, res, next) => {
     });
 });
 
-router.get("/groupbyday", async (req, res, next) => {
+router.get("/groupbyday/:date?", async (req, res, next) => {
   console.log(req.query.email);
-  WaterLogs.findAll({
-    where: {
-      email: req.query.email,
-    },
-    attributes: ['date', [Sequelize.fn('sum', Sequelize.col('amount')), 'total']],
-    order: [['date', 'DESC']],
-    group: ['date']
-  })
-    .then(userResponse => {
-      res.status(200).json(userResponse);
+  console.log(req.query.date);
+  // if(!req.query.date){
+    const{email, date}=req.query
+    const query=req.query.date?{email, date}:{email}
+    console.log("No date passed")
+    WaterLogs.findAll({
+      where: query,
+      // {
+      //   email: req.query.email,
+      //   date: req.query.date
+      // },
+      attributes: ['date', [Sequelize.fn('sum', Sequelize.col('amount')), 'total']],
+      order: [['date', 'DESC']],
+      group: ['date']
     })
-    .catch(error => {
-      res.status(400).send(error);
-    });
+      .then(userResponse => {
+        res.status(200).json(userResponse);
+      })
+      .catch(error => {
+        res.status(400).send(error);
+      });
+  // }
+  // else{
+  //   console.log("Searching with date " + req.query.date)
+  //   WaterLogs.findAll({
+  //     where: {
+  //       email: req.query.email,
+  //       date: req.query.date
+  //     },
+  //     attributes: ['date', [Sequelize.fn('sum', Sequelize.col('amount')), 'total']],
+  //     order: [['date', 'DESC']],
+  //     group: ['date']
+  //   })
+  //     .then(userResponse => {
+  //       res.status(200).json(userResponse);
+  //     })
+  //     .catch(error => {
+  //       res.status(400).send(error);
+  //     });
+  // }
 });
+
+// router.get("/sumofaday", async (req, res, next) => {
+//   console.log(req.query.email);
+//   WaterLogs.findAll({
+//     where: {
+//       email: req.query.email,
+//       date: req.query.date
+//     },
+//     attributes: [[Sequelize.fn('sum', Sequelize.col('amount')), 'total']],
+//     // order: [['date', 'DESC']],
+//     // group: ['date']
+//   })
+//     .then(userResponse => {
+//       res.status(200).json(userResponse);
+//     })
+//     .catch(error => {
+//       res.status(400).send(error);
+//     });
+// });
 
 router.delete("/delete", async (req, res, next) => {
   console.log("Deleting " + req.query.waterlogid);
