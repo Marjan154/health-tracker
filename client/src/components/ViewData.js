@@ -20,19 +20,24 @@ class ViewData extends Component {
     this.getAllDate();
 
     this.getTotalForADate(new Date()).then(data => {
+      console.log("Data: "+ data)
       this.setState({ totalToday: data[0] ? data[0].total : 0 });
     });
   }
 
   getAllDate = () => {
     this.getTotalForADate().then(data => {
-      this.setState({ logs: data });
+      this.setState({ logs: data }, ()=> {
+        console.log("Data: "+ this.state.logs)
+      });
     });
   };
+
   getTotalForADate = date => {
     const param = date
       ? { email: this.state.email, date: date }
       : { email: this.state.email };
+      
     const { healthlabel } = this.props;
     let url = `http://localhost:5000/api/${healthlabel}/groupbyday`;
     let data = axios
@@ -92,6 +97,8 @@ class ViewData extends Component {
   };
 
   render() {
+    const { healthlabel } = this.props;
+    console.log("Logs"+ this.state.logs)
     let records =
       this.state.logs &&
       this.state.logs.map(log => {
@@ -102,7 +109,7 @@ class ViewData extends Component {
             <td>
               <Modal
                 form={
-                  <div>{<ViewDay date={log.date} data={this.state} />}</div>
+                  <div>{<ViewDay date={log.date} data={this.state} healthlabel={healthlabel} />}</div>
                 }
                 label={"View"}
                 title={`Water log for ${log.date}`}
@@ -112,6 +119,7 @@ class ViewData extends Component {
           </tr>
         );
       });
+      console.log("Records"+ records)
 
     let addForm = (
       <div>
@@ -166,7 +174,7 @@ class ViewData extends Component {
                 boxShadow: "4px 4px 5px grey"
               }}
             >
-              <Graph email={this.state.email} />
+              {/* <Graph email={this.state.email} /> */}
             </div>
             <div
               style={{

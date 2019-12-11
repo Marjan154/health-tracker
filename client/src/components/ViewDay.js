@@ -18,7 +18,8 @@ class ViewDay extends Component {
   }
 
   filteredByDate(date) {
-    let url = "http://localhost:5000/api/water/bydate";
+    const { healthlabel } = this.props;
+    let url = `http://localhost:5000/api/${healthlabel}/bydate`;
     axios
       .get(url, {
         params: {
@@ -35,7 +36,8 @@ class ViewDay extends Component {
   }
 
   deleteLog = (id, date) => {
-    let deletelog = "http://localhost:5000/api/water/delete";
+    const { healthlabel } = this.props;
+    let deletelog = `http://localhost:5000/api/${healthlabel}/delete`;
     axios
       .delete(deletelog, {
         params: { id }
@@ -49,7 +51,8 @@ class ViewDay extends Component {
   };
 
   updatelog = (id, amount) => {
-    let updatelogURL = "http://localhost:5000/api/water/update";
+    const { healthlabel } = this.props;
+    let updatelogURL = `http://localhost:5000/api/${healthlabel}/update`;
     axios
       .put(updatelogURL, {
         id,
