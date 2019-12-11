@@ -10,9 +10,10 @@ class Home extends Component {
     return (
       <div>
         <Nav />
-        <div class="grid-container" style={{ paddingTop: "70px" }}>
-          <h1 id="homeTitle">Welcome {email} !</h1>
-          <div className="summary">
+        <div className="banner">
+          <div className="grid-container" style={{ paddingTop: "70px" }}>
+            <h1 id="homeTitle">Welcome {email} !</h1>
+            {/* <div className="summary">
             <h1 style={{ width: "inherit" }}>Summary</h1>
             <div id="icons">
               <div>
@@ -41,47 +42,51 @@ class Home extends Component {
                 <p>sleep</p>
               </div>
             </div>
-          </div>
+          </div> */}
 
-          <div className="stats">
-            <Link to={`/water/${email}`} style={{ textDecoration: "none" }}>
-              <div className="stat">
-                <div>
-                  <img
-                    src={require("../Images/drop.png")}
-                    style={{ padding: "20px" }}
-                    className="p-icon"
-                  ></img>
-                  <p>Water</p>
+            <div className="stats">
+              <Link to={`/water/${email}`} style={{ textDecoration: "none" }}>
+                <div className="stat">
+                  <div>
+                    <img
+                      src={require("../Images/drop.png")}
+                      style={{ padding: "20px" }}
+                      className="p-icon"
+                    ></img>
+                    <p>Water</p>
+                  </div>
                 </div>
-              </div>
-            </Link>
+              </Link>
 
-            <Link to={`/calories/${email}`} style={{ textDecoration: "none" }}>
-              <div className="stat">
-                <div>
-                  <img
-                    src={require("../Images/taco.png")}
-                    style={{ padding: "20px" }}
-                    className="p-icon"
-                  ></img>
-                  <p>Calories</p>
+              <Link
+                to={`/calories/${email}`}
+                style={{ textDecoration: "none" }}
+              >
+                <div className="stat">
+                  <div>
+                    <img
+                      src={require("../Images/taco.png")}
+                      style={{ padding: "20px" }}
+                      className="p-icon"
+                    ></img>
+                    <p>Calories</p>
+                  </div>
                 </div>
-              </div>
-            </Link>
+              </Link>
 
-            <Link to={`/sleep/${email}`} style={{ textDecoration: "none" }}>
-              <div className="stat">
-                <div>
-                  <img
-                    src={require("../Images/sleeping.png")}
-                    style={{ padding: "20px" }}
-                    className="p-icon"
-                  ></img>
-                  <p>Sleep</p>
+              <Link to={`/sleep/${email}`} style={{ textDecoration: "none" }}>
+                <div className="stat">
+                  <div>
+                    <img
+                      src={require("../Images/sleeping.png")}
+                      style={{ padding: "20px" }}
+                      className="p-icon"
+                    ></img>
+                    <p>Sleep</p>
+                  </div>
                 </div>
-              </div>
-            </Link>
+              </Link>
+            </div>
           </div>
         </div>
       </div>
