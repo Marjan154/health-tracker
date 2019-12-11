@@ -65,7 +65,7 @@ class ViewData extends Component {
 
   inputHandler = e => {
     e.preventDefault();
-    this.setState({ [e.target.name]: e.target.value });
+    this.setState({ [e.target.name]: e.target.value } );
   };
 
   addLog = e => {
@@ -98,7 +98,7 @@ class ViewData extends Component {
 
   render() {
     const { healthlabel } = this.props;
-    console.log("Logs"+ this.state.logs)
+    // console.log("Logs"+ this.state.logs)
     let records =
       this.state.logs &&
       this.state.logs.map(log => {
@@ -119,8 +119,8 @@ class ViewData extends Component {
           </tr>
         );
       });
-      console.log("Records"+ records)
-
+      // console.log("Records"+ records)
+  
     let addForm = (
       <div>
         <DatePicker
@@ -159,6 +159,7 @@ class ViewData extends Component {
       </div>
     );
 
+    const form = this.props.addSleepLogForm ? this.props.addSleepLogForm  : addForm ;
     return (
       <div>
         <Nav />
@@ -188,9 +189,9 @@ class ViewData extends Component {
                 {this.props.message} {this.state.totalToday} {this.props.message2}
               </h1>
               <Modal
-                form={addForm}
+                form={form}
                 label={"Add log"}
-                title={"Add Water Log"}
+                title={`Add Water Log`}
                 refresh={this.refresh}
               />
             </div>

@@ -22,17 +22,17 @@ class Graph extends Component {
   }
 
   componentDidMount() {
-    this.setState({ startDate: moment(new Date()).format("YYYY-MM-DD")}, ()=>{
-      console.log(this.state.startDate)
-    });
+    // this.setState({ startDate: moment(new Date()).format("YYYY-MM-DD")}, ()=>{
+    //   console.log(this.state.startDate)
+    // });
 
-    this.setState({ weekBefore: new Date() }, ()=>{
-      this.state.weekBefore.setDate(this.state.weekBefore.getDate() - 7);
-      console.log(this.state.weekBefore)
-      this.setState({weekBefore: moment(this.state.weekBefore).format("YYYY-MM-DD") }, ()=>{
-        console.log(this.state.weekBefore)
-      });
-    });
+    // this.setState({ weekBefore: new Date() }, ()=>{
+    //   this.state.weekBefore.setDate(this.state.weekBefore.getDate() - 7);
+    //   console.log(this.state.weekBefore)
+    //   this.setState({weekBefore: moment(this.state.weekBefore).format("YYYY-MM-DD") }, ()=>{
+    //     console.log(this.state.weekBefore)
+    //   });
+    // });
 
     const { healthlabel } = this.props;
     const useremail = this.props.email;
@@ -56,6 +56,7 @@ class Graph extends Component {
   }
 
   render() {
+    const { healthlabel } = this.props;
     let records = this.state.waterlog.map(waterData => {
       return {
         label: waterData.date,
@@ -71,8 +72,8 @@ class Graph extends Component {
     });
 
     console.log(records);
-    console.log(this.state.startDate);
-    console.log(this.state.weekBefore);
+    // console.log(this.state.startDate);
+    // console.log(this.state.weekBefore);
 
     const options = {
       animationEnabled: true,
@@ -80,7 +81,7 @@ class Graph extends Component {
       zoomType: "x",
       
       title: {
-        text: "Graph Title",
+        text: healthlabel,
         fontColor: "#47a02c"
       },
       axisX: {

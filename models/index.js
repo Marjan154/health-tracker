@@ -4,6 +4,7 @@ const HealthStats = require("./HealthStats");
 const Dates = require("./Dates");
 const WaterLogs = require("./WaterLog");
 const CalorieLogs = require("./CalorieLog");
+const SleepLogs = require("./SleepLog");
 
 module.exports = {
   db,
@@ -11,5 +12,6 @@ module.exports = {
   HealthStats,
   Dates,
   WaterLogs,
-  CalorieLogs
+  CalorieLogs,
+  SleepLogs
 };
