@@ -69,6 +69,9 @@ class Home extends Component {
         <div className="banner">
           <div className="grid-container" style={{ paddingTop: "70px" }}>
             <h1 id="homeTitle">Welcome {email} !</h1>
+            <h2 style={{ color: "#1e1e6e", width: "100vw" }}>
+              You are doing great today! Don't forget to log your daily stats.
+            </h2>
             {/* <div className="summary">
             <h1 style={{ width: "inherit" }}>Summary</h1>
             <div id="icons">
