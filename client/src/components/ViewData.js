@@ -20,15 +20,15 @@ class ViewData extends Component {
     this.getAllDate();
 
     this.getTotalForADate(new Date()).then(data => {
-      console.log("Data: "+ data)
+      console.log("Data: " + data);
       this.setState({ totalToday: data[0] ? data[0].total : 0 });
     });
   }
 
   getAllDate = () => {
     this.getTotalForADate().then(data => {
-      this.setState({ logs: data }, ()=> {
-        console.log("Data: "+ this.state.logs)
+      this.setState({ logs: data }, () => {
+        console.log("Data: " + this.state.logs);
       });
     });
   };
@@ -37,7 +37,7 @@ class ViewData extends Component {
     const param = date
       ? { email: this.state.email, date: date }
       : { email: this.state.email };
-      
+
     const { healthlabel } = this.props;
     let url = `http://localhost:5000/api/${healthlabel}/groupbyday`;
     let data = axios
@@ -65,15 +65,20 @@ class ViewData extends Component {
 
   inputHandler = e => {
     e.preventDefault();
-    this.setState({ [e.target.name]: e.target.value } );
+    this.setState({ [e.target.name]: e.target.value });
   };
 
   addLog = e => {
     e.preventDefault();
-    const { healthlabel } = this.props;
+    const { healthlabel, needsTwoInputs } = this.props;
+    let amount;
+    if (needsTwoInputs) {
+      const { hours, minutes } = this.state;
+      amount = parseInt(hours) * 60 + parseInt(minutes);
+    }
     let url = `http://localhost:5000/api/${healthlabel}/add`;
     const data = {
-      amount: this.state.amount,
+      amount: needsTwoInputs ? amount : this.state.amount,
       email: this.state.email,
       date: moment(this.state.startDate).format("YYYY-MM-DD")
     };
@@ -98,7 +103,6 @@ class ViewData extends Component {
 
   render() {
     const { healthlabel } = this.props;
-    // console.log("Logs"+ this.state.logs)
     let records =
       this.state.logs &&
       this.state.logs.map(log => {
@@ -109,7 +113,15 @@ class ViewData extends Component {
             <td>
               <Modal
                 form={
-                  <div>{<ViewDay date={log.date} data={this.state} healthlabel={healthlabel} />}</div>
+                  <div>
+                    {
+                      <ViewDay
+                        date={log.date}
+                        data={this.state}
+                        healthlabel={healthlabel}
+                      />
+                    }
+                  </div>
                 }
                 label={"View"}
                 title={`Water log for ${log.date}`}
@@ -119,8 +131,7 @@ class ViewData extends Component {
           </tr>
         );
       });
-      // console.log("Records"+ records)
-  
+
     let addForm = (
       <div>
         <DatePicker
@@ -137,15 +148,29 @@ class ViewData extends Component {
           onSubmit={this.addLog}
         >
           <div className="form-group">
-            <label style={{ fontWeight: "bold" }}>Amount (oz): </label>
+            <label style={{ fontWeight: "bold" }}>
+              {this.props.needsTwoInputs ? "Hours" : "Amount (oz):"}{" "}
+            </label>
             <input
               type="text"
               className="form-control form-control-lg"
-              name={"amount"}
+              name={this.props.needsTwoInputs ? "hours" : "amount"}
               pattern="[0-9]*"
               onChange={this.inputHandler}
             />
           </div>
+          {this.props.needsTwoInputs && (
+            <div className="form-group">
+              <label style={{ fontWeight: "bold" }}>Minutes </label>
+              <input
+                type="text"
+                className="form-control form-control-lg"
+                name={"minutes"}
+                pattern="[0-9]*"
+                onChange={this.inputHandler}
+              />
+            </div>
+          )}
 
           <div className="form-group">
             <input
@@ -159,7 +184,9 @@ class ViewData extends Component {
       </div>
     );
 
-    const form = this.props.addSleepLogForm ? this.props.addSleepLogForm  : addForm ;
+    const form = this.props.addSleepLogForm
+      ? this.props.addSleepLogForm
+      : addForm;
     return (
       <div>
         <Nav />
@@ -186,7 +213,8 @@ class ViewData extends Component {
               }}
             >
               <h1 style={{ color: "#47a02c" }}>
-                {this.props.message} {this.state.totalToday} {this.props.message2}
+                {this.props.message} {this.state.totalToday}{" "}
+                {this.props.message2}
               </h1>
               <Modal
                 form={form}

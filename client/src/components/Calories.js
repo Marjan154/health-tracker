@@ -27,6 +27,7 @@ class Calories extends Component {
           title={"Calorie"}
           message={"You have consumed: "}
           message2={"calories today"}
+          needsTwoInputs={false}
         />
       </div>
     );

@@ -14,7 +14,9 @@ class Sleep extends Component {
       email: this.props.match.params.email,
       logs: [],
       startDate: new Date(),
-      totalDrankToday: 0
+      amount: 0,
+      hours: 0,
+      minutes: 0
     };
   }
 
@@ -28,54 +30,7 @@ class Sleep extends Component {
           title={"Sleep"}
           message={"You have slept: "}
           message2={"hours today"}
-          addSleepLogForm={
-            <div>
-              <DatePicker
-              selected={this.state.startDate}
-              onChange={this.handleFormChange}
-            />
-              <form
-              className="col-md-4 mb-3"
-              style={{
-                marginLeft: "auto",
-                marginRight: "auto",
-                marginTop: "2%"
-              }}
-              onSubmit={this.addLog}
-              >
-          <div className="form-group">
-            <label style={{ fontWeight: "bold" }}>Hours: </label>
-            <input
-              type="text"
-              className="form-control form-control-lg"
-              name={"hours"}
-              pattern="[0-9]*"
-              onChange={this.inputHandler}
-            />
-          </div>
-
-          <div className="form-group">
-            <label style={{ fontWeight: "bold" }}>Minutes: </label>
-            <input
-              type="text"
-              className="form-control form-control-lg"
-              name={"minute"}
-              pattern="[0-9]*"
-              onChange={this.inputHandler}
-            />
-          </div>
-
-          <div className="form-group">
-            <input
-              type="submit"
-              value="Add to Water Log"
-              className="btn btn-primary"
-              style={{ backgroundColor: "#47a02c" }}
-            />
-          </div>
-        </form>
-      </div>
-          }
+          needsTwoInputs={true}
         />
       </div>
     );

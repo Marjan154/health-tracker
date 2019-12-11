@@ -75,7 +75,6 @@ class ViewDay extends Component {
 
   render() {
     let updateForm = id => {
-      console.log("clickked");
       return (
         <div>
           <form
