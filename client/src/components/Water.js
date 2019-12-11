@@ -27,6 +27,7 @@ class Water extends Component {
           title={"Water"}
           message={"You have drank: "}
           message2={"oz today"}
+          needsTwoInputs={false}
         />
       </div>
     );
