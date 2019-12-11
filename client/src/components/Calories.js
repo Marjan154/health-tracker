@@ -26,6 +26,7 @@ class Calories extends Component {
           healthlabel={"calories"}
           title={"Calorie"}
           message={"You have consumed: "}
+          message2={"calories today"}
         />
       </div>
     );

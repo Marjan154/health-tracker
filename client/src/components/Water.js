@@ -26,6 +26,7 @@ class Water extends Component {
           healthlabel={"water"}
           title={"Water"}
           message={"You have drank: "}
+          message2={"oz today"}
         />
       </div>
     );

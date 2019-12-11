@@ -185,7 +185,7 @@ class ViewData extends Component {
               }}
             >
               <h1 style={{ color: "#47a02c" }}>
-                {this.props.message} {this.state.totalToday} oz today
+                {this.props.message} {this.state.totalToday} {this.props.message2}
               </h1>
               <Modal
                 form={addForm}
@@ -230,7 +230,7 @@ class ViewData extends Component {
               >
                 <thead className="thead-light">
                   <tr>
-                    <th>Water</th>
+                    <th>{healthlabel}</th>
                     <th>Date</th>
                     <th>View</th>
                   </tr>
