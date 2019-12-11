@@ -209,7 +209,7 @@ class ViewData extends Component {
             </h1>
             <div
               style={{
-                width: "35em",
+                width: "50em",
                 height: "500px",
                 boxShadow: "4px 4px 5px grey"
               }}
@@ -218,9 +218,9 @@ class ViewData extends Component {
             </div>
             <div
               style={{
-                width: "35em",
+                width: "20em",
                 height: "500px",
-                boxShadow: "4px 4px 5px grey",
+                // boxShadow: "4px 4px 5px grey",
                 padding: "50px"
               }}
             >
