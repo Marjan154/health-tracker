@@ -104,7 +104,7 @@ class ViewDay extends Component {
                 type="submit"
                 value="Update Water Log"
                 className="btn btn-primary"
-                style={{ backgroundColor: "#47A02C" }}
+                style={{ backgroundColor: "#91b0ff" }}
               />
             </div>
           </form>
@@ -120,7 +120,7 @@ class ViewDay extends Component {
           <td>
             <button
               className="btn btn-primary"
-              style={{ backgroundColor: "#47a02c" }}
+              style={{ backgroundColor: "#91b0ff" }}
               onClick={() => this.deleteLog(log.id, log.date)}
             >
               Delete

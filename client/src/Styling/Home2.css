@@ -12,7 +12,7 @@
 
 .banner {
   width: 100vw;
-  height: 60vh;
+  height: 70vh;
   background-color: #91b0ff;
 }
 
@@ -28,7 +28,7 @@
   transition: all 0.4s ease-in-out;
   font-family: "Quicksand", sans-serif;
   font-weight: 1000;
-  color: #47a02c;
+  color: #91b0ff;
   border: solid 1px #73c45a;
 }
 
@@ -46,7 +46,7 @@
   transition: all 0.4s ease-in-out;
   font-family: "Quicksand", sans-serif;
   font-weight: 1000;
-  color: #47a02c;
+  color: #91b0ff;
   border: solid 1px black;
 }
 
