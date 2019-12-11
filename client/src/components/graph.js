@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import CanvasJSReact from "./canvasjs.react.js";
 import axios from "axios";
 import { connect } from "react-redux";
+import moment from "moment";
 
 //var CanvasJS = CanvasJSReact.CanvasJS;
 
@@ -14,14 +15,29 @@ class Graph extends Component {
     super(props);
     this.state = {
       waterlog: [],
-      waterDatatodisplayonGraph: []
+      waterDatatodisplayonGraph: [],
+      startDate: new Date,
+      weekBefore: new Date
     };
   }
 
   componentDidMount() {
+    this.setState({ startDate: moment(new Date()).format("YYYY-MM-DD")}, ()=>{
+      console.log(this.state.startDate)
+    });
+
+    this.setState({ weekBefore: new Date() }, ()=>{
+      this.state.weekBefore.setDate(this.state.weekBefore.getDate() - 7);
+      console.log(this.state.weekBefore)
+      this.setState({weekBefore: moment(this.state.weekBefore).format("YYYY-MM-DD") }, ()=>{
+        console.log(this.state.weekBefore)
+      });
+    });
+
+    const { healthlabel } = this.props;
     const useremail = this.props.email;
     //console.log(this.props.user.email);
-    let url = "http://localhost:5000/api/water/all";
+    let url = `http://localhost:5000/api/${healthlabel}/groupbyday`;
     axios
       .get(url, {
         params: {
@@ -43,7 +59,7 @@ class Graph extends Component {
     let records = this.state.waterlog.map(waterData => {
       return {
         label: waterData.date,
-        y: parseInt(waterData.amount)
+        y: parseInt(waterData.total)
       };
       // const newData={
       //   x: waterData.createdAt,
@@ -55,9 +71,14 @@ class Graph extends Component {
     });
 
     console.log(records);
+    console.log(this.state.startDate);
+    console.log(this.state.weekBefore);
 
     const options = {
       animationEnabled: true,
+      zoomEnabled: true,
+      zoomType: "x",
+      
       title: {
         text: "Graph Title",
         fontColor: "#47a02c"
@@ -65,7 +86,9 @@ class Graph extends Component {
       axisX: {
         title: "DATES",
         titleFontColor: "#47a02c",
-        labelAngle: 120
+        labelAngle: 120,
+        // viewportMinimum: this.state.weekBefore,
+        // viewportMaximum: this.state.startDate
       },
       axisY: {
         title: "Water Intake (oz)",
@@ -76,7 +99,7 @@ class Graph extends Component {
           // Change type to "doughnut", "line", "splineArea", etc.
           //label=x-axis
           //y=values
-          type: "line",
+          type: "column",
           dataPoints: records
           // [
           //   { label: "12/1/19",  y: 10,  x: 1 },
@@ -87,7 +110,11 @@ class Graph extends Component {
       ]
     };
 
-    return <CanvasJSChart options={options}></CanvasJSChart>;
+    return (
+      <div>
+        <CanvasJSChart options={options}></CanvasJSChart>
+      </div>
+    );
   }
 }
 

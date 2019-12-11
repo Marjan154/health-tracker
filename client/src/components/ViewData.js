@@ -174,7 +174,7 @@ class ViewData extends Component {
                 boxShadow: "4px 4px 5px grey"
               }}
             >
-              {/* <Graph email={this.state.email} /> */}
+              <Graph email={this.state.email} healthlabel={healthlabel} />
             </div>
             <div
               style={{
