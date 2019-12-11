@@ -253,18 +253,18 @@ class ViewData extends Component {
                 onChange={this.handleDateChange}
               />
               <h3
-                className="text-dark"
                 style={{
                   fontSize: "3em",
                   marginTop: "1%",
-                  textAlign: "center"
+                  textAlign: "center",
+                  color: "#91b0ff"
                 }}
               >
                 {this.state.startDate.toDateString()}
               </h3>
               <button
                 className="btn btn-primary"
-                style={{ backgroundColor: "#245db3" }}
+                style={{ backgroundColor: "#1e1e6e" }}
                 onClick={() => this.getAllDate()}
               >
                 View All
