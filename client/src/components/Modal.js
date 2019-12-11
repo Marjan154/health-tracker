@@ -24,7 +24,7 @@ class MyModal extends Component {
         <Button
           variant="primary"
           onClick={handleShow}
-          style={{ backgroundColor: "#47a02c" }}
+          style={{ backgroundColor: "#1e1e6e" }}
         >
           {this.props.label}
         </Button>

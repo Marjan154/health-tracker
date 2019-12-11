@@ -16,8 +16,8 @@ class Graph extends Component {
     this.state = {
       waterlog: [],
       waterDatatodisplayonGraph: [],
-      startDate: new Date,
-      weekBefore: new Date
+      startDate: new Date(),
+      weekBefore: new Date()
     };
   }
 
@@ -79,21 +79,21 @@ class Graph extends Component {
       animationEnabled: true,
       zoomEnabled: true,
       zoomType: "x",
-      
+
       title: {
         text: healthlabel,
-        fontColor: "#47a02c"
+        fontColor: "#91b0ff"
       },
       axisX: {
         title: "DATES",
-        titleFontColor: "#47a02c",
-        labelAngle: 120,
+        titleFontColor: "#91b0ff",
+        labelAngle: 120
         // viewportMinimum: this.state.weekBefore,
         // viewportMaximum: this.state.startDate
       },
       axisY: {
         title: "Water Intake (oz)",
-        titleFontColor: "#47a02c"
+        titleFontColor: "#91b0ff"
       },
       data: [
         {

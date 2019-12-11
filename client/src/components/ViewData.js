@@ -161,7 +161,7 @@ class ViewData extends Component {
         >
           <div className="form-group">
             <label style={{ fontWeight: "bold" }}>
-              {this.props.needsTwoInputs ? "Hours" : "Amount (oz):"}{" "}
+              {this.props.needsTwoInputs ? "" : "Amount (oz):"}{" "}
             </label>
             <input
               type="text"
@@ -189,7 +189,7 @@ class ViewData extends Component {
               type="submit"
               value="Add to Water Log"
               className="btn btn-primary"
-              style={{ backgroundColor: "#47a02c" }}
+              style={{ backgroundColor: "#91b0ff" }}
             />
           </div>
         </form>
@@ -202,9 +202,16 @@ class ViewData extends Component {
     return (
       <div>
         <Nav />
-        <div>
+        <div className="banner">
           <div className="grid-container" style={{ paddingTop: "150px" }}>
-            <h1 style={{ width: "100vw", paddingBottom: "50px" }}>
+            <h1
+              style={{
+                width: "100vw",
+                paddingBottom: "50px",
+                color: "#1e1e6e",
+                fontSize: "60px"
+              }}
+            >
               {this.props.title}
             </h1>
             <div
@@ -224,8 +231,11 @@ class ViewData extends Component {
                 padding: "50px"
               }}
             >
-              <h1 style={{ color: "#47a02c" }}>
-                {this.props.message} {this.state.totalToday}{" "}
+              <h1 style={{ color: "#1e1e6e", paddingTop: "60px" }}>
+                {this.props.message}
+                {this.props.needsTwoInputs
+                  ? this.minutesToHoursTimeString(this.state.totalToday)
+                  : this.state.totalToday}
                 {this.props.message2}
               </h1>
               <Modal
@@ -254,7 +264,7 @@ class ViewData extends Component {
               </h3>
               <button
                 className="btn btn-primary"
-                style={{ backgroundColor: "#47a02c" }}
+                style={{ backgroundColor: "#245db3" }}
                 onClick={() => this.getAllDate()}
               >
                 View All
