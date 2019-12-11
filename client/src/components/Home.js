@@ -5,7 +5,7 @@ import Nav from "./Nav";
 import axios from "axios";
 
 class Home extends Component {
-  state = { 
+  state = {
     email: this.props.match.params.email,
     waterTotalToday: 0,
     sleepHoursTotalToday: 0,
@@ -14,29 +14,33 @@ class Home extends Component {
     calorieTotalToday: 0
   };
 
-  componentDidMount(){
+  componentDidMount() {
     this.getTotalForADate(new Date(), "water").then(data => {
       console.log("Data: " + data);
       this.setState({ waterTotalToday: data[0] ? data[0].total : 0 });
     });
     this.getTotalForADate(new Date(), "sleep").then(data => {
       console.log("Data: " + data);
-      this.setState({ sleepTotalToday: data[0] ? data[0].total : 0 }, ()=>{
-        console.log(this.state.sleepTotalToday)
-        this.setState( {sleepHoursTotalToday: Math.floor(this.state.sleepTotalToday/60) }, ()=>{
-          console.log(this.statesleepHoursTotalToday)
-        })
-        this.setState( {sleepMinutesTotalToday: this.state.sleepTotalToday%60}, ()=>{
-        console.log(this.state.sleepMinutesTotalToday)
-        })
+      this.setState({ sleepTotalToday: data[0] ? data[0].total : 0 }, () => {
+        console.log(this.state.sleepTotalToday);
+        this.setState(
+          { sleepHoursTotalToday: Math.floor(this.state.sleepTotalToday / 60) },
+          () => {
+            console.log(this.statesleepHoursTotalToday);
+          }
+        );
+        this.setState(
+          { sleepMinutesTotalToday: this.state.sleepTotalToday % 60 },
+          () => {
+            console.log(this.state.sleepMinutesTotalToday);
+          }
+        );
       });
     });
     this.getTotalForADate(new Date(), "calories").then(data => {
       console.log("Data: " + data);
       this.setState({ calorieTotalToday: data[0] ? data[0].total : 0 });
     });
-
-    
   }
 
   getTotalForADate = (date, type) => {
@@ -57,7 +61,6 @@ class Home extends Component {
     return data;
   };
 
-  
   render() {
     const email = this.props.match.params.email;
     return (
@@ -96,7 +99,6 @@ class Home extends Component {
               </div>
             </div>
           </div> */}
-          
 
             <div className="stats">
               <Link to={`/water/${email}`} style={{ textDecoration: "none" }}>
@@ -108,9 +110,9 @@ class Home extends Component {
                       className="p-icon"
                     ></img>
                     <h1>Water</h1>
-                    <h1 style={{ color: "#47a02c" }}>
-                        {this.state.waterTotalToday} oz
-                    </h1>
+                    <h3 style={{ color: "#1e1e6e" }}>
+                      {this.state.waterTotalToday} oz
+                    </h3>
                   </div>
                 </div>
               </Link>
@@ -127,9 +129,9 @@ class Home extends Component {
                       className="p-icon"
                     ></img>
                     <h1>Calories</h1>
-                    <h1 style={{ color: "#47a02c" }}>
-                        {this.state.calorieTotalToday} calories
-                    </h1>
+                    <h3 style={{ color: "#1e1e6e" }}>
+                      {this.state.calorieTotalToday} calories
+                    </h3>
                   </div>
                 </div>
               </Link>
@@ -143,9 +145,10 @@ class Home extends Component {
                       className="p-icon"
                     ></img>
                     <h1>Sleep</h1>
-                    <h1 style={{ color: "#47a02c" }}>
-                      {this.state.sleepHoursTotalToday} hours and {this.state.sleepMinutesTotalToday} minutes
-                    </h1>
+                    <h3 style={{ color: "#1e1e6e" }}>
+                      {this.state.sleepHoursTotalToday} hours and{" "}
+                      {this.state.sleepMinutesTotalToday} minutes
+                    </h3>
                   </div>
                 </div>
               </Link>
