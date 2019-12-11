@@ -8,7 +8,12 @@
   justify-content: center;
   text-align: center;
   padding-top: 40px;
-  /* background-color: #baffa7; */
+}
+
+.banner {
+  width: 100vw;
+  height: 60vh;
+  background-color: #91b0ff;
 }
 
 .summary {
@@ -42,13 +47,15 @@
   font-family: "Quicksand", sans-serif;
   font-weight: 1000;
   color: #47a02c;
-  border: solid 1px #73c45a;
+  border: solid 1px black;
 }
 
 #homeTitle {
   font-family: "Quicksand", sans-serif;
+  padding-top: 40px;
+  font-size: 70px;
   font-weight: 1000;
-  color: #47a02c;
+  color: white;
 }
 
 .stat:hover {
@@ -65,8 +72,9 @@
 }
 
 .p-icon {
-  max-height: 100px;
+  /* max-height: 100px; */
   max-width: 30vw;
+  width: 150px;
 }
 
 #icons {
