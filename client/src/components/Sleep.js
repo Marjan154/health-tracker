@@ -29,7 +29,7 @@ class Sleep extends Component {
           healthlabel={"sleep"}
           title={"Sleep"}
           message={"You have slept: "}
-          message2={"hours today"}
+          message2={"today"}
           needsTwoInputs={true}
         />
       </div>
