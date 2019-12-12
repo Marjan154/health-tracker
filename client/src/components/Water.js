@@ -28,6 +28,7 @@ class Water extends Component {
           message={"You have drank: "}
           message2={"oz today"}
           needsTwoInputs={false}
+          graphyAxis={"Water drank (oz)"}
         />
       </div>
     );
