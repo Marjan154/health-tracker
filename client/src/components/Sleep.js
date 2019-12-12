@@ -31,6 +31,7 @@ class Sleep extends Component {
           message={"You have slept: "}
           message2={"today"}
           needsTwoInputs={true}
+          graphyAxis={"minutes"}
         />
       </div>
     );
