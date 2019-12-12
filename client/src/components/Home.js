@@ -16,15 +16,36 @@ class Home extends Component {
   componentDidMount() {
     this.getTotalForADate(new Date(), "water").then(data => {
       console.log("Data: " + data);
+      if (data && data.length > 0) {
       this.setState({ waterTotalToday: data[0] ? data[0].total : 0 });
+      }
+      else{
+        this.setState({ waterTotalToday: 0 }, ()=>{
+          console.log(this.state.waterTotalToday)
+        });
+      }
     });
     this.getTotalForADate(new Date(), "sleep").then(data => {
-      console.log("Data: " + data && data[0]);
+      console.log("Data: " + data);
+      if (data &&data.length > 0 ) {
       this.setState({ sleepTotalToday: data[0] ? data[0].total : 0 });
+      }
+      else{
+        this.setState({ sleepTotalToday: 0 }, ()=>{
+          console.log(this.state.sleepTotalToday)
+        });
+      }
     });
     this.getTotalForADate(new Date(), "calories").then(data => {
       console.log("Data: " + data);
+      if (data && data.length > 0) {
       this.setState({ calorieTotalToday: data[0] ? data[0].total : 0 });
+      }
+      else{
+        this.setState({ calorieTotalToday: 0 }, ()=>{
+          console.log(this.state.calorieTotalToday)
+        });
+      }
     });
   }
 
