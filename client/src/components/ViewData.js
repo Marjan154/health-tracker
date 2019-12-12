@@ -86,15 +86,15 @@ class ViewData extends Component {
     };
     // console.log(this.state.amount);
     // console.log("Amount "+ data.amount)
-    if(data.amount){
+    if (data.amount) {
       axios
-      .post(url, data)
-      .then(res => {
-        console.log(res.data);
-      })
-      .catch(error => {
-        console.log(error);
-      });
+        .post(url, data)
+        .then(res => {
+          console.log(res.data);
+        })
+        .catch(error => {
+          console.log(error);
+        });
     }
   };
 
