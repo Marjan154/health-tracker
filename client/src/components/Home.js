@@ -83,7 +83,7 @@ class Home extends Component {
         <div className="banner">
           <div
             className="grid-container"
-            style={{ paddingTop: "70px", marginBottom: "200px" }}
+            style={{ paddingTop: "70px", marginBottom: "120px" }}
           >
             <h1
               id="homeTitle"
