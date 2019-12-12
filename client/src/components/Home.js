@@ -69,45 +69,31 @@ class Home extends Component {
       <div>
         <Nav />
         <div className="banner">
-          <div className="grid-container" style={{ paddingTop: "70px" }}>
-            <h1 id="homeTitle">Welcome {email} !</h1>
+          <div
+            className="grid-container"
+            style={{ paddingTop: "70px", paddingBottom: "50px" }}
+          >
+            <h1
+              id="homeTitle"
+              style={{
+                paddingBottom: "20px"
+              }}
+            >
+              Welcome {email} !
+            </h1>
 
-            <h2 style={{ color: "#1e1e6e", width: "100vw" }}>
+            <h2
+              style={{
+                color: "#1e1e6e",
+                width: "100vw",
+                paddingBottom: "20px"
+              }}
+            >
               {d.toDateString()}.
               <br />
               <br />
               You are doing great today! Don't forget to log your daily stats.
             </h2>
-            {/* <div className="summary">
-            <h1 style={{ width: "inherit" }}>Summary</h1>
-            <div id="icons">
-              <div>
-                <img
-                  src={require("../Images/drop.png")}
-                  style={{ padding: "20px" }}
-                  className="p-icon"
-                ></img>
-                <p>water</p>
-              </div>
-
-              <div>
-                <img
-                  src={require("../Images/taco.png")}
-                  style={{ padding: "20px" }}
-                  className="p-icon"
-                ></img>
-                <p>calories</p>
-              </div>
-              <div>
-                <img
-                  src={require("../Images/sleeping.png")}
-                  style={{ padding: "20px" }}
-                  className="p-icon"
-                ></img>
-                <p>sleep</p>
-              </div>
-            </div>
-          </div> */}
 
             <div className="stats">
               <Link to={`/water/${email}`} style={{ textDecoration: "none" }}>
@@ -163,6 +149,7 @@ class Home extends Component {
               </Link>
             </div>
           </div>
+          <Footer />
         </div>
       </div>
     );
@@ -170,3 +157,36 @@ class Home extends Component {
 }
 
 export default Home;
+
+{
+  /* <div className="summary">
+            <h1 style={{ width: "inherit" }}>Summary</h1>
+            <div id="icons">
+              <div>
+                <img
+                  src={require("../Images/drop.png")}
+                  style={{ padding: "20px" }}
+                  className="p-icon"
+                ></img>
+                <p>water</p>
+              </div>
+
+              <div>
+                <img
+                  src={require("../Images/taco.png")}
+                  style={{ padding: "20px" }}
+                  className="p-icon"
+                ></img>
+                <p>calories</p>
+              </div>
+              <div>
+                <img
+                  src={require("../Images/sleeping.png")}
+                  style={{ padding: "20px" }}
+                  className="p-icon"
+                ></img>
+                <p>sleep</p>
+              </div>
+            </div>
+          </div> */
+}

@@ -8,6 +8,7 @@ import styles from "../Styling/Grid.css";
 import moment from "moment";
 import Modal from "./Modal";
 import ViewDay from "./ViewDay";
+import Footer from "./Footer.js";
 
 class ViewData extends Component {
   constructor(props) {
@@ -222,7 +223,12 @@ class ViewData extends Component {
                 boxShadow: "4px 4px 5px grey"
               }}
             >
-              <Graph email={this.state.email} healthlabel={healthlabel} graphyAxis={this.props.graphyAxis} title={this.props.title}/>
+              <Graph
+                email={this.state.email}
+                healthlabel={healthlabel}
+                graphyAxis={this.props.graphyAxis}
+                title={this.props.title}
+              />
             </div>
             <div
               style={{
@@ -300,6 +306,7 @@ class ViewData extends Component {
               </table>
             </div>
           </div>
+          <Footer />
         </div>
       </div>
     );

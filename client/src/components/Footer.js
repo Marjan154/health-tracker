@@ -5,14 +5,16 @@ class Footer extends Component {
   render() {
     return (
       <footer
-        // className="py-2 bg-dark text-light"
+        // className="py-2 bg-dark text-light #1e1e6e"
         style={{
           bottom: 0,
           position: "fixed",
           width: "100%",
-          height: "100px",
+          height: "120px",
           backgroundColor: "#1e1e6e",
-          color: "white"
+          color: "white",
+          paddingTop: "5px",
+          position: "relative"
         }}
       >
         <div className="container text-center">

@@ -67,72 +67,78 @@ class Reg extends Component {
     }
 
     return (
-      <div id="loginform">
-        <div
-          className="container login-container"
-          style={{ marginTop: "5%", marginBottom: "5%" }}
-        >
-          <form onSubmit={this.onSubmit}>
-            <h3
-              style={{
-                textAlign: "center",
-                marginBottom: "5%",
-                fontSize: "50px"
-              }}
-            >
-              Register
-            </h3>
-            <div className="form-group">
-              <label style={{ fontWeight: "bold" }} for="email1">
-                Email:
-              </label>
-              <input
-                className="form-control"
-                type="text"
-                required
-                id="email1"
-                value={this.state.email}
-                onChange={this.onChangeEmail}
-              />
-            </div>
-            <div className="form-group">
-              <label style={{ fontWeight: "bold" }} for="pw">
-                Password:
-              </label>
-              <input
-                className="form-control"
-                type={this.state.hidden ? "password" : "text"}
-                required
-                id="pw"
-                value={this.state.password}
-                onChange={this.onChangePass}
-              />
-            </div>
-            <div className="form-group">
-              <label style={{ fontWeight: "bold" }} for="pw2">
-                Re-enter Password:
-              </label>
-              <input
-                className="form-control"
-                type={this.state.hidden ? "password" : "text"}
-                required
-                id="pw2"
-                value={this.state.password2}
-                onChange={this.onChangePass2}
-              />
-            </div>
-            <div className="form-group text-center">
-              <input
-                className="btn btn-primary btn-lg #1e1e6e"
-                type="submit"
-                value="Register"
-                style={{ backgroundColor: "#1e1e6e" }}
-              />
-            </div>
-            <Link className="nav-link" to={`/`} style={{ textAlign: "center" }}>
-              Login
-            </Link>
-          </form>
+      <div>
+        <div id="loginform">
+          <div
+            className="container login-container"
+            style={{ marginTop: "5%", marginBottom: "5%" }}
+          >
+            <form onSubmit={this.onSubmit}>
+              <h3
+                style={{
+                  textAlign: "center",
+                  marginBottom: "5%",
+                  fontSize: "50px"
+                }}
+              >
+                Register
+              </h3>
+              <div className="form-group">
+                <label style={{ fontWeight: "bold" }} for="email1">
+                  Email:
+                </label>
+                <input
+                  className="form-control"
+                  type="text"
+                  required
+                  id="email1"
+                  value={this.state.email}
+                  onChange={this.onChangeEmail}
+                />
+              </div>
+              <div className="form-group">
+                <label style={{ fontWeight: "bold" }} for="pw">
+                  Password:
+                </label>
+                <input
+                  className="form-control"
+                  type={this.state.hidden ? "password" : "text"}
+                  required
+                  id="pw"
+                  value={this.state.password}
+                  onChange={this.onChangePass}
+                />
+              </div>
+              <div className="form-group">
+                <label style={{ fontWeight: "bold" }} for="pw2">
+                  Re-enter Password:
+                </label>
+                <input
+                  className="form-control"
+                  type={this.state.hidden ? "password" : "text"}
+                  required
+                  id="pw2"
+                  value={this.state.password2}
+                  onChange={this.onChangePass2}
+                />
+              </div>
+              <div className="form-group text-center">
+                <input
+                  className="btn btn-primary btn-lg #1e1e6e"
+                  type="submit"
+                  value="Register"
+                  style={{ backgroundColor: "#1e1e6e" }}
+                />
+              </div>
+              <Link
+                className="nav-link"
+                to={`/`}
+                style={{ textAlign: "center" }}
+              >
+                Login
+              </Link>
+            </form>
+          </div>
         </div>
         <Footer />
       </div>
