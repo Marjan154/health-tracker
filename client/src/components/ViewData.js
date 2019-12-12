@@ -77,15 +77,17 @@ class ViewData extends Component {
       const { hours, minutes } = this.state;
       amount = parseInt(hours) * 60 + parseInt(minutes);
     }
+
     let url = `http://localhost:5000/api/${healthlabel}/add`;
     const data = {
       amount: needsTwoInputs ? amount : this.state.amount,
       email: this.state.email,
       date: moment(this.state.startDate).format("YYYY-MM-DD")
     };
-    console.log(this.state.amount);
-
-    axios
+    // console.log(this.state.amount);
+    // console.log("Amount "+ data.amount)
+    if(data.amount){
+      axios
       .post(url, data)
       .then(res => {
         console.log(res.data);
@@ -93,6 +95,7 @@ class ViewData extends Component {
       .catch(error => {
         console.log(error);
       });
+    }
   };
 
   refresh = () => {
