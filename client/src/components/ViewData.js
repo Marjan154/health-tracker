@@ -112,7 +112,7 @@ class ViewData extends Component {
   };
 
   render() {
-    const { healthlabel, needsTwoInputs } = this.props;
+    const { healthlabel, needsTwoInputs, title } = this.props;
     let records =
       this.state.logs &&
       this.state.logs.map(log => {
@@ -133,12 +133,13 @@ class ViewData extends Component {
                         date={log.date}
                         data={this.state}
                         healthlabel={healthlabel}
+                        title={title}
                       />
                     }
                   </div>
                 }
                 label={"View"}
-                title={`Water log for ${log.date}`}
+                title={`${this.props.title} log for ${log.date}`}
                 refresh={this.refresh}
               />
             </td>
@@ -189,7 +190,7 @@ class ViewData extends Component {
           <div className="form-group">
             <input
               type="submit"
-              value="Add to Water Log"
+              value="Add to Log"
               className="btn btn-primary"
               style={{ backgroundColor: "#91b0ff" }}
             />
@@ -256,7 +257,7 @@ class ViewData extends Component {
               <Modal
                 form={form}
                 label={"Add log"}
-                title={`Add Water Log`}
+                title={`Add to Log`}
                 refresh={this.refresh}
               />
             </div>
@@ -299,7 +300,7 @@ class ViewData extends Component {
               >
                 <thead className="thead-light">
                   <tr>
-                    <th>{healthlabel}</th>
+                    <th>{this.props.title}</th>
                     <th>Date</th>
                     <th>View</th>
                   </tr>

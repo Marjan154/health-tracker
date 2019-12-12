@@ -147,7 +147,7 @@ class ViewDay extends Component {
       >
         <thead className="thead-light">
           <tr>
-            <th>Water</th>
+            <th>{this.props.title}</th>
             <th>Date</th>
             <th colspan="2">Edit</th>
           </tr>
