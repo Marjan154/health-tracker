@@ -253,7 +253,7 @@ class ViewData extends Component {
               />
             </div>
 
-            <div style={{ padding: "50px" }}>
+            <div style={{ padding: "20px" }}>
               <h3
                 className="myfont"
                 style={{
