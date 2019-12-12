@@ -47,7 +47,7 @@ class Graph extends Component {
 
   render() {
     const { healthlabel, graphyAxis, title } = this.props;
-    let records = this.state.waterlog.map(waterData => {
+    let records = this.state.waterlog.reverse().map(waterData => {
       return {
         label: waterData.date,
         y: parseInt(waterData.total)
