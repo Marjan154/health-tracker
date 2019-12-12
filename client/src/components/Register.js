@@ -100,13 +100,15 @@ class Reg extends Component {
 
     return (
       <div>
-        <div className = "titleName">
-          <span style= {{marginLeft : 45}}>Health Tracker</span>
+        <div className = "titleName" style={{paddingTop:"70px"}}>
+          <img id="mainlogo" src={require("../Images/logo.png")}></img>
+          <span>Health Tracker</span>
+          
         </div>
         <div id="loginform">
           <div
             className="container login-container"
-            style={{ marginTop: "5%", marginBottom: "5%" }}
+            style={{ marginTop: "2%", marginBottom: "5%" }}
           >
             <form onSubmit={this.onSubmit}>
               <h3

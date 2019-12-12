@@ -31,10 +31,17 @@
 }
 
 .titleName {
-  font-size: 2em;
+  font-size: 4.5em;
   background-color: #91b0ff;
-  font-family: "Quicksand", sans-serif;
-  background-image: url(../Images/logo.png);
-  background-size: 42px 42px;
-  background-repeat: no-repeat;
+  font-family: "Ubuntu", sans-serif;
+  bottom: 0;
+  padding-bottom: 0;
+  text-align: center;
+  line-height: 0;
+}
+
+#mainlogo{
+  text-align: center;
+  max-width: 63px;
+  padding-bottom: 20px;
 }
