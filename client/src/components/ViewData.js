@@ -126,7 +126,7 @@ class ViewData extends Component {
             <td>
               {needsTwoInputs
                 ? this.minutesToHoursTimeString(log.total)
-                : log.total}
+                : log.total} {needsTwoInputs? "": this.props.units}
             </td>
             <td>
               <Modal

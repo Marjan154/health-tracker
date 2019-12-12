@@ -29,6 +29,7 @@ class Calories extends Component {
           message2={"calories today"}
           needsTwoInputs={false}
           graphyAxis={"Calorie intake"}
+          units={"(cal)"}
         />
       </div>
     );
