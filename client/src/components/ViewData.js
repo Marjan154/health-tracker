@@ -167,7 +167,7 @@ class ViewData extends Component {
         >
           <div className="form-group">
             <label style={{ fontWeight: "bold" }}>
-              {this.props.needsTwoInputs ? "Hours" : "Amount (oz):"}{" "}
+              {this.props.needsTwoInputs ? "Hours" : "Amount:"}{" "}
             </label>
             <input
               type="text"
