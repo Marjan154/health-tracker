@@ -28,7 +28,7 @@ class Calories extends Component {
           message={"You have consumed: "}
           message2={"calories today"}
           needsTwoInputs={false}
-          graphyAxis={"Calories consumed"}
+          graphyAxis={"Calorie intake"}
         />
       </div>
     );
