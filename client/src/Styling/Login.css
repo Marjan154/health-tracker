@@ -34,4 +34,7 @@
   font-size: 2em;
   background-color: #91b0ff;
   font-family: "Quicksand", sans-serif;
+  background-image: url(../Images/logo.png);
+  background-size: 42px 42px;
+  background-repeat: no-repeat;
 }
