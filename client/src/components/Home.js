@@ -16,7 +16,7 @@ class Home extends Component {
   componentDidMount() {
     this.getTotalForADate(new Date(), "water").then(data => {
       console.log("Data: " + data);
-      if (data.length > 0) {
+      if (data && data.length > 0) {
       this.setState({ waterTotalToday: data[0] ? data[0].total : 0 });
       }
       else{
@@ -27,7 +27,7 @@ class Home extends Component {
     });
     this.getTotalForADate(new Date(), "sleep").then(data => {
       console.log("Data: " + data);
-      if (data.length > 0) {
+      if (data &&data.length > 0 ) {
       this.setState({ sleepTotalToday: data[0] ? data[0].total : 0 });
       }
       else{
@@ -38,7 +38,7 @@ class Home extends Component {
     });
     this.getTotalForADate(new Date(), "calories").then(data => {
       console.log("Data: " + data);
-      if (data.length > 0) {
+      if (data && data.length > 0) {
       this.setState({ calorieTotalToday: data[0] ? data[0].total : 0 });
       }
       else{
