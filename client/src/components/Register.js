@@ -1,7 +1,8 @@
 import React, { Component } from "react";
-import { Redirect,Link } from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
 import axios from "axios";
 import styles from "../Styling/Login.css";
+import Footer from "./Footer";
 
 class Reg extends Component {
   constructor() {
@@ -120,26 +121,20 @@ class Reg extends Component {
                 onChange={this.onChangePass2}
               />
             </div>
-            <div className="form-group">
-              <input
-                className="btn btn-secondary btn-sm"
-                type="button"
-                onClick={this.toggleShow}
-                value="Show/Hide Password"
-              />
-            </div>
             <div className="form-group text-center">
               <input
-                className="btn btn-primary btn-lg"
+                className="btn btn-primary btn-lg #1e1e6e"
                 type="submit"
                 value="Register"
+                style={{ backgroundColor: "#1e1e6e" }}
               />
             </div>
-            <Link className="nav-link" to={`/`}>
-                Login
+            <Link className="nav-link" to={`/`} style={{ textAlign: "center" }}>
+              Login
             </Link>
           </form>
         </div>
+        <Footer />
       </div>
     );
   }
