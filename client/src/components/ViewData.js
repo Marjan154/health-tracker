@@ -100,6 +100,7 @@ class ViewData extends Component {
     this.getTotalForADate(new Date()).then(data => {
       this.setState({ totalToday: data[0] ? data[0].total : 0 });
     });
+    this.child.getData()
   };
 
   minutesToHoursTimeString = mins => {
@@ -224,6 +225,7 @@ class ViewData extends Component {
               }}
             >
               <Graph
+                onRef={ref => (this.child = ref)}
                 email={this.state.email}
                 healthlabel={healthlabel}
                 graphyAxis={this.props.graphyAxis}
