@@ -34,6 +34,13 @@ class Graph extends Component {
     //   });
     // });
 
+    this.props.onRef(this)
+    this.getData();
+
+    
+  }
+
+  getData=()=>{
     const { healthlabel } = this.props;
     const useremail = this.props.email;
     //console.log(this.props.user.email);
