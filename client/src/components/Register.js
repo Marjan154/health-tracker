@@ -38,21 +38,58 @@ class Reg extends Component {
     this.setState({ hidden: !this.state.hidden });
   }
 
+  createUser(userAlreadyExist){
+    if(userAlreadyExist==false){
+      const data = {
+        email: this.state.email,
+        password: this.state.password
+      };
+      let url = "http://localhost:5000/api/users/create";
+      axios
+        .post(url, data)
+        .then(res => {
+          console.log(res.data)
+          console.log("yes");
+          this.setState({ redirect: true });
+        })
+        .catch(error => {
+          console.log(error);
+          alert("User already exists.");
+        });
+    }
+  }
+
   onSubmit = async event => {
     event.preventDefault();
-    const data = this.state;
+    const data = {
+      email: this.state.email,
+      password: this.state.password
+    };
+    let userAlreadyExist;
     console.log(data);
-    console.log("ya");
-    let url = "http://localhost:5000/api/users/create";
+    let url = "http://localhost:5000/api/users/find";
     axios
-      .post(url, data)
-      .then(() => {
-        console.log("yes");
-        this.setState({ redirect: true });
+      .get(url, {
+        params: {
+          email: this.state.email,
+        }
+      })
+      .then(res => {
+        console.log(res.data)
+        if(res.data.count!=0){
+          userAlreadyExist=true;
+          alert("User already exists.");
+        }
+        else{
+          userAlreadyExist=false;
+          this.createUser(userAlreadyExist)
+        }
+        console.log(userAlreadyExist)
+        // console.log("yes");
+        // this.setState({ redirect: true });
       })
       .catch(error => {
         console.log(error);
-        alert("User already exists.");
       });
   };
 
