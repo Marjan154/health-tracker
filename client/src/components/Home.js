@@ -72,7 +72,7 @@ class Home extends Component {
             <h1 id="homeTitle">Welcome {email} !</h1>
 
             <h2 style={{ color: "#1e1e6e", width: "100vw" }}>
-              Today is: {d.toDateString()}.
+              {d.toDateString()}.
               <br />
               <br />
               You are doing great today! Don't forget to log your daily stats.
