@@ -22,28 +22,13 @@ class Graph extends Component {
   }
 
   componentDidMount() {
-    // this.setState({ startDate: moment(new Date()).format("YYYY-MM-DD")}, ()=>{
-    //   console.log(this.state.startDate)
-    // });
-
-    // this.setState({ weekBefore: new Date() }, ()=>{
-    //   this.state.weekBefore.setDate(this.state.weekBefore.getDate() - 7);
-    //   console.log(this.state.weekBefore)
-    //   this.setState({weekBefore: moment(this.state.weekBefore).format("YYYY-MM-DD") }, ()=>{
-    //     console.log(this.state.weekBefore)
-    //   });
-    // });
-
-    this.props.onRef(this)
+    this.props.onRef(this);
     this.getData();
-
-    
   }
 
-  getData=()=>{
+  getData = () => {
     const { healthlabel } = this.props;
     const useremail = this.props.email;
-    //console.log(this.props.user.email);
     let url = `http://localhost:5000/api/${healthlabel}/groupbyday`;
     axios
       .get(url, {
@@ -54,33 +39,20 @@ class Graph extends Component {
       .then(res => {
         const data = res.data;
         this.setState({ waterlog: res.data });
-        // alert("Succesfully retrieved");
-        // this.setState({ redirect: true });
       })
       .catch(error => {
         console.log(error);
       });
-  }
+  };
 
   render() {
-    const { healthlabel, graphyAxis, title} = this.props;
-    let records = this.state.waterlog.map(waterData => {
+    const { healthlabel, graphyAxis, title } = this.props;
+    let records = this.state.waterlog.reverse().map(waterData => {
       return {
         label: waterData.date,
         y: parseInt(waterData.total)
       };
-      // const newData={
-      //   x: waterData.createdAt,
-      //   y: waterData.amount
-      // }
-      // this.setState({ waterDatatodisplayonGraph: [this.state.waterDatatodisplayonGraph, newData] }, ()=>{
-      //   console.log(this.state.waterData)
-      // })
     });
-
-    console.log(records);
-    // console.log(this.state.startDate);
-    // console.log(this.state.weekBefore);
 
     const options = {
       animationEnabled: true,

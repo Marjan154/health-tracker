@@ -51,12 +51,17 @@ class ViewDay extends Component {
   };
 
   updatelog = (id, amount) => {
-    const { healthlabel } = this.props;
+    const { healthlabel, needsTwoInputs} = this.props;
+    let amountToUpdate;
+    if (needsTwoInputs) {
+      const { hours, minutes } = this.state;
+      amountToUpdate = parseInt(hours) * 60 + parseInt(minutes);
+    }
     let updatelogURL = `http://localhost:5000/api/${healthlabel}/update`;
     axios
       .put(updatelogURL, {
         id,
-        amount
+        amount: needsTwoInputs ? amountToUpdate : amount,
       })
       .then(res => {})
       .catch(error => {
@@ -73,7 +78,16 @@ class ViewDay extends Component {
     this.setState({ [e.target.name]: e.target.value });
   };
 
+  minutesToHoursTimeString = mins => {
+    let hours = Math.floor(mins / 60);
+    let minutes = mins % 60;
+
+    return `${hours} hour${hours > 1? "s" :" "} and ${minutes} minute${minutes >
+      1?  "s" :" "} `;
+  };
+
   render() {
+    const {needsTwoInputs}=this.props
     let updateForm = id => {
       return (
         <div>
@@ -90,6 +104,30 @@ class ViewDay extends Component {
             }}
           >
             <div className="form-group">
+            <label style={{ fontWeight: "bold" }}>
+              {this.props.needsTwoInputs ? "Hours" : "Amount:"}{" "}
+            </label>
+            <input
+              type="text"
+              className="form-control form-control-lg"
+              name={this.props.needsTwoInputs ? "hours" : "amount"}
+              pattern="[0-9]*"
+              onChange={this.inputHandler}
+            />
+          </div>
+          {this.props.needsTwoInputs && (
+            <div className="form-group">
+              <label style={{ fontWeight: "bold" }}>Minutes </label>
+              <input
+                type="text"
+                className="form-control form-control-lg"
+                name={"minutes"}
+                pattern="[0-9]*"
+                onChange={this.inputHandler}
+              />
+            </div>
+            )}
+            {/* <div className="form-group">
               <label style={{ fontWeight: "bold" }}>Amount (oz): </label>
               <input
                 type="text"
@@ -98,11 +136,11 @@ class ViewDay extends Component {
                 pattern="[0-9]*"
                 onChange={this.inputHandler}
               />
-            </div>
+            </div> */}
             <div className="form-group">
               <input
                 type="submit"
-                value="Update Water Log"
+                value="Update Log"
                 className="btn btn-primary"
                 style={{ backgroundColor: "#91b0ff" }}
               />
@@ -115,7 +153,9 @@ class ViewDay extends Component {
     let records = this.state.logs.map(log => {
       return (
         <tr key={log.id}>
-          <td>{log.amount}</td>
+          <td>{needsTwoInputs
+                ? this.minutesToHoursTimeString(log.amount)
+                : log.amount}</td>
           <td>{log.date}</td>
           <td>
             <Modal
