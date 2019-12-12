@@ -100,7 +100,7 @@ class ViewData extends Component {
     this.getTotalForADate(new Date()).then(data => {
       this.setState({ totalToday: data[0] ? data[0].total : 0 });
     });
-    this.child.getData()
+    this.child.getData();
   };
 
   minutesToHoursTimeString = mins => {
@@ -163,7 +163,7 @@ class ViewData extends Component {
         >
           <div className="form-group">
             <label style={{ fontWeight: "bold" }}>
-              {this.props.needsTwoInputs ? "" : "Amount (oz):"}{" "}
+              {this.props.needsTwoInputs ? "Hours" : "Amount (oz):"}{" "}
             </label>
             <input
               type="text"

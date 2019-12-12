@@ -116,14 +116,7 @@ class Login extends Component {
                   onChange={this.onChangePass}
                 />
               </div>
-              <div className="form-group">
-                <input
-                  className="btn btn-secondary btn-sm"
-                  type="button"
-                  onClick={this.toggleShow}
-                  value="Show/Hide Password"
-                />
-              </div>
+
               <div className="form-group text-center">
                 <input
                   className="btn btn-primary btn-lg #1e1e6e"
