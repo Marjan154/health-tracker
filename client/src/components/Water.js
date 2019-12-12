@@ -29,7 +29,7 @@ class Water extends Component {
           message2={"oz today"}
           needsTwoInputs={false}
           graphyAxis={"Water intake (fl oz)"}
-          units={"fl oz"}
+          units={"(fl oz)"}
         />
       </div>
     );
