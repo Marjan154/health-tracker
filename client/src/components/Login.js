@@ -4,6 +4,7 @@ import axios from "axios";
 import styles from "../Styling/Login.css";
 import { connect } from "react-redux";
 import { setUser } from "../store/user";
+import Footer from "./Footer";
 
 class Login extends Component {
   constructor() {
@@ -124,10 +125,10 @@ class Login extends Component {
             </div>
             <div className="form-group text-center">
               <input
-                className="btn btn-primary btn-lg #4ea832"
+                className="btn btn-primary btn-lg #1e1e6e"
                 type="submit"
                 value="Log In"
-                style={{ backgroundColor: "#4ea832" }}
+                style={{ backgroundColor: "#1e1e6e" }}
               />
             </div>
             <Link
@@ -139,6 +140,7 @@ class Login extends Component {
             </Link>
           </form>
         </div>
+        <Footer />
       </div>
     );
   }

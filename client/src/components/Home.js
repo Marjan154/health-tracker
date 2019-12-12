@@ -3,6 +3,7 @@ import styles from "../Styling/Home2.css";
 import { Link } from "react-router-dom";
 import Nav from "./Nav";
 import axios from "axios";
+import Footer from "./Footer";
 
 class Home extends Component {
   state = {
