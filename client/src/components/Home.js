@@ -26,7 +26,7 @@ class Home extends Component {
       }
     });
     this.getTotalForADate(new Date(), "sleep").then(data => {
-      console.log("Data: " + data && data[0]);
+      console.log("Data: " + data);
       if (data.length > 0) {
       this.setState({ sleepTotalToday: data[0] ? data[0].total : 0 });
       }
