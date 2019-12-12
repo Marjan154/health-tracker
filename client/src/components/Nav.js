@@ -9,6 +9,7 @@ class Nav extends Component {
     return (
       <div id="nav-container">
         <nav className="nav">
+        <span className = "titleHome">Health Tracker</span>
           <ul>
             <li>
               <Link to={`/home/${email}`} style={{ textDecoration: "none" }}>
