@@ -17,8 +17,8 @@ class Footer extends Component {
         }}
       >
         <div className="container text-center">
-          <span style= {{width : "100%"}}>
-            <b>Created by: </b> 
+          <span className="myfont" style={{ width: "100%" }}>
+            <b>Created by: </b>
             <br />
             Marjan Ansar, Mathew Estrella, Xiangmin Mo, Yi Tong Ni
           </span>
