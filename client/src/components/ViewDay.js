@@ -118,6 +118,14 @@ class ViewDay extends Component {
           <td>{log.amount}</td>
           <td>{log.date}</td>
           <td>
+            <Modal
+              form={updateForm(log.id)}
+              label={"Update"}
+              title={`Update Amount`}
+              refresh={this.refresh}
+            />
+          </td>
+          <td>
             <button
               className="btn btn-primary"
               style={{ backgroundColor: "#91b0ff" }}
@@ -125,14 +133,6 @@ class ViewDay extends Component {
             >
               Delete
             </button>
-          </td>
-          <td>
-            <Modal
-              form={updateForm(log.id)}
-              label={"Update"}
-              title={`Update Amount`}
-              refresh={this.refresh}
-            />
           </td>
         </tr>
       );
