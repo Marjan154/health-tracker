@@ -95,22 +95,6 @@ class Home extends Component {
             </h2>
 
             <div className="stats">
-              <Link to={`/water/${email}`} style={{ textDecoration: "none" }}>
-                <div className="stat">
-                  <div>
-                    <img
-                      src={require("../Images/drop.png")}
-                      style={{ padding: "20px" }}
-                      className="p-icon"
-                    ></img>
-                    <h1>Water</h1>
-                    <h3 style={{ color: "#1e1e6e" }}>
-                      {this.state.waterTotalToday} oz
-                    </h3>
-                  </div>
-                </div>
-              </Link>
-
               <Link
                 to={`/calories/${email}`}
                 style={{ textDecoration: "none" }}
@@ -125,6 +109,22 @@ class Home extends Component {
                     <h1>Calories</h1>
                     <h3 style={{ color: "#1e1e6e" }}>
                       {this.state.calorieTotalToday} calories
+                    </h3>
+                  </div>
+                </div>
+              </Link>
+
+              <Link to={`/water/${email}`} style={{ textDecoration: "none" }}>
+                <div className="stat">
+                  <div>
+                    <img
+                      src={require("../Images/drop.png")}
+                      style={{ padding: "20px" }}
+                      className="p-icon"
+                    ></img>
+                    <h1>Water</h1>
+                    <h3 style={{ color: "#1e1e6e" }}>
+                      {this.state.waterTotalToday} oz
                     </h3>
                   </div>
                 </div>
