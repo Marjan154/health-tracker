@@ -9,7 +9,11 @@ class Nav extends Component {
     return (
       <div id="nav-container">
         <nav className="nav">
-        <span className = "titleHome">Health Tracker</span>
+          {/* <span className = "titleHome">Health Tracker</span> */}
+          <div className="navName">
+            <img id="mainlogo" src={require("../Images/logo.png")}></img>
+            <span>Health Tracker</span>
+          </div>
           <ul>
             <li>
               <Link to={`/home/${email}`} style={{ textDecoration: "none" }}>

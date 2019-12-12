@@ -9,7 +9,7 @@
   top: 0;
   z-index: 1;
   padding-top: 15px;
-  padding-bottom: 60px;
+  padding-bottom: 70px;
 }
 nav {
   height: 10px;
@@ -55,10 +55,11 @@ nav li a:hover {
   -o-animation: bounce 2.5s infinite;
 }
 
-.titleHome {
+.navName {
   float: left;
   padding-left: 45px;
-  padding-top: 15px;
+
+  padding-top: 0px;
   position: fixed;
   color: white;
   font-family: "Ubuntu", sans-serif;
@@ -67,9 +68,9 @@ nav li a:hover {
   text-decoration: none;
   text-align: center;
   align-content: center;
-  background-image: url(../Images/logo.png);
+  /* background-image: url(../Images/logo.png);
   background-size: 45px 45px;
-  background-repeat: no-repeat;
+  background-repeat: no-repeat; */
 }
 
 @-webkit-keyframes bounce {
