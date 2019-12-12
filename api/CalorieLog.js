@@ -84,10 +84,10 @@ router.get("/groupbyday/:date?", async (req, res, next) => {
 });
 
 router.put("/update", async (req, res, next) => {
-  const { calorielogid, amount } = req.body;
+  const { id, amount } = req.body;
   console.log(req.body);
   CalorieLogs.findOne({
-    where: { calorielogid }
+    where: { calorielogid: id }
   })
     .then(log => {
       log

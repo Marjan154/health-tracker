@@ -102,7 +102,7 @@ class ViewDay extends Component {
             <div className="form-group">
               <input
                 type="submit"
-                value="Update Water Log"
+                value="Update Log"
                 className="btn btn-primary"
                 style={{ backgroundColor: "#91b0ff" }}
               />

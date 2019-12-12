@@ -84,10 +84,10 @@ router.get("/groupbyday/:date?", async (req, res, next) => {
 });
 
 router.put("/update", async (req, res, next) => {
-  const { sleeplogid, amount } = req.body;
+  const { id, amount } = req.body;
   console.log(req.body);
   SleepLogs.findOne({
-    where: { sleeplogid }
+    where: { sleeplogid: id }
   })
     .then(log => {
       log
