@@ -47,7 +47,11 @@ class Graph extends Component {
 
   render() {
     const { healthlabel, graphyAxis, title } = this.props;
-    let records = this.state.waterlog.reverse().map(waterData => {
+    const { waterlog } = this.state;
+    const sorted = waterlog.sort((a, b) => {
+      return new Date(a.date) - new Date(b.date);
+    })
+    let records = sorted.map(waterData => {
       return {
         label: waterData.date,
         y: parseInt(waterData.total)
@@ -56,8 +60,8 @@ class Graph extends Component {
 
     const options = {
       animationEnabled: true,
-      zoomEnabled: true,
-      zoomType: "x",
+      // zoomEnabled: true,
+      // zoomType: "x",
 
       title: {
         text: title,
