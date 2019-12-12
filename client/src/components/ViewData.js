@@ -137,6 +137,7 @@ class ViewData extends Component {
                         data={this.state}
                         healthlabel={healthlabel}
                         title={title}
+                        needsTwoInputs={needsTwoInputs}
                       />
                     }
                   </div>
