@@ -21,8 +21,16 @@ class ViewData extends Component {
     this.getAllDate();
 
     this.getTotalForADate(new Date()).then(data => {
-      console.log("Data: " + data);
-      this.setState({ totalToday: data[0] ? data[0].total : 0 });
+      console.log("Data: " + data)
+      if (data.length > 0) {
+        this.setState({ totalToday: data[0] ? data[0].total : 0 }, ()=>{
+          console.log(this.state.totalToday)
+        });
+      }else{
+        this.setState({ totalToday: 0 }, ()=>{
+          console.log(this.state.totalToday)
+        });
+      }
     });
   }
 
@@ -46,6 +54,7 @@ class ViewData extends Component {
         params: param
       })
       .then(res => {
+        console.log(res.data)
         return res.data;
       })
       .catch(error => {
