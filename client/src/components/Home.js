@@ -50,8 +50,8 @@ class Home extends Component {
     let hours = Math.floor(mins / 60);
     let minutes = mins % 60;
 
-    return `${hours} hour${hours > 1 && "s"} and ${minutes} minute${minutes >
-      1 && "s"} `;
+    return `${hours} hour${hours > 1? "s" :" "} and ${minutes} minute${minutes >
+      1 ? "s" :" "} `;
   };
 
   render() {
