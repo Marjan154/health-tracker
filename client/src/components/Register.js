@@ -38,32 +38,27 @@ class Reg extends Component {
     this.setState({ hidden: !this.state.hidden });
   }
 
-  onSubmit = event => {
+  onSubmit = async event => {
     event.preventDefault();
-    if (this.state.password !== this.state.password2) {
-      alert("Passwords do not match");
-    } else {
-      const data = this.state;
-
-      console.log(data);
-      let url = "http://localhost:5000/api/users/create";
-      axios
-        .post(url, data)
-        .then(res => {
-          console.log(res);
-          console.log(res.data);
-          alert("Succesfully Registered");
-          this.setState({ redirect: true });
-        })
-        .catch(error => {
-          console.log(error);
-        });
-    }
+    const data = this.state;
+    console.log(data);
+    console.log("ya");
+    let url = "http://localhost:5000/api/users/create";
+    axios
+      .post(url, data)
+      .then(() => {
+        console.log("yes");
+        this.setState({ redirect: true });
+      })
+      .catch(error => {
+        console.log(error);
+        alert("User already exists.");
+      });
   };
 
   render() {
     if (this.state.redirect) {
-      return <Redirect to="/home" />;
+      return <Redirect to="/" />;
     }
 
     return (
