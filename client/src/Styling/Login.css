@@ -29,3 +29,9 @@
 .login-container form {
   padding: 50px;
 }
+
+.titleName {
+  font-size: 2em;
+  background-color: #91b0ff;
+  font-family: "Quicksand", sans-serif;
+}

@@ -63,11 +63,14 @@ class Reg extends Component {
 
   render() {
     if (this.state.redirect) {
-      return <Redirect to="/home" />;
+      return <Redirect to="/" />;
     }
 
     return (
       <div>
+        <div className = "titleName">
+          <span>Health Tracker</span>
+        </div>
         <div id="loginform">
           <div
             className="container login-container"
