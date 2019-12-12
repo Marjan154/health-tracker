@@ -74,71 +74,73 @@ class Login extends Component {
     }
 
     return (
-      <div id="loginform">
-        <div
-          className="container login-container"
-          style={{ marginTop: "5%", marginBottom: "5%" }}
-        >
-          <form onSubmit={this.onSubmit}>
-            <h3
-              style={{
-                textAlign: "center",
-                marginBottom: "5%",
-                fontSize: "50px"
-              }}
-            >
-              Log In
-            </h3>
-            <div className="form-group">
-              <label style={{ fontWeight: "bold" }} for="email1">
-                Email:
-              </label>
-              <input
-                className="form-control"
-                type="text"
-                required
-                id="email1"
-                value={this.state.email}
-                onChange={this.onChangeEmail}
-              />
-            </div>
-            <div className="form-group">
-              <label style={{ fontWeight: "bold" }} for="pw">
-                Password:
-              </label>
-              <input
-                className="form-control"
-                type={this.state.hidden ? "password" : "text"}
-                required
-                id="pw"
-                value={this.state.password}
-                onChange={this.onChangePass}
-              />
-            </div>
-            <div className="form-group">
-              <input
-                className="btn btn-secondary btn-sm"
-                type="button"
-                onClick={this.toggleShow}
-                value="Show/Hide Password"
-              />
-            </div>
-            <div className="form-group text-center">
-              <input
-                className="btn btn-primary btn-lg #1e1e6e"
-                type="submit"
-                value="Log In"
-                style={{ backgroundColor: "#1e1e6e" }}
-              />
-            </div>
-            <Link
-              className="nav-link"
-              to={`/register`}
-              style={{ textAlign: "center" }}
-            >
-              Register
-            </Link>
-          </form>
+      <div>
+        <div id="loginform">
+          <div
+            className="container login-container"
+            style={{ marginTop: "5%", marginBottom: "5%" }}
+          >
+            <form onSubmit={this.onSubmit}>
+              <h3
+                style={{
+                  textAlign: "center",
+                  marginBottom: "5%",
+                  fontSize: "50px"
+                }}
+              >
+                Log In
+              </h3>
+              <div className="form-group">
+                <label style={{ fontWeight: "bold" }} for="email1">
+                  Email:
+                </label>
+                <input
+                  className="form-control"
+                  type="text"
+                  required
+                  id="email1"
+                  value={this.state.email}
+                  onChange={this.onChangeEmail}
+                />
+              </div>
+              <div className="form-group">
+                <label style={{ fontWeight: "bold" }} for="pw">
+                  Password:
+                </label>
+                <input
+                  className="form-control"
+                  type={this.state.hidden ? "password" : "text"}
+                  required
+                  id="pw"
+                  value={this.state.password}
+                  onChange={this.onChangePass}
+                />
+              </div>
+              <div className="form-group">
+                <input
+                  className="btn btn-secondary btn-sm"
+                  type="button"
+                  onClick={this.toggleShow}
+                  value="Show/Hide Password"
+                />
+              </div>
+              <div className="form-group text-center">
+                <input
+                  className="btn btn-primary btn-lg #1e1e6e"
+                  type="submit"
+                  value="Log In"
+                  style={{ backgroundColor: "#1e1e6e" }}
+                />
+              </div>
+              <Link
+                className="nav-link"
+                to={`/register`}
+                style={{ textAlign: "center" }}
+              >
+                Register
+              </Link>
+            </form>
+          </div>
         </div>
         <Footer />
       </div>
