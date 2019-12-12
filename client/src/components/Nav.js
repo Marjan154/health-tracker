@@ -12,17 +12,17 @@ class Nav extends Component {
           <ul>
             <li>
               <Link to={`/home/${email}`} style={{ textDecoration: "none" }}>
+                {email}
+              </Link>
+            </li>
+            <li>
+              <Link to={`/home/${email}`} style={{ textDecoration: "none" }}>
                 Home
               </Link>
             </li>
             <li>
               <Link to="/" style={{ textDecoration: "none" }}>
                 Logout
-              </Link>
-            </li>
-            <li>
-              <Link to={`/home/${email}`} style={{ textDecoration: "none" }}>
-                {email}
               </Link>
             </li>
           </ul>
