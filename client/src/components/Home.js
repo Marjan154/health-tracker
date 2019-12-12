@@ -91,7 +91,6 @@ class Home extends Component {
             >
               {d.toDateString()}.
               <br />
-              <br />
               You are doing great today! Don't forget to log your daily stats.
             </h2>
 
