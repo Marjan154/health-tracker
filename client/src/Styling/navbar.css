@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Quicksand:300,500");
+@import url("https://fonts.googleapis.com/css?family=Ubuntu&display=swap");
 
 #nav-container {
   width: 100%;
@@ -39,7 +39,7 @@ nav li {
 nav li a {
   display: inline;
   color: white;
-  font-family: "Quicksand", sans-serif;
+  font-family: "Ubuntu", sans-serif;
   font-weight: 1000;
   margin: 10%;
   padding: 0px;
