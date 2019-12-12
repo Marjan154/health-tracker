@@ -8,6 +8,7 @@
   position: fixed;
   top: 0;
   z-index: 1;
+  padding-top: 15px;
   padding-bottom: 60px;
 }
 nav {
@@ -19,7 +20,7 @@ nav ul {
   top: 0;
   float: right;
   list-style-type: none;
-  margin-left: 80vw;
+  margin-left: 70vw;
   text-align: center;
   display: flex;
   flex-flow: row wrap;
@@ -33,16 +34,16 @@ nav ul {
 
 nav li {
   float: top;
-  padding-right: 20px;
+  padding-left: 30px;
 }
 nav li a {
-  display: inline-block;
+  display: inline;
   color: white;
   font-family: "Quicksand", sans-serif;
   font-weight: 1000;
   margin: 10%;
   padding: 0px;
-  font-size: 20px;
+  font-size: 25px;
   text-decoration: none;
   text-align: center;
   align-content: center;

@@ -203,21 +203,22 @@ class ViewData extends Component {
       <div>
         <Nav />
         <div className="banner">
-          <div className="grid-container" style={{ paddingTop: "150px" }}>
+          <div className="grid-container" style={{ paddingTop: "100px" }}>
             <h1
+              className="myfont"
               style={{
                 width: "100vw",
                 paddingBottom: "50px",
                 color: "#1e1e6e",
-                fontSize: "60px"
+                fontSize: "80px"
               }}
             >
               {this.props.title}
             </h1>
             <div
               style={{
-                width: "50em",
-                height: "500px",
+                width: "45em",
+                height: "400px",
                 boxShadow: "4px 4px 5px grey"
               }}
             >
@@ -231,13 +232,19 @@ class ViewData extends Component {
                 padding: "50px"
               }}
             >
-              <h1 style={{ color: "#1e1e6e", paddingTop: "60px" }}>
+              <h1
+                className="myfont"
+                style={{ color: "#1e1e6e", paddingTop: "60px" }}
+              >
                 {this.props.message}
+              </h1>
+              <h1 className="myfont" style={{ color: "#1e1e6e" }}>
                 {this.props.needsTwoInputs
                   ? this.minutesToHoursTimeString(this.state.totalToday)
-                  : this.state.totalToday}
+                  : this.state.totalToday}{" "}
                 {this.props.message2}
               </h1>
+
               <Modal
                 form={form}
                 label={"Add log"}
@@ -247,12 +254,8 @@ class ViewData extends Component {
             </div>
 
             <div style={{ padding: "50px" }}>
-              Choose Date:
-              <DatePicker
-                selected={this.state.startDate}
-                onChange={this.handleDateChange}
-              />
               <h3
+                className="myfont"
                 style={{
                   fontSize: "3em",
                   marginTop: "1%",
@@ -262,6 +265,13 @@ class ViewData extends Component {
               >
                 {this.state.startDate.toDateString()}
               </h3>
+              <h3 className="myfont"> Choose Date:</h3>
+              <DatePicker
+                selected={this.state.startDate}
+                onChange={this.handleDateChange}
+              />
+              <br />
+              <br />
               <button
                 className="btn btn-primary"
                 style={{ backgroundColor: "#1e1e6e" }}

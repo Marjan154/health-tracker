@@ -63,13 +63,18 @@ class Home extends Component {
 
   render() {
     const email = this.props.match.params.email;
+    const d = new Date(Date.now());
     return (
       <div>
         <Nav />
         <div className="banner">
           <div className="grid-container" style={{ paddingTop: "70px" }}>
             <h1 id="homeTitle">Welcome {email} !</h1>
+
             <h2 style={{ color: "#1e1e6e", width: "100vw" }}>
+              Today is: {d.toDateString()}.
+              <br />
+              <br />
               You are doing great today! Don't forget to log your daily stats.
             </h2>
             {/* <div className="summary">

@@ -6,6 +6,10 @@
   text-align: center;
 }
 
+.myfont {
+  font-family: "Ubuntu", sans-serif;
+}
+
 .addbutton {
   background-color: #91b0ff;
   border: none;
@@ -18,6 +22,10 @@
   font-size: 30px;
   margin: 15px 2px 30px;
   cursor: pointer;
+}
+
+#text {
+  color: green;
 }
 
 .container {
