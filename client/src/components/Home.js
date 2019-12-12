@@ -9,8 +9,6 @@ class Home extends Component {
   state = {
     email: this.props.match.params.email,
     waterTotalToday: 0,
-    sleepHoursTotalToday: 0,
-    sleepMinutesTotalToday: 0,
     sleepTotalToday: 0,
     calorieTotalToday: 0
   };
@@ -22,21 +20,7 @@ class Home extends Component {
     });
     this.getTotalForADate(new Date(), "sleep").then(data => {
       console.log("Data: " + data);
-      this.setState({ sleepTotalToday: data[0] ? data[0].total : 0 }, () => {
-        console.log(this.state.sleepTotalToday);
-        this.setState(
-          { sleepHoursTotalToday: Math.floor(this.state.sleepTotalToday / 60) },
-          () => {
-            console.log(this.statesleepHoursTotalToday);
-          }
-        );
-        this.setState(
-          { sleepMinutesTotalToday: this.state.sleepTotalToday % 60 },
-          () => {
-            console.log(this.state.sleepMinutesTotalToday);
-          }
-        );
-      });
+      this.setState({ sleepTotalToday: data[0] ? data[0].total : 0 });
     });
     this.getTotalForADate(new Date(), "calories").then(data => {
       console.log("Data: " + data);
@@ -60,6 +44,14 @@ class Home extends Component {
         console.log(error);
       });
     return data;
+  };
+
+  minutesToHoursTimeString = mins => {
+    let hours = Math.floor(mins / 60);
+    let minutes = mins % 60;
+
+    return `${hours} hour${hours > 1 && "s"} and ${minutes} minute${minutes >
+      1 && "s"} `;
   };
 
   render() {
@@ -140,8 +132,9 @@ class Home extends Component {
                     ></img>
                     <h1>Sleep</h1>
                     <h3 style={{ color: "#1e1e6e" }}>
-                      {this.state.sleepHoursTotalToday} hours and{" "}
-                      {this.state.sleepMinutesTotalToday} minutes
+                      {this.minutesToHoursTimeString(
+                        this.state.sleepTotalToday
+                      )}
                     </h3>
                   </div>
                 </div>
