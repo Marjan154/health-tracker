@@ -124,7 +124,7 @@ class ViewData extends Component {
             <td>
               {needsTwoInputs
                 ? this.minutesToHoursTimeString(log.total)
-                : log.total}
+                : log.total} {needsTwoInputs? "": this.props.units}
             </td>
             <td>{log.date}</td>
             <td>
@@ -303,7 +303,7 @@ class ViewData extends Component {
               >
                 <thead className="thead-light">
                   <tr>
-                    <th>{this.props.title}</th>
+              <th>{this.props.title} {needsTwoInputs? "": this.props.units}</th>
                     <th>Date</th>
                     <th>View</th>
                   </tr>
