@@ -56,7 +56,7 @@ class Graph extends Component {
   }
 
   render() {
-    const { healthlabel, graphyAxis } = this.props;
+    const { healthlabel, graphyAxis, title} = this.props;
     let records = this.state.waterlog.map(waterData => {
       return {
         label: waterData.date,
@@ -81,7 +81,7 @@ class Graph extends Component {
       zoomType: "x",
 
       title: {
-        text: healthlabel,
+        text: title,
         fontColor: "#91b0ff"
       },
       axisX: {
