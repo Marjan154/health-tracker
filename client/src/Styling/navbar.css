@@ -56,10 +56,10 @@ nav li a:hover {
 }
 
 .titleHome {
-  float : left;
-  padding-left : 45px;
+  float: left;
+  padding-left: 45px;
   padding-top: 15px;
-  position : fixed;
+  position: fixed;
   color: white;
   font-family: "Ubuntu", sans-serif;
   font-weight: 1000;
