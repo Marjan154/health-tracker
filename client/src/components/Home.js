@@ -19,7 +19,7 @@ class Home extends Component {
       this.setState({ waterTotalToday: data[0] ? data[0].total : 0 });
     });
     this.getTotalForADate(new Date(), "sleep").then(data => {
-      console.log("Data: " + data);
+      console.log("Data: " + data && data[0]);
       this.setState({ sleepTotalToday: data[0] ? data[0].total : 0 });
     });
     this.getTotalForADate(new Date(), "calories").then(data => {
@@ -47,8 +47,9 @@ class Home extends Component {
   };
 
   minutesToHoursTimeString = mins => {
-    let hours = Math.floor(mins / 60);
-    let minutes = mins % 60;
+    let m = parseInt(mins);
+    let hours = Math.floor(m / 60);
+    let minutes = m % 60;
 
     return `${hours} hour${hours > 1 && "s"} and ${minutes} minute${minutes >
       1 && "s"} `;
