@@ -69,7 +69,7 @@ class Reg extends Component {
     return (
       <div>
         <div className = "titleName">
-          <span>Health Tracker</span>
+          <span style= {{marginLeft : 45}}>Health Tracker</span>
         </div>
         <div id="loginform">
           <div

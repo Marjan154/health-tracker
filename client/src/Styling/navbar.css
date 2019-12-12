@@ -57,7 +57,7 @@ nav li a:hover {
 
 .titleHome {
   float : left;
-  padding-left : 15px;
+  padding-left : 45px;
   padding-top: 15px;
   position : fixed;
   color: white;
@@ -67,6 +67,9 @@ nav li a:hover {
   text-decoration: none;
   text-align: center;
   align-content: center;
+  background-image: url(../Images/logo.png);
+  background-size: 45px 45px;
+  background-repeat: no-repeat;
 }
 
 @-webkit-keyframes bounce {
