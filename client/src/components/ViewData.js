@@ -22,7 +22,7 @@ class ViewData extends Component {
 
     this.getTotalForADate(new Date()).then(data => {
       console.log("Data: " + data)
-      if (data.length > 0) {
+      if (data && data.length > 0) {
         this.setState({ totalToday: data[0] ? data[0].total : 0 }, ()=>{
           console.log(this.state.totalToday)
         });
