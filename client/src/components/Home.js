@@ -17,33 +17,30 @@ class Home extends Component {
     this.getTotalForADate(new Date(), "water").then(data => {
       console.log("Data: " + data);
       if (data && data.length > 0) {
-      this.setState({ waterTotalToday: data[0] ? data[0].total : 0 });
-      }
-      else{
-        this.setState({ waterTotalToday: 0 }, ()=>{
-          console.log(this.state.waterTotalToday)
+        this.setState({ waterTotalToday: data[0] ? data[0].total : 0 });
+      } else {
+        this.setState({ waterTotalToday: 0 }, () => {
+          console.log(this.state.waterTotalToday);
         });
       }
     });
     this.getTotalForADate(new Date(), "sleep").then(data => {
       console.log("Data: " + data);
-      if (data &&data.length > 0 ) {
-      this.setState({ sleepTotalToday: data[0] ? data[0].total : 0 });
-      }
-      else{
-        this.setState({ sleepTotalToday: 0 }, ()=>{
-          console.log(this.state.sleepTotalToday)
+      if (data && data.length > 0) {
+        this.setState({ sleepTotalToday: data[0] ? data[0].total : 0 });
+      } else {
+        this.setState({ sleepTotalToday: 0 }, () => {
+          console.log(this.state.sleepTotalToday);
         });
       }
     });
     this.getTotalForADate(new Date(), "calories").then(data => {
       console.log("Data: " + data);
       if (data && data.length > 0) {
-      this.setState({ calorieTotalToday: data[0] ? data[0].total : 0 });
-      }
-      else{
-        this.setState({ calorieTotalToday: 0 }, ()=>{
-          console.log(this.state.calorieTotalToday)
+        this.setState({ calorieTotalToday: data[0] ? data[0].total : 0 });
+      } else {
+        this.setState({ calorieTotalToday: 0 }, () => {
+          console.log(this.state.calorieTotalToday);
         });
       }
     });
@@ -72,8 +69,9 @@ class Home extends Component {
     let hours = Math.floor(m / 60);
     let minutes = m % 60;
 
-    return `${hours} hour${hours > 1? "s" :" "} and ${minutes} minute${minutes >
-      1 ? "s" :" "} `;
+    return `${hours} hour${hours > 1 ? "s" : " "} and ${minutes} minute${
+      minutes > 1 ? "s" : " "
+    } `;
   };
 
   render() {
@@ -85,7 +83,7 @@ class Home extends Component {
         <div className="banner">
           <div
             className="grid-container"
-            style={{ paddingTop: "70px", paddingBottom: "50px" }}
+            style={{ paddingTop: "70px", paddingBottom: "70px" }}
           >
             <h1
               id="homeTitle"
