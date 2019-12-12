@@ -24,7 +24,7 @@ class Calories extends Component {
         <ViewData
           data={this.state}
           healthlabel={"calories"}
-          title={"Calorie"}
+          title={"Calories"}
           message={"You have consumed: "}
           message2={"calories today"}
           needsTwoInputs={false}
