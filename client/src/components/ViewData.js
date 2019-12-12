@@ -110,8 +110,9 @@ class ViewData extends Component {
     let hours = Math.floor(mins / 60);
     let minutes = mins % 60;
 
-    return `${hours} hour${hours > 1? "s" :" "} and ${minutes} minute${minutes >
-      1?  "s" :" "} `;
+    return `${hours} hour${hours > 1 ? "s" : " "} and ${minutes} minute${
+      minutes > 1 ? "s" : " "
+    } `;
   };
 
   render() {
@@ -121,12 +122,12 @@ class ViewData extends Component {
       this.state.logs.map(log => {
         return (
           <tr key={log.date}>
+            <td>{log.date}</td>
             <td>
               {needsTwoInputs
                 ? this.minutesToHoursTimeString(log.total)
                 : log.total}
             </td>
-            <td>{log.date}</td>
             <td>
               <Modal
                 form={
@@ -304,8 +305,9 @@ class ViewData extends Component {
               >
                 <thead className="thead-light">
                   <tr>
-                    <th>{this.props.title}</th>
                     <th>Date</th>
+                    <th>{this.props.title}</th>
+
                     <th>View</th>
                   </tr>
                 </thead>
