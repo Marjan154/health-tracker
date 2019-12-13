@@ -21,14 +21,14 @@ class ViewData extends Component {
     this.getAllDate();
 
     this.getTotalForADate(new Date()).then(data => {
-      console.log("Data: " + data)
+      console.log("Data: " + data);
       if (data && data.length > 0) {
-        this.setState({ totalToday: data[0] ? data[0].total : 0 }, ()=>{
-          console.log(this.state.totalToday)
+        this.setState({ totalToday: data[0] ? data[0].total : 0 }, () => {
+          console.log(this.state.totalToday);
         });
-      }else{
-        this.setState({ totalToday: 0 }, ()=>{
-          console.log(this.state.totalToday)
+      } else {
+        this.setState({ totalToday: 0 }, () => {
+          console.log(this.state.totalToday);
         });
       }
     });
@@ -54,7 +54,7 @@ class ViewData extends Component {
         params: param
       })
       .then(res => {
-        console.log(res.data)
+        console.log(res.data);
         return res.data;
       })
       .catch(error => {
@@ -135,7 +135,8 @@ class ViewData extends Component {
             <td>
               {needsTwoInputs
                 ? this.minutesToHoursTimeString(log.total)
-                : log.total} {needsTwoInputs? "": this.props.units}
+                : log.total}{" "}
+              {needsTwoInputs ? "" : this.props.units}
             </td>
             <td>
               <Modal
@@ -276,7 +277,7 @@ class ViewData extends Component {
               />
             </div>
 
-            <div style={{ padding: "50px" }}>
+            <div style={{ padding: "20vh" }}>
               <h3
                 className="myfont"
                 style={{
