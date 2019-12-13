@@ -110,7 +110,9 @@ class ViewData extends Component {
   refresh = () => {
     this.getAllDate();
     this.getTotalForADate(new Date()).then(data => {
-      this.setState({ totalToday: data[0] ? data[0].total : 0 });
+      if (data && data.length) {
+        this.setState({ totalToday: data[0] ? data[0].total : 0 });
+      }
     });
     this.child.getData();
   };
