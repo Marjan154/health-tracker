@@ -1,3 +1,13 @@
+# Health Tracker
+
+Fullstack web application written in React and Nodejs, using Postgres as database.
+Health tracker lets users keep track of their calories, water and sleep. HealthTracker facilitates physical activity, optimizes health, and most importantly, promotes healthy living.
+
+## Screenshots
+Icons made by [Freepik](https://www.flaticon.com/authors/freepik) from [www.flaticon.co](https://www.flaticon.com/) and main logo made by Xiangmin Mo
+![](/screenshot.png)
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
